@@ -6,10 +6,11 @@ import Lines from "@/components/Lines";
 import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
-import "../globals.css";
+import "./globals.css"; // 🔁 Corrigido
+
 const inter = Inter({ subsets: ["latin"] });
 
-import ToasterContext from "../context/ToastContext";
+// 🔁 ToastContext REMOVIDO
 
 export default function RootLayout({
   children,
@@ -26,7 +27,7 @@ export default function RootLayout({
         >
           <Lines />
           <Header />
-          <ToasterContext />
+          {/* 🔁 ToastContext removido */}
           {children}
           <Footer />
           <ScrollToTop />
