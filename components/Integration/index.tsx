@@ -30,8 +30,8 @@ const Integration = () => {
         }}
       />
 
-      {/* Responsivo para mobile: Grid simples; Desktop: Layout absoluto */}
-      <div className="relative h-auto w-full overflow-hidden rounded-xl bg-gradient-to-b from-white to-gray-50 dark:from-blacksection dark:to-black">
+      {/* Responsivo para mobile: Grid simples; Desktop: Grid mais espaçado */}
+      <div className="relative w-full overflow-hidden rounded-xl bg-gradient-to-b from-white to-gray-50 dark:from-blacksection dark:to-black">
         {/* Mobile e tablets */}
         <div className="flex flex-wrap items-center justify-center gap-6 p-6 md:hidden">
           {integrations.map((integration, index) => (
@@ -54,39 +54,24 @@ const Integration = () => {
           ))}
         </div>
 
-        {/* Desktop layout absoluto */}
-        <div className="hidden md:block relative h-[550px] w-full">
-          {[
-            { x: "left-[5%]", y: "top-[20%]" },
-            { x: "left-[20%]", y: "top-[55%]" },
-            { x: "left-[35%]", y: "top-[10%]" },
-            { x: "left-[50%]", y: "top-[40%]" },
-            { x: "right-[35%]", y: "top-[15%]" },
-            { x: "right-[20%]", y: "top-[60%]" },
-            { x: "right-[5%]", y: "top-[30%]" },
-            { x: "left-[10%]", y: "bottom-[5%]" },
-            { x: "right-[10%]", y: "bottom-[10%]" },
-            { x: "left-[25%]", y: "bottom-[25%]" },
-            { x: "right-[25%]", y: "bottom-[25%]" },
-            { x: "left-[45%]", y: "bottom-[45%]" },
-          ].map((pos, index) => (
+        {/* Desktop: Grid com espaçamento definido */}
+        <div className="hidden md:grid grid-cols-4 gap-10 p-10 place-items-center">
+          {integrations.map((integration, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.6 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: integrations[index].delay }}
+              transition={{ duration: 0.6, delay: integration.delay }}
               viewport={{ once: true }}
-              className={`absolute ${pos.x} ${pos.y}`}
+              className="w-20 h-20 rounded-2xl bg-white p-3 shadow-lg dark:bg-btndark flex items-center justify-center"
             >
-              <div className="rounded-2xl bg-white p-3 shadow-lg dark:bg-btndark">
-                <Image
-                  src={integrations[index].src}
-                  alt={integrations[index].alt}
-                  width={50}
-                  height={50}
-                  className="object-contain"
-                />
-              </div>
+              <Image
+                src={integration.src}
+                alt={integration.alt}
+                width={50}
+                height={50}
+                className="object-contain"
+              />
             </motion.div>
           ))}
         </div>
