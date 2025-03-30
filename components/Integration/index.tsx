@@ -18,19 +18,20 @@ const integrations = [
   { src: "/images/integrations/meta.svg", alt: "Meta", delay: 1.1 },
 ];
 
+// Definindo posições para layout orgânico
 const positions = [
   "row-start-1 col-start-2",
-  "row-start-1 col-start-4",
+  "row-start-1 col-start-3",
   "row-start-2 col-start-1",
-  "row-start-2 col-start-3",
+  "row-start-2 col-start-4",
   "row-start-3 col-start-2",
-  "row-start-3 col-start-4",
+  "row-start-3 col-start-3",
   "row-start-4 col-start-1",
-  "row-start-4 col-start-3",
+  "row-start-4 col-start-4",
   "row-start-5 col-start-2",
-  "row-start-5 col-start-4",
+  "row-start-5 col-start-3",
   "row-start-6 col-start-1",
-  "row-start-6 col-start-3",
+  "row-start-6 col-start-4",
 ];
 
 const Integration = () => {
@@ -68,8 +69,8 @@ const Integration = () => {
           ))}
         </div>
 
-        {/* Desktop: Grade espaçada e orgânica */}
-        <div className="hidden md:grid grid-cols-4 grid-rows-6 gap-y-10 gap-x-8 p-10 place-items-center">
+        {/* Desktop: Grid com menos espaçamento */}
+        <div className="hidden md:grid grid-cols-4 grid-rows-6 gap-y-6 gap-x-6 p-8 place-items-center">
           {integrations.map((integration, index) => (
             <motion.div
               key={index}
