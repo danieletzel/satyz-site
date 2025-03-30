@@ -1,11 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const Contact = () => {
-  const [hasMounted, setHasMounted] = React.useState(false);
-  React.useEffect(() => {
+  const [hasMounted, setHasMounted] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [selectedAgent, setSelectedAgent] = useState("");
+
+  useEffect(() => {
     setHasMounted(true);
   }, []);
   if (!hasMounted) return null;
@@ -29,52 +34,64 @@ const Contact = () => {
           />
         </div>
 
-        <div className="flex flex-col-reverse flex-wrap gap-8 md:flex-row md:justify-between xl:gap-20">
+        <div className="flex justify-center">
           <motion.div
             variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
             initial="hidden"
             whileInView="visible"
             transition={{ duration: 1, delay: 0.1 }}
             viewport={{ once: true }}
-            className="animate_top w-full rounded-lg bg-white p-7.5 shadow-solid-8 dark:border dark:border-strokedark dark:bg-black md:w-3/5 lg:w-3/4 xl:p-15"
+            className="animate_top w-full rounded-lg bg-white p-7.5 shadow-solid-8 dark:border dark:border-strokedark dark:bg-black md:w-4/5 xl:p-15"
           >
             <h2 className="mb-15 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
               Fale com a gente
             </h2>
 
-            <form action="https://formbold.com/s/unique_form_id" method="POST">
+            <form action="#" method="POST">
               <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
                 <input
                   type="text"
-                  placeholder="Seu nome"
+                  placeholder="Nome"
                   className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-primary focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-primary dark:placeholder:text-white lg:w-1/2"
                 />
                 <input
                   type="email"
-                  placeholder="Seu e-mail"
+                  placeholder="E-mail profissional"
                   className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-primary focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-primary dark:placeholder:text-white lg:w-1/2"
                 />
               </div>
 
-              <div className="mb-12.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
-                <input
-                  type="text"
-                  placeholder="Assunto"
-                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-primary focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-primary dark:placeholder:text-white lg:w-1/2"
-                />
-                <input
-                  type="text"
-                  placeholder="Telefone"
-                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-primary focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-primary dark:placeholder:text-white lg:w-1/2"
+              <div className="mb-7.5">
+                <PhoneInput
+                  country={'br'}
+                  value={phone}
+                  onChange={(value) => setPhone(value)}
+                  inputClass="!w-full !border-b !border-stroke !bg-transparent !pb-3.5 focus:!border-primary dark:!border-strokedark dark:focus:!border-primary dark:!text-white"
+                  buttonClass="!bg-transparent"
+                  inputStyle={{ border: 'none', width: '100%' }}
+                  containerStyle={{ width: '100%' }}
+                  specialLabel="Telefone"
+                  masks={{ br: '(..) .....-....' }}
                 />
               </div>
 
-              <div className="mb-11.5 flex">
-                <textarea
-                  placeholder="Digite sua mensagem"
-                  rows={4}
-                  className="w-full border-b border-stroke bg-transparent focus:border-primary focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-primary dark:placeholder:text-white"
+              <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
+                <input
+                  type="text"
+                  placeholder="Tamanho do time"
+                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-primary focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-primary dark:placeholder:text-white lg:w-1/2"
                 />
+                <select
+                  value={selectedAgent}
+                  onChange={(e) => setSelectedAgent(e.target.value)}
+                  className="w-full border-b border-stroke bg-transparent pb-3.5 text-black dark:text-white focus:border-primary focus-visible:outline-none dark:border-strokedark dark:focus:border-primary lg:w-1/2"
+                >
+                  <option value="">Qual agente te interessou mais?</option>
+                  <option value="CAIO">CAIO – Chief AI Officer</option>
+                  <option value="Linda">Linda – AI Copywriter</option>
+                  <option value="Ana">Ana – AI SDR</option>
+                  <option value="Javi">Javi – AI Phone Agent</option>
+                </select>
               </div>
 
               <div className="flex flex-wrap gap-4 xl:justify-between">
@@ -112,34 +129,6 @@ const Contact = () => {
                 </button>
               </div>
             </form>
-          </motion.div>
-
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 2, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="animate_top w-full md:w-2/5 md:p-7.5 lg:w-[26%] xl:pt-15"
-          >
-            <h2 className="mb-12.5 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
-              Ou nos encontre por aqui
-            </h2>
-
-            <div className="mb-7">
-              <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">Endereço</h3>
-              <p>Av. Paulista, 1234 – São Paulo, Brasil</p>
-            </div>
-
-            <div className="mb-7">
-              <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">E-mail</h3>
-              <p><a href="mailto:oi@satyz.io">oi@satyz.io</a></p>
-            </div>
-
-            <div>
-              <h4 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">Telefone</h4>
-              <p><a href="tel:+5511999999999">+55 11 99999-9999</a></p>
-            </div>
           </motion.div>
         </div>
       </div>
