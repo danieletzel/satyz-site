@@ -27,8 +27,11 @@ const Header = () => {
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 flex items-center justify-between px-4 md:px-8 2xl:px-0">
-        {/* LOGO responsiva */}
-        <a href="/" className="block shrink-0 relative h-9 sm:h-10 md:h-11 xl:h-12 w-36 sm:w-40 md:w-44 xl:w-48">
+        {/* LOGO responsiva e visível */}
+        <Link
+          href="/"
+          className="block shrink-0 relative h-10 sm:h-11 md:h-12 xl:h-14 w-[160px] sm:w-[170px] md:w-[190px] xl:w-[200px]"
+        >
           <Image
             src="/images/logo/logo-light.svg"
             alt="Satyz Logo Light"
@@ -43,7 +46,7 @@ const Header = () => {
             className="hidden dark:block object-contain"
             priority
           />
-        </a>
+        </Link>
 
         {/* Menu Mobile */}
         <button
