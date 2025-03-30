@@ -1,3 +1,4 @@
+// ✅ Atualização: menuData.tsx
 import { Menu } from "@/types/menu";
 
 const menuData: Menu[] = [
@@ -9,71 +10,52 @@ const menuData: Menu[] = [
   },
   {
     id: 2,
-    title: "Features",
+    title: "AI Workers",
     newTab: false,
-    path: "/#features",
+    submenu: [
+      {
+        id: 21,
+        title: "CAIO",
+        newTab: false,
+        path: "/agents/caio",
+      },
+      {
+        id: 22,
+        title: "Linda",
+        newTab: false,
+        path: "/agents/linda",
+      },
+      {
+        id: 23,
+        title: "Ana",
+        newTab: false,
+        path: "/agents/ana",
+      },
+      {
+        id: 24,
+        title: "Javi",
+        newTab: false,
+        path: "/agents/javi",
+      },
+    ],
   },
   {
-    id: 2.1,
+    id: 3,
+    title: "Company",
+    newTab: false,
+    path: "/#about",
+  },
+  {
+    id: 4,
     title: "Blog",
     newTab: false,
     path: "/blog",
   },
   {
-    id: 2.3,
-    title: "Docs",
+    id: 5,
+    title: "Contact",
     newTab: false,
-    path: "/docs",
-  },
-  {
-    id: 3,
-    title: "Pages",
-    newTab: false,
-    submenu: [
-      {
-        id: 31,
-        title: "Blog Grid",
-        newTab: false,
-        path: "/blog",
-      },
-      {
-        id: 34,
-        title: "Sign In",
-        newTab: false,
-        path: "/auth/signin",
-      },
-      {
-        id: 35,
-        title: "Sign Up",
-        newTab: false,
-        path: "/auth/signup",
-      },
-      {
-        id: 35,
-        title: "Docs",
-        newTab: false,
-        path: "/docs",
-      },
-      {
-        id: 35.1,
-        title: "Support",
-        newTab: false,
-        path: "/support",
-      },
-      {
-        id: 36,
-        title: "404",
-        newTab: false,
-        path: "/error",
-      },
-    ],
-  },
-
-  {
-    id: 4,
-    title: "Support",
-    newTab: false,
-    path: "/support",
+    path: "/#contact",
   },
 ];
 
