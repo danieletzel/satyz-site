@@ -1,146 +1,104 @@
 "use client";
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import Image from "next/image";
 
-const FunFact = () => {
+const features = [
+  {
+    id: 1,
+    title: "Sempre Aprendendo",
+    description:
+      "Seus agentes evoluem com cada interação, aprendendo e melhorando constantemente para entregar resultados mais precisos e relevantes.",
+    icon: "/images/icon/icon-01.svg",
+  },
+  {
+    id: 2,
+    title: "Personalizado para Você",
+    description:
+      "Cada agente é moldado com a linguagem, processos e tom de voz da sua empresa. Nada genérico, tudo seu.",
+    icon: "/images/icon/icon-02.svg",
+  },
+  {
+    id: 3,
+    title: "Totalmente Integrado",
+    description:
+      "Conecte seus sistemas como CRM, ERP, WhatsApp, Slack, Google Sheets e muito mais. Integração sem esforço.",
+    icon: "/images/icon/icon-03.svg",
+  },
+  {
+    id: 4,
+    title: "Inteligência Autônoma",
+    description:
+      "Seus AI Workers tomam decisões, executam tarefas e geram valor com autonomia, reduzindo a sobrecarga da sua equipe.",
+    icon: "/images/icon/icon-04.svg",
+  },
+  {
+    id: 5,
+    title: "Segurança em Primeiro Lugar",
+    description:
+      "Privacidade, criptografia e controle total. Sua inteligência é só sua — protegida por padrões globais.",
+    icon: "/images/icon/icon-05.svg",
+  },
+];
+
+const FeaturesCarousel = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <>
-      {/* <!-- ===== Funfact Start ===== --> */}
-      <section className="px-4 py-20 md:px-8 lg:py-22.5 2xl:px-0">
-        <div className="relative z-1 mx-auto max-w-c-1390 rounded-lg bg-gradient-to-t from-[#F8F9FF] to-[#DEE7FF] py-22.5 dark:bg-blacksection dark:bg-gradient-to-t dark:from-transparent dark:to-transparent dark:stroke-strokedark xl:py-27.5">
-          <Image
-            width={335}
-            height={384}
-            src="/images/shape/shape-04.png"
-            alt="Man"
-            className="absolute -left-15 -top-25 -z-1 lg:left-0"
-          />
-          <Image
-            width={132}
-            height={132}
-            src="/images/shape/shape-05.png"
-            alt="Doodle"
-            className="absolute bottom-0 right-0 -z-1"
-          />
+    <section className="px-4 py-20 md:px-8 lg:py-22.5 2xl:px-0">
+      <div className="mx-auto max-w-c-1235">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center text-3xl font-bold text-black dark:text-white mb-10 xl:text-sectiontitle3"
+        >
+          O que torna os AI Workers diferentes?
+        </motion.h2>
 
-          <Image
-            fill
-            src="/images/shape/shape-dotted-light-02.svg"
-            alt="Dotted"
-            className="absolute left-0 top-0 -z-1 dark:hidden"
-          />
-          <Image
-            fill
-            src="/images/shape/shape-dotted-dark-02.svg"
-            alt="Dotted"
-            className="absolute left-0 top-0 -z-1 hidden dark:block"
-          />
-
-          <motion.div
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: -20,
-              },
-
-              visible: {
-                opacity: 1,
-                y: 0,
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 1, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="animate_top mx-auto mb-12.5 px-4 text-center md:w-4/5 md:px-0 lg:mb-17.5 lg:w-2/3 xl:w-1/2"
-          >
-            <h2 className="mb-4 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-              Trusted by Global Companies.
-            </h2>
-            <p className="mx-auto lg:w-11/12">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-              convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
-              ante in maximus.
-            </p>
-          </motion.div>
-
-          <div className="flex flex-wrap justify-center gap-8 lg:gap-42.5">
-            <motion.div
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: -20,
-                },
-
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 1, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="animate_top text-center"
-            >
-              <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-                500K
-              </h3>
-              <p className="text-lg lg:text-para2">World Wide Clients</p>
-            </motion.div>
-            <motion.div
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: -20,
-                },
-
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 1, delay: 0.7 }}
-              viewport={{ once: true }}
-              className="animate_top text-center"
-            >
-              <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-                1M+
-              </h3>
-              <p className="text-lg lg:text-para2">Downloads</p>
-            </motion.div>
-            <motion.div
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: -20,
-                },
-
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 1, delay: 0.8 }}
-              viewport={{ once: true }}
-              className="animate_top text-center"
-            >
-              <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-                865
-              </h3>
-              <p className="text-lg lg:text-para2">Winning Award</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      {/* <!-- ===== Funfact End ===== --> */}
-    </>
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          slidesPerView={1.3}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          pagination={{ clickable: true }}
+          loop={true}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          modules={[Autoplay, Pagination]}
+        >
+          {features.map((feature, index) => (
+            <SwiperSlide key={feature.id}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{
+                  opacity: activeIndex === index ? 1 : 0.5,
+                  scale: activeIndex === index ? 1 : 0.9,
+                }}
+                transition={{ duration: 0.6 }}
+                className={`rounded-lg bg-white dark:bg-blacksection p-10 shadow-lg transition-all duration-500 ${
+                  activeIndex === index ? "ring-2 ring-primary" : "opacity-60"
+                }`}
+              >
+                <div className="mb-5 flex justify-center">
+                  <Image src={feature.icon} alt={feature.title} width={60} height={60} />
+                </div>
+                <h3 className="mb-3 text-center text-xl font-semibold text-black dark:text-white">
+                  {feature.title}
+                </h3>
+                <p className="text-center text-gray-700 dark:text-manatee">
+                  {feature.description}
+                </p>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 
-export default FunFact;
+export default FeaturesCarousel;

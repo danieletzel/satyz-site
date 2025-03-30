@@ -4,7 +4,7 @@ import Brands from "@/components/Brands";
 import Feature from "@/components/Features";
 import About from "@/components/About";
 import FeaturesTab from "@/components/FeaturesTab";
-import FunFact from "@/components/FunFact";
+import FeaturesCarousel from "@/components/FunFact";
 import Integration from "@/components/Integration";
 import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
