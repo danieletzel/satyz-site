@@ -27,19 +27,21 @@ const Header = () => {
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 flex items-center justify-between px-4 md:px-8 2xl:px-0">
-        {/* LOGO aumentada */}
-        <a href="/" className="relative h-14 w-[180px] xl:h-16 xl:w-[200px]">
+        {/* LOGO com tamanho fixo */}
+        <a href="/" className="block shrink-0">
           <Image
             src="/images/logo/logo-light.svg"
             alt="Satyz Logo Light"
-            fill
+            width={200}
+            height={48}
             className="block dark:hidden object-contain"
             priority
           />
           <Image
             src="/images/logo/logo-dark.svg"
             alt="Satyz Logo Dark"
-            fill
+            width={200}
+            height={48}
             className="hidden dark:block object-contain"
             priority
           />
@@ -68,20 +70,14 @@ const Header = () => {
         >
           <nav>
             <ul className="flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-10">
-              <li>
-                <Link href="/" className={pathUrl === "/" ? "text-primary" : "hover:text-primary"}>Home</Link>
-              </li>
+              <li><Link href="/" className={pathUrl === "/" ? "text-primary" : "hover:text-primary"}>Home</Link></li>
               <li className="group relative">
                 <button
                   onClick={() => setDropdownToggler(!dropdownToggler)}
                   className="flex items-center gap-2 hover:text-primary"
                 >
                   AI Workers
-                  <svg
-                    className="h-3 w-3 fill-waterloo group-hover:fill-primary"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                  >
+                  <svg className="h-3 w-3 fill-waterloo group-hover:fill-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
                   </svg>
                 </button>

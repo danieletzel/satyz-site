@@ -8,7 +8,6 @@ const Footer = () => {
       <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
         <div className="py-20 lg:py-25">
           <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
-            {/* Logo e contato */}
             <motion.div
               variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
               initial="hidden"
@@ -17,18 +16,20 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top w-full lg:w-1/4"
             >
-              <a href="/" className="block relative h-24 w-[260px] xl:h-28 xl:w-[280px]">
+              <a href="/" className="block">
                 <Image
                   src="/images/logo/logo-light.svg"
                   alt="Logo Satyz Light"
-                  fill
+                  width={260}
+                  height={64}
                   className="block dark:hidden object-contain"
                   priority
                 />
                 <Image
                   src="/images/logo/logo-dark.svg"
                   alt="Logo Satyz Dark"
-                  fill
+                  width={260}
+                  height={64}
                   className="hidden dark:block object-contain"
                   priority
                 />
@@ -38,20 +39,14 @@ const Footer = () => {
                 Automatize seu time com agentes de IA inteligentes.
               </p>
 
-              <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
-                Contato
-              </p>
-              <a
-                href="mailto:hello@satyz.io"
-                className="text-itemtitle font-medium text-black dark:text-white"
-              >
+              <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">Contato</p>
+              <a href="mailto:hello@satyz.io" className="text-itemtitle font-medium text-black dark:text-white">
                 hello@satyz.io
               </a>
             </motion.div>
 
-            {/* Links rápidos, suporte e newsletter */}
             <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between lg:w-2/3 xl:w-7/12">
-              {/* Links rápidos */}
+              {/* Links */}
               <motion.div
                 variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
                 initial="hidden"
@@ -120,7 +115,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Rodapé inferior */}
+        {/* Bottom */}
         <div className="flex flex-col flex-wrap items-center justify-center gap-5 border-t border-stroke py-7 dark:border-strokedark lg:flex-row lg:justify-between">
           <motion.p
             variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
