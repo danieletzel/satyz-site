@@ -22,26 +22,30 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 z-99999 w-full py-7 ${
+      className={`fixed left-0 top-0 z-99999 w-full py-6 ${
         stickyMenu ? "bg-white !py-4 shadow transition duration-100 dark:bg-black" : ""
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
         <div className="flex w-full items-center justify-between xl:w-1/4">
-          <a href="/">
+          <a href="/" className="block">
+            {/* Logo escura (modo claro) */}
             <Image
               src="/images/logo/logo-dark.svg"
-              alt="logo"
-              width={119.03}
-              height={30}
-              className="hidden w-full dark:block"
+              alt="Satyz Logo"
+              width={110}
+              height={32}
+              className="dark:hidden h-auto w-auto max-h-8"
+              priority
             />
+            {/* Logo clara (modo escuro) */}
             <Image
               src="/images/logo/logo-light.svg"
-              alt="logo"
-              width={119.03}
-              height={30}
-              className="w-full dark:hidden"
+              alt="Satyz Logo"
+              width={110}
+              height={32}
+              className="hidden dark:block h-auto w-auto max-h-8"
+              priority
             />
           </a>
 

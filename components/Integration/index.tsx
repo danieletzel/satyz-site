@@ -18,6 +18,21 @@ const integrations = [
   { src: "/images/integrations/meta.svg", alt: "Meta", delay: 1.1 },
 ];
 
+const positions = [
+  "row-start-1 col-start-2",
+  "row-start-1 col-start-4",
+  "row-start-2 col-start-1",
+  "row-start-2 col-start-3",
+  "row-start-3 col-start-2",
+  "row-start-3 col-start-4",
+  "row-start-4 col-start-1",
+  "row-start-4 col-start-3",
+  "row-start-5 col-start-2",
+  "row-start-5 col-start-4",
+  "row-start-6 col-start-1",
+  "row-start-6 col-start-3",
+];
+
 const Integration = () => {
   return (
     <section className="relative z-10 mx-auto max-w-c-1390 px-4 py-20 md:px-8 xl:px-0">
@@ -30,9 +45,8 @@ const Integration = () => {
         }}
       />
 
-      {/* Responsivo para mobile: Grid simples; Desktop: Grid mais espaçado */}
       <div className="relative w-full overflow-hidden rounded-xl bg-gradient-to-b from-white to-gray-50 dark:from-blacksection dark:to-black">
-        {/* Mobile e tablets */}
+        {/* Mobile */}
         <div className="flex flex-wrap items-center justify-center gap-6 p-6 md:hidden">
           {integrations.map((integration, index) => (
             <motion.div
@@ -54,8 +68,8 @@ const Integration = () => {
           ))}
         </div>
 
-        {/* Desktop: Grid com espaçamento definido */}
-        <div className="hidden md:grid grid-cols-4 gap-10 p-10 place-items-center">
+        {/* Desktop: Grade espaçada e orgânica */}
+        <div className="hidden md:grid grid-cols-4 grid-rows-6 gap-y-10 gap-x-8 p-10 place-items-center">
           {integrations.map((integration, index) => (
             <motion.div
               key={index}
@@ -63,7 +77,7 @@ const Integration = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: integration.delay }}
               viewport={{ once: true }}
-              className="w-20 h-20 rounded-2xl bg-white p-3 shadow-lg dark:bg-btndark flex items-center justify-center"
+              className={`w-20 h-20 rounded-2xl bg-white p-3 shadow-lg dark:bg-btndark flex items-center justify-center ${positions[index]}`}
             >
               <Image
                 src={integration.src}
