@@ -26,48 +26,43 @@ const Header = () => {
         stickyMenu ? "bg-white !py-4 shadow transition duration-100 dark:bg-black" : ""
       }`}
     >
-      <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
-        <div className="flex w-full items-center justify-between xl:w-1/4">
-          <a href="/" className="block relative h-8 w-[110px]">
-            {/* Logo modo claro */}
-            <Image
-              src="/images/logo/logo-light.svg"
-              alt="Satyz Logo Light"
-              fill
-              className="block dark:hidden object-contain"
-              priority
-            />
-            {/* Logo modo escuro */}
-            <Image
-              src="/images/logo/logo-dark.svg"
-              alt="Satyz Logo Dark"
-              fill
-              className="hidden dark:block object-contain"
-              priority
-            />
-          </a>
+      <div className="relative mx-auto max-w-c-1390 flex items-center justify-between px-4 md:px-8 2xl:px-0">
+        {/* LOGO */}
+        <a href="/" className="relative h-10 w-[140px] xl:w-[160px] xl:h-12">
+          {/* Modo claro */}
+          <Image
+            src="/images/logo/logo-light.svg"
+            alt="Satyz Logo Light"
+            fill
+            className="block dark:hidden object-contain"
+            priority
+          />
+          {/* Modo escuro */}
+          <Image
+            src="/images/logo/logo-dark.svg"
+            alt="Satyz Logo Dark"
+            fill
+            className="hidden dark:block object-contain"
+            priority
+          />
+        </a>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            aria-label="hamburger Toggler"
-            className="block xl:hidden"
-            onClick={() => setNavigationOpen(!navigationOpen)}
-          >
-            <span className="relative block h-5.5 w-5.5 cursor-pointer">
-              <span className="absolute right-0 block h-full w-full">
-                <span className={`relative my-1 block h-0.5 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white ${!navigationOpen ? "!w-full delay-300" : "w-0"}`}></span>
-                <span className={`relative my-1 block h-0.5 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white ${!navigationOpen ? "delay-400 !w-full" : "w-0"}`}></span>
-                <span className={`relative my-1 block h-0.5 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white ${!navigationOpen ? "!w-full delay-500" : "w-0"}`}></span>
-              </span>
-              <span className="du-block absolute right-0 h-full w-full rotate-45">
-                <span className={`absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-black delay-300 duration-200 ease-in-out dark:bg-white ${!navigationOpen ? "!h-0 delay-[0]" : "h-full"}`}></span>
-                <span className={`delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-black duration-200 ease-in-out dark:bg-white ${!navigationOpen ? "!h-0 delay-200" : "h-0.5"}`}></span>
-              </span>
+        {/* Menu Mobile */}
+        <button
+          aria-label="hamburger Toggler"
+          className="block xl:hidden"
+          onClick={() => setNavigationOpen(!navigationOpen)}
+        >
+          <span className="relative block h-5.5 w-5.5 cursor-pointer">
+            <span className="absolute right-0 block h-full w-full">
+              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "!w-full delay-300" : "w-0"}`}></span>
+              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "delay-400 !w-full" : "w-0"}`}></span>
+              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "!w-full delay-500" : "w-0"}`}></span>
             </span>
-          </button>
-        </div>
+          </span>
+        </button>
 
-        {/* Nav Menu */}
+        {/* Navegação */}
         <div
           className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
             navigationOpen && "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
@@ -99,32 +94,16 @@ const Header = () => {
                   <li><Link href="/agents/javi" className="hover:text-primary">Javi</Link></li>
                 </ul>
               </li>
-              <li>
-                <Link href="/about" className={pathUrl === "/about" ? "text-primary" : "hover:text-primary"}>Company</Link>
-              </li>
-              <li>
-                <Link href="/blog" className={pathUrl === "/blog" ? "text-primary" : "hover:text-primary"}>Blog</Link>
-              </li>
-              <li>
-                <Link href="/contact" className={pathUrl === "/contact" ? "text-primary" : "hover:text-primary"}>Contact</Link>
-              </li>
+              <li><Link href="/about" className={pathUrl === "/about" ? "text-primary" : "hover:text-primary"}>Company</Link></li>
+              <li><Link href="/blog" className={pathUrl === "/blog" ? "text-primary" : "hover:text-primary"}>Blog</Link></li>
+              <li><Link href="/contact" className={pathUrl === "/contact" ? "text-primary" : "hover:text-primary"}>Contact</Link></li>
             </ul>
           </nav>
 
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
             <ThemeToggler />
-
-            <Link
-              href="/auth/signin"
-              className="text-regular font-medium text-waterloo hover:text-primary"
-            >
-              Log in
-            </Link>
-
-            <Link
-              href="/auth/signup"
-              className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
-            >
+            <Link href="/auth/signin" className="text-regular font-medium text-waterloo hover:text-primary">Log in</Link>
+            <Link href="/auth/signup" className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho">
               Get Started 🚀
             </Link>
           </div>
