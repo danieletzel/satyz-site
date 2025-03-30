@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -17,7 +16,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top w-full lg:w-1/4"
             >
-              <Link href="/" className="block relative h-14 w-[180px] xl:h-16 xl:w-[200px]">
+              <a href="/" className="block relative h-20 w-[240px]">
                 <Image
                   src="/images/logo/logo-light.svg"
                   alt="Logo Satyz Light"
@@ -32,13 +31,15 @@ const Footer = () => {
                   className="hidden dark:block object-contain"
                   priority
                 />
-              </Link>
+              </a>
 
               <p className="mb-10 mt-5 text-sm text-waterloo">
                 Automatize seu time com agentes de IA inteligentes.
               </p>
 
-              <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">Contato</p>
+              <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
+                Contato
+              </p>
               <a
                 href="mailto:hello@satyz.io"
                 className="text-itemtitle font-medium text-black dark:text-white"
@@ -48,44 +49,40 @@ const Footer = () => {
             </motion.div>
 
             <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between lg:w-2/3 xl:w-7/12">
-              {[
-                {
-                  title: "Links rápidos",
-                  links: [
-                    { href: "/", label: "Home" },
-                    { href: "/about", label: "Company" },
-                    { href: "/blog", label: "Blog" },
-                    { href: "/contact", label: "Contato" },
-                  ],
-                },
-                {
-                  title: "Suporte",
-                  links: [
-                    { href: "/security", label: "Segurança" },
-                    { href: "/privacy", label: "Privacidade" },
-                    { href: "/terms", label: "Termos de uso" },
-                  ],
-                },
-              ].map((section, i) => (
-                <motion.div
-                  key={i}
-                  variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-                  initial="hidden"
-                  whileInView="visible"
-                  transition={{ duration: 1, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="animate_top"
-                >
-                  <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">{section.title}</h4>
-                  <ul>
-                    {section.links.map((link, idx) => (
-                      <li key={idx}>
-                        <Link href={link.href} className="mb-3 inline-block hover:text-primary">{link.label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+              {/* Links */}
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 1, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="animate_top"
+              >
+                <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">Links rápidos</h4>
+                <ul>
+                  <li><a href="/" className="mb-3 inline-block hover:text-primary">Home</a></li>
+                  <li><a href="/about" className="mb-3 inline-block hover:text-primary">Company</a></li>
+                  <li><a href="/blog" className="mb-3 inline-block hover:text-primary">Blog</a></li>
+                  <li><a href="/contact" className="mb-3 inline-block hover:text-primary">Contato</a></li>
+                </ul>
+              </motion.div>
+
+              {/* Suporte */}
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 1, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="animate_top"
+              >
+                <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">Suporte</h4>
+                <ul>
+                  <li><a href="/security" className="mb-3 inline-block hover:text-primary">Segurança</a></li>
+                  <li><a href="/privacy" className="mb-3 inline-block hover:text-primary">Privacidade</a></li>
+                  <li><a href="/terms" className="mb-3 inline-block hover:text-primary">Termos de uso</a></li>
+                </ul>
+              </motion.div>
 
               {/* Newsletter */}
               <motion.div
@@ -97,7 +94,9 @@ const Footer = () => {
                 className="animate_top"
               >
                 <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">Newsletter</h4>
-                <p className="mb-4 w-[90%] text-sm">Assine para receber novidades e atualizações da Satyz.</p>
+                <p className="mb-4 w-[90%] text-sm">
+                  Assine para receber novidades e atualizações da Satyz.
+                </p>
                 <form action="#">
                   <div className="relative">
                     <input
@@ -119,6 +118,7 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Bottom */}
         <div className="flex flex-col flex-wrap items-center justify-center gap-5 border-t border-stroke py-7 dark:border-strokedark lg:flex-row lg:justify-between">
           <motion.p
             variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
@@ -139,9 +139,9 @@ const Footer = () => {
             viewport={{ once: true }}
             className="animate_top flex items-center gap-6 text-sm"
           >
-            <li><Link href="/privacy" className="hover:text-primary">Privacidade</Link></li>
-            <li><Link href="/terms" className="hover:text-primary">Termos</Link></li>
-            <li><Link href="/contact" className="hover:text-primary">Contato</Link></li>
+            <li><a href="/privacy" className="hover:text-primary">Privacidade</a></li>
+            <li><a href="/terms" className="hover:text-primary">Termos</a></li>
+            <li><a href="/contact" className="hover:text-primary">Contato</a></li>
           </motion.ul>
         </div>
       </div>
