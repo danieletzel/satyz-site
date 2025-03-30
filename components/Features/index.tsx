@@ -1,13 +1,14 @@
 "use client";
+
 import React from "react";
 import SectionHeader from "../Common/SectionHeader";
-import Image from "next/image";
+import { motion } from "framer-motion";
 
 const AIWorkers = () => {
   const agents = [
     {
       id: 1,
-      icon: "/images/icon/caio.svg",
+      video: "/videos/caio.mp4",
       name: "CAIO",
       role: "Chief AI Officer",
       description:
@@ -15,7 +16,7 @@ const AIWorkers = () => {
     },
     {
       id: 2,
-      icon: "/images/icon/linda.svg",
+      video: "/videos/linda.mp4",
       name: "Linda",
       role: "AI Copywriter",
       description:
@@ -23,7 +24,7 @@ const AIWorkers = () => {
     },
     {
       id: 3,
-      icon: "/images/icon/ana.svg",
+      video: "/videos/ana.mp4",
       name: "Ana",
       role: "AI SDR",
       description:
@@ -31,7 +32,7 @@ const AIWorkers = () => {
     },
     {
       id: 4,
-      icon: "/images/icon/javi.svg",
+      video: "/videos/javi.mp4",
       name: "Javi",
       role: "AI Phone Agent",
       description:
@@ -51,23 +52,49 @@ const AIWorkers = () => {
           }}
         />
 
-        <div className="mt-12.5 grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:mt-15 lg:grid-cols-4 xl:mt-20 xl:gap-12.5">
-          {agents.map((agent) => (
-            <div
+        <div className="mt-12.5 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 xl:mt-20 xl:gap-12.5">
+          {agents.map((agent, index) => (
+            <motion.div
               key={agent.id}
-              className="animate_top z-40 rounded-lg border border-white bg-white p-7.5 shadow-solid-3 transition-all hover:shadow-solid-4 dark:border-strokedark dark:bg-blacksection dark:hover:bg-hoverdark xl:p-12.5"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="rounded-2xl bg-white p-5 shadow-lg transition-all hover:shadow-xl dark:bg-blacksection"
             >
-              <div className="relative flex h-16 w-16 items-center justify-center rounded-[4px] bg-primary">
-                <Image src={agent.icon} width={36} height={36} alt={agent.name} />
+              <div className="mb-4 w-full overflow-hidden rounded-xl">
+                <video
+                  src={agent.video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-[260px] object-cover rounded-xl"
+                />
               </div>
-              <h3 className="mb-1 mt-7.5 text-xl font-bold text-black dark:text-white">
+
+              <motion.h3
+                className="text-xl font-bold text-black dark:text-white"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+              >
                 {agent.name}
-              </h3>
-              <p className="mb-3 text-sm font-medium text-gray-600 dark:text-gray-300">
+              </motion.h3>
+
+              <motion.p
+                className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3"
+                initial={{ opacity: 0, x: 10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+              >
                 {agent.role}
+              </motion.p>
+
+              <p className="text-sm text-black dark:text-white">
+                {agent.description}
               </p>
-              <p className="text-sm text-black dark:text-white">{agent.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
