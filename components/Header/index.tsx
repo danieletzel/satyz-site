@@ -27,22 +27,21 @@ const Header = () => {
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 flex items-center justify-between px-4 md:px-8 2xl:px-0">
-        {/* LOGO responsiva e visível */}
-        <Link
-          href="/"
-          className="block shrink-0 relative h-10 sm:h-11 md:h-12 xl:h-14 w-[160px] sm:w-[170px] md:w-[190px] xl:w-[200px]"
-        >
+        {/* Logo com tamanho fixo e responsivo */}
+        <Link href="/" className="shrink-0 flex items-center">
           <Image
             src="/images/logo/logo-light.svg"
             alt="Satyz Logo Light"
-            fill
+            width={160}
+            height={40}
             className="block dark:hidden object-contain"
             priority
           />
           <Image
             src="/images/logo/logo-dark.svg"
             alt="Satyz Logo Dark"
-            fill
+            width={160}
+            height={40}
             className="hidden dark:block object-contain"
             priority
           />
@@ -56,9 +55,9 @@ const Header = () => {
         >
           <span className="relative block h-5.5 w-5.5 cursor-pointer">
             <span className="absolute right-0 block h-full w-full">
-              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "!w-full delay-300" : "w-0"}`}></span>
-              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "delay-400 !w-full" : "w-0"}`}></span>
-              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "!w-full delay-500" : "w-0"}`}></span>
+              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "!w-full delay-300" : "w-0"}`} />
+              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "delay-400 !w-full" : "w-0"}`} />
+              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "!w-full delay-500" : "w-0"}`} />
             </span>
           </span>
         </button>
@@ -66,7 +65,8 @@ const Header = () => {
         {/* Navegação */}
         <div
           className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
-            navigationOpen && "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
+            navigationOpen &&
+            "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
           }`}
         >
           <nav>
