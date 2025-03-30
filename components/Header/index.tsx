@@ -32,16 +32,16 @@ const Header = () => {
           <Image
             src="/images/logo/logo-light.svg"
             alt="Satyz Logo Light"
-            width={180}
-            height={40}
+            width={160}
+            height={36}
             className="block dark:hidden object-contain"
             priority
           />
           <Image
             src="/images/logo/logo-dark.svg"
             alt="Satyz Logo Dark"
-            width={180}
-            height={40}
+            width={160}
+            height={36}
             className="hidden dark:block object-contain"
             priority
           />
