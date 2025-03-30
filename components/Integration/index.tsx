@@ -18,7 +18,6 @@ const integrations = [
   { src: "/images/integrations/meta.svg", alt: "Meta", delay: 1.1 },
 ];
 
-// Definindo posições para layout orgânico
 const positions = [
   "row-start-1 col-start-2",
   "row-start-1 col-start-3",
@@ -36,7 +35,7 @@ const positions = [
 
 const Integration = () => {
   return (
-    <section className="relative z-10 mx-auto max-w-c-1390 px-4 py-20 md:px-8 xl:px-0">
+    <section className="relative z-10 mx-auto max-w-c-1390 px-4 py-14 md:px-8 xl:px-0">
       <SectionHeader
         headerInfo={{
           title: "INTEGRAÇÕES",
@@ -48,7 +47,7 @@ const Integration = () => {
 
       <div className="relative w-full overflow-hidden rounded-xl bg-gradient-to-b from-white to-gray-50 dark:from-blacksection dark:to-black">
         {/* Mobile */}
-        <div className="flex flex-wrap items-center justify-center gap-6 p-6 md:hidden">
+        <div className="flex flex-wrap items-center justify-center gap-5 p-6 md:hidden">
           {integrations.map((integration, index) => (
             <motion.div
               key={index}
@@ -56,21 +55,21 @@ const Integration = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: integration.delay }}
               viewport={{ once: true }}
-              className="w-20 h-20 rounded-2xl bg-white p-3 shadow-md dark:bg-btndark flex items-center justify-center"
+              className="w-16 h-16 rounded-2xl bg-white p-3 shadow-md dark:bg-btndark flex items-center justify-center"
             >
               <Image
                 src={integration.src}
                 alt={integration.alt}
-                width={40}
-                height={40}
+                width={35}
+                height={35}
                 className="object-contain"
               />
             </motion.div>
           ))}
         </div>
 
-        {/* Desktop: Grid com menos espaçamento */}
-        <div className="hidden md:grid grid-cols-4 grid-rows-6 gap-y-6 gap-x-6 p-8 place-items-center">
+        {/* Desktop */}
+        <div className="hidden md:grid grid-cols-4 grid-rows-6 gap-y-4 gap-x-4 p-6 place-items-center">
           {integrations.map((integration, index) => (
             <motion.div
               key={index}
@@ -78,13 +77,13 @@ const Integration = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: integration.delay }}
               viewport={{ once: true }}
-              className={`w-20 h-20 rounded-2xl bg-white p-3 shadow-lg dark:bg-btndark flex items-center justify-center ${positions[index]}`}
+              className={`w-16 h-16 rounded-2xl bg-white p-3 shadow-md dark:bg-btndark flex items-center justify-center ${positions[index]}`}
             >
               <Image
                 src={integration.src}
                 alt={integration.alt}
-                width={50}
-                height={50}
+                width={40}
+                height={40}
                 className="object-contain"
               />
             </motion.div>
