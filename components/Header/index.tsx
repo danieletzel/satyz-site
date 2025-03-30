@@ -28,23 +28,21 @@ const Header = () => {
     >
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
         <div className="flex w-full items-center justify-between xl:w-1/4">
-          <a href="/" className="block">
-            {/* Logo escura (modo claro) */}
-            <Image
-              src="/images/logo/logo-dark.svg"
-              alt="Satyz Logo"
-              width={110}
-              height={32}
-              className="dark:hidden h-auto w-auto max-h-8"
-              priority
-            />
-            {/* Logo clara (modo escuro) */}
+          <a href="/" className="block relative h-8 w-[110px]">
+            {/* Logo modo claro */}
             <Image
               src="/images/logo/logo-light.svg"
-              alt="Satyz Logo"
-              width={110}
-              height={32}
-              className="hidden dark:block h-auto w-auto max-h-8"
+              alt="Satyz Logo Light"
+              fill
+              className="block dark:hidden object-contain"
+              priority
+            />
+            {/* Logo modo escuro */}
+            <Image
+              src="/images/logo/logo-dark.svg"
+              alt="Satyz Logo Dark"
+              fill
+              className="hidden dark:block object-contain"
               priority
             />
           </a>
