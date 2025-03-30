@@ -1,94 +1,93 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <footer className="border-t border-stroke bg-white dark:border-strokedark dark:bg-blacksection">
       <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
-        <div className="py-20 lg:py-25">
-          <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
+        <div className="py-16 lg:py-20">
+          <div className="flex flex-wrap justify-between gap-10 lg:flex-nowrap">
+            {/* Logo + Descrição */}
             <motion.div
-              variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 1, delay: 0.5 }}
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_top w-full lg:w-1/4"
+              className="w-full lg:w-1/4"
             >
-              <a href="/" className="block">
+              <Link href="/" className="block relative h-16 w-[200px] xl:h-20 xl:w-[240px]">
                 <Image
                   src="/images/logo/logo-light.svg"
-                  alt="Logo Satyz Light"
-                  width={260}
-                  height={64}
+                  alt="Satyz Logo Light"
+                  fill
                   className="block dark:hidden object-contain"
                   priority
                 />
                 <Image
                   src="/images/logo/logo-dark.svg"
-                  alt="Logo Satyz Dark"
-                  width={260}
-                  height={64}
+                  alt="Satyz Logo Dark"
+                  fill
                   className="hidden dark:block object-contain"
                   priority
                 />
-              </a>
+              </Link>
 
               <p className="mb-10 mt-5 text-sm text-waterloo">
                 Automatize seu time com agentes de IA inteligentes.
               </p>
 
-              <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">Contato</p>
-              <a href="mailto:hello@satyz.io" className="text-itemtitle font-medium text-black dark:text-white">
+              <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
+                Contato
+              </p>
+              <a
+                href="mailto:hello@satyz.io"
+                className="text-itemtitle font-medium text-black dark:text-white"
+              >
                 hello@satyz.io
               </a>
             </motion.div>
 
-            <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between lg:w-2/3 xl:w-7/12">
-              {/* Links */}
+            {/* Menus */}
+            <div className="grid w-full gap-10 sm:grid-cols-2 lg:w-3/4 lg:grid-cols-3 xl:w-7/12">
+              {/* Links rápidos */}
               <motion.div
-                variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-                initial="hidden"
-                whileInView="visible"
-                transition={{ duration: 1, delay: 0.1 }}
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="animate_top"
               >
                 <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">Links rápidos</h4>
-                <ul>
-                  <li><a href="/" className="mb-3 inline-block hover:text-primary">Home</a></li>
-                  <li><a href="/about" className="mb-3 inline-block hover:text-primary">Company</a></li>
-                  <li><a href="/blog" className="mb-3 inline-block hover:text-primary">Blog</a></li>
-                  <li><a href="/contact" className="mb-3 inline-block hover:text-primary">Contato</a></li>
+                <ul className="space-y-3">
+                  <li><Link href="/" className="hover:text-primary">Home</Link></li>
+                  <li><Link href="/about" className="hover:text-primary">Company</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
+                  <li><Link href="/contact" className="hover:text-primary">Contato</Link></li>
                 </ul>
               </motion.div>
 
               {/* Suporte */}
               <motion.div
-                variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-                initial="hidden"
-                whileInView="visible"
-                transition={{ duration: 1, delay: 0.1 }}
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="animate_top"
               >
                 <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">Suporte</h4>
-                <ul>
-                  <li><a href="/security" className="mb-3 inline-block hover:text-primary">Segurança</a></li>
-                  <li><a href="/privacy" className="mb-3 inline-block hover:text-primary">Privacidade</a></li>
-                  <li><a href="/terms" className="mb-3 inline-block hover:text-primary">Termos de uso</a></li>
+                <ul className="space-y-3">
+                  <li><Link href="/security" className="hover:text-primary">Segurança</Link></li>
+                  <li><Link href="/privacy" className="hover:text-primary">Privacidade</Link></li>
+                  <li><Link href="/terms" className="hover:text-primary">Termos de uso</Link></li>
                 </ul>
               </motion.div>
 
               {/* Newsletter */}
               <motion.div
-                variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-                initial="hidden"
-                whileInView="visible"
-                transition={{ duration: 1, delay: 0.1 }}
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="animate_top"
               >
                 <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">Newsletter</h4>
                 <p className="mb-4 w-[90%] text-sm">
@@ -116,29 +115,27 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col flex-wrap items-center justify-center gap-5 border-t border-stroke py-7 dark:border-strokedark lg:flex-row lg:justify-between">
+        <div className="flex flex-col items-center justify-between gap-5 border-t border-stroke py-6 text-sm dark:border-strokedark lg:flex-row">
           <motion.p
-            variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 1, delay: 0.1 }}
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="animate_top text-sm text-center"
+            className="text-center"
           >
             &copy; {new Date().getFullYear()} Satyz. Todos os direitos reservados.
           </motion.p>
 
           <motion.ul
-            variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 1, delay: 0.1 }}
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="animate_top flex items-center gap-6 text-sm"
+            className="flex flex-wrap items-center gap-6"
           >
-            <li><a href="/privacy" className="hover:text-primary">Privacidade</a></li>
-            <li><a href="/terms" className="hover:text-primary">Termos</a></li>
-            <li><a href="/contact" className="hover:text-primary">Contato</a></li>
+            <li><Link href="/privacy" className="hover:text-primary">Privacidade</Link></li>
+            <li><Link href="/terms" className="hover:text-primary">Termos</Link></li>
+            <li><Link href="/contact" className="hover:text-primary">Contato</Link></li>
           </motion.ul>
         </div>
       </div>
