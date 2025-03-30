@@ -21,15 +21,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={`fixed left-0 top-0 z-99999 w-full py-6 ${
-        stickyMenu ? "bg-white !py-4 shadow transition duration-100 dark:bg-black" : ""
-      }`}
-    >
+    <header className={`fixed left-0 top-0 z-99999 w-full py-6 ${
+      stickyMenu ? "bg-white !py-4 shadow transition duration-100 dark:bg-black" : ""
+    }`}>
       <div className="relative mx-auto max-w-c-1390 flex items-center justify-between px-4 md:px-8 2xl:px-0">
         {/* LOGO */}
-        <a href="/" className="relative h-10 w-[140px] xl:w-[160px] xl:h-12">
-          {/* Modo claro */}
+        <Link href="/" className="relative h-14 w-[180px] xl:h-16 xl:w-[200px] block">
           <Image
             src="/images/logo/logo-light.svg"
             alt="Satyz Logo Light"
@@ -37,7 +34,6 @@ const Header = () => {
             className="block dark:hidden object-contain"
             priority
           />
-          {/* Modo escuro */}
           <Image
             src="/images/logo/logo-dark.svg"
             alt="Satyz Logo Dark"
@@ -45,9 +41,9 @@ const Header = () => {
             className="hidden dark:block object-contain"
             priority
           />
-        </a>
+        </Link>
 
-        {/* Menu Mobile */}
+        {/* Mobile Menu */}
         <button
           aria-label="hamburger Toggler"
           className="block xl:hidden"
@@ -55,35 +51,29 @@ const Header = () => {
         >
           <span className="relative block h-5.5 w-5.5 cursor-pointer">
             <span className="absolute right-0 block h-full w-full">
-              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "!w-full delay-300" : "w-0"}`}></span>
-              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "delay-400 !w-full" : "w-0"}`}></span>
-              <span className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "!w-full delay-500" : "w-0"}`}></span>
+              {[0, 1, 2].map((i) => (
+                <span key={i} className={`relative my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${
+                  !navigationOpen ? `!w-full delay-[${300 + i * 100}]` : "w-0"
+                }`}></span>
+              ))}
             </span>
           </span>
         </button>
 
         {/* Navegação */}
-        <div
-          className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
-            navigationOpen && "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
-          }`}
-        >
+        <div className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
+          navigationOpen && "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
+        }`}>
           <nav>
             <ul className="flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-10">
-              <li>
-                <Link href="/" className={pathUrl === "/" ? "text-primary" : "hover:text-primary"}>Home</Link>
-              </li>
+              <li><Link href="/" className={pathUrl === "/" ? "text-primary" : "hover:text-primary"}>Home</Link></li>
               <li className="group relative">
                 <button
                   onClick={() => setDropdownToggler(!dropdownToggler)}
                   className="flex items-center gap-2 hover:text-primary"
                 >
                   AI Workers
-                  <svg
-                    className="h-3 w-3 fill-waterloo group-hover:fill-primary"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                  >
+                  <svg className="h-3 w-3 fill-waterloo group-hover:fill-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
                   </svg>
                 </button>
