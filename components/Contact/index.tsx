@@ -77,6 +77,7 @@ const Contact = () => {
                   inputProps={{
                     name: "phone",
                     required: true,
+                    placeholder: "Telefone",
                   }}
                   inputClass="!w-full !border-b !border-stroke !bg-transparent !pb-3.5 !text-black dark:!text-white focus:!outline-none dark:!border-strokedark"
                   buttonClass="!bg-transparent"
