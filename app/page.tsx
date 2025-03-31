@@ -15,8 +15,8 @@ import Blog from "@/components/Blog";
 // import Testimonial from "@/components/Testimonial";
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
-  description: "This is Home for Solid Pro"
+  title: "Satyz - AI Agents",
+  description: "Agentes de IA autônomos para transformar sua operação.",
 };
 
 export default function Home() {
