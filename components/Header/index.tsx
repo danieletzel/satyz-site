@@ -29,7 +29,7 @@ const Header = () => {
     >
       <div className="relative mx-auto flex max-w-c-1390 items-center justify-between px-4 md:px-8 2xl:px-0">
         {/* Logo responsiva */}
-        <Link href="/" className="relative h-10 w-32 sm:h-11 sm:w-36 md:h-12 md:w-44 xl:h-14 xl:w-48 shrink-0">
+        <Link href="/" className="relative h-12 w-40 sm:h-14 sm:w-48 md:h-16 md:w-56 xl:h-18 xl:w-64 shrink-0">
           <Image
             src="/images/logo/logo-light.svg"
             alt="Satyz Logo Light"
