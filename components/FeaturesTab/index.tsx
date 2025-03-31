@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { useState } from "react";
 import FeaturesTabItem from "./FeaturesTabItem";
@@ -35,30 +36,36 @@ const FeaturesTab = () => {
           viewport={{ once: true }}
           className="animate_top mb-15 flex flex-wrap justify-center rounded-[10px] border border-stroke bg-white shadow-solid-5 dark:border-strokedark dark:bg-blacksection dark:shadow-solid-6 md:flex-nowrap md:items-center lg:gap-7.5 xl:mb-21.5 xl:gap-12.5"
         >
-          {[
-            { id: "tabOne", label: "IA em Ação", number: "01" },
-            { id: "tabTwo", label: "Delegue com Precisão", number: "02" },
-            { id: "tabThree", label: "Resultados em Minutos", number: "03" },
-          ].map((tab) => (
-            <div
-              key={tab.id}
-              onClick={() => setCurrentTab(tab.id)}
-              className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
-                currentTab === tab.id
-                  ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
-                  : ""
-              }`}
-            >
-              <div className="flex h-12.5 w-12.5 items-center justify-center rounded-full border border-stroke dark:border-strokedark dark:bg-blacksection">
-                <p className="text-metatitle3 font-medium text-black dark:text-white">{tab.number}</p>
+          {["tabOne", "tabTwo", "tabThree"].map((id, i) => {
+            const labels = [
+              "IA em Ação",
+              "Delegue com Precisão",
+              "Resultados em Minutos",
+            ];
+            const number = `0${i + 1}`;
+            const label = labels[i];
+
+            return (
+              <div
+                key={id}
+                onClick={() => setCurrentTab(id)}
+                className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-hoverdark ${
+                  currentTab === id
+                    ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
+                    : "opacity-60 hover:opacity-100"
+                }`}
+              >
+                <div className="flex h-12.5 w-12.5 items-center justify-center rounded-full border border-stroke dark:border-strokedark dark:bg-blacksection">
+                  <p className="text-metatitle3 font-medium text-black dark:text-white">{number}</p>
+                </div>
+                <div className="md:w-3/5 lg:w-auto">
+                  <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
+                    {label}
+                  </button>
+                </div>
               </div>
-              <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  {tab.label}
-                </button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </motion.div>
 
         {/* Tab Content */}
@@ -70,8 +77,11 @@ const FeaturesTab = () => {
           viewport={{ once: true }}
           className="animate_top mx-auto max-w-c-1154"
         >
-          {featuresTabData.map((feature, key) => (
-            <div className={feature.id === currentTab ? "block" : "hidden"} key={key}>
+          {featuresTabData.map((feature) => (
+            <div
+              className={`${feature.id === currentTab ? "block animate-fadeIn" : "hidden"}`}
+              key={feature.id}
+            >
               <FeaturesTabItem featureTab={feature} />
             </div>
           ))}
