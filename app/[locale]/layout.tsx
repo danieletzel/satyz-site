@@ -3,7 +3,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 
 const locales = ["en", "pt-BR", "es"];
 
@@ -16,9 +15,9 @@ export const metadata: Metadata = {
   description: "Agentes de IA autônomos para transformar sua operação.",
 };
 
-// ✅ Interface correta para tipar o layout
+// ✅ Tipagem manual correta:
 interface LocaleLayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
   params: {
     locale: string;
   };
