@@ -1,0 +1,34 @@
+{
+    "home": {
+      "title": "Bem-vindo à Satyz",
+      "description": "Construa com IA. Trabalhe com superpoderes."
+    },
+    "header": {
+      "home": "Início",
+      "company": "Empresa",
+      "blog": "Blog",
+      "security": "Segurança",
+      "login": "Entrar",
+      "getStarted": "Começar"
+    },
+    "footer": {
+      "rights": "Todos os direitos reservados",
+      "language": "Idioma"
+    },
+    "pricing": {
+      "title": "Planos de Preços",
+      "subtitle": "Preço Simples",
+      "description": "Escolha o plano que melhor se adapta às suas necessidades e escale com IA.",
+      "small": "Pacote Pequeno",
+      "medium": "Pacote Médio",
+      "large": "Pacote Grande",
+      "features": {
+        "storage": "300 GB de Armazenamento",
+        "unlimited": "Fotos e Vídeos Ilimitados",
+        "support": "Suporte Exclusivo",
+        "branding": "Estratégia de Branding Personalizada"
+      },
+      "button": "Escolher Plano",
+      "popular": "Popular"
+    }
+  }

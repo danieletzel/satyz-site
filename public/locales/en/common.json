@@ -1,0 +1,34 @@
+{
+    "home": {
+      "title": "Welcome to Satyz",
+      "description": "Build with AI. Work with superpowers."
+    },
+    "header": {
+      "home": "Home",
+      "company": "Company",
+      "blog": "Blog",
+      "security": "Security",
+      "login": "Log in",
+      "getStarted": "Get Started"
+    },
+    "footer": {
+      "rights": "All rights reserved",
+      "language": "Language"
+    },
+    "pricing": {
+      "title": "Pricing Plans",
+      "subtitle": "Simple Pricing",
+      "description": "Choose the plan that best fits your needs and scale your growth with AI.",
+      "small": "Small Pack",
+      "medium": "Medium Pack",
+      "large": "Large Pack",
+      "features": {
+        "storage": "300 GB Storage",
+        "unlimited": "Unlimited Photos and Videos",
+        "support": "Exclusive Support",
+        "branding": "Custom Branding Strategy"
+      },
+      "button": "Get the Plan",
+      "popular": "Popular"
+    }
+  }

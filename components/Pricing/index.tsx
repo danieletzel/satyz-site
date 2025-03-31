@@ -1,48 +1,47 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import SectionHeader from "@/components/Common/SectionHeader";
 import { useTranslations } from "next-intl";
+import SectionHeader from "../Common/SectionHeader";
+import { motion } from "framer-motion";
+import clsx from "clsx";
 
-const plans = [
-  {
-    price: "$10",
-    title: "Small Pack",
-    popular: false,
-    features: [
-      { text: "300 GB Storage", available: true },
-      { text: "Unlimited Photos and Videos", available: true },
-      { text: "Exclusive Support", available: false },
-      { text: "Custom Branding Strategy", available: false },
-    ],
-  },
-  {
-    price: "$59",
-    title: "Medium Pack",
-    popular: true,
-    features: [
-      { text: "300 GB Storage", available: true },
-      { text: "Unlimited Photos and Videos", available: true },
-      { text: "Exclusive Support", available: true },
-      { text: "Custom Branding Strategy", available: false },
-    ],
-  },
-  {
-    price: "$189",
-    title: "Large Pack",
-    popular: false,
-    features: [
-      { text: "300 GB Storage", available: true },
-      { text: "Unlimited Photos and Videos", available: true },
-      { text: "Exclusive Support", available: true },
-      { text: "Custom Branding Strategy", available: true },
-    ],
-  },
-];
+const Pricing = () => {
+  const t = useTranslations("pricing");
 
-export default function PricingPage() {
-  const t = useTranslations("Pricing");
+  const plans = [
+    {
+      price: "$10",
+      label: t("small"),
+      features: [
+        t("features.storage"),
+        t("features.unlimited"),
+        { label: t("features.support"), available: false },
+        { label: t("features.branding"), available: false }
+      ]
+    },
+    {
+      price: "$59",
+      label: t("medium"),
+      features: [
+        t("features.storage"),
+        t("features.unlimited"),
+        t("features.support"),
+        { label: t("features.branding"), available: false }
+      ],
+      popular: true
+    },
+    {
+      price: "$189",
+      label: t("large"),
+      features: [
+        t("features.storage"),
+        t("features.unlimited"),
+        t("features.support"),
+        t("features.branding")
+      ]
+    }
+  ];
 
   return (
     <section className="overflow-hidden pb-20 pt-15 lg:pb-25 xl:pb-30">
@@ -52,7 +51,7 @@ export default function PricingPage() {
             headerInfo={{
               title: t("title"),
               subtitle: t("subtitle"),
-              description: t("description"),
+              description: t("description")
             }}
           />
         </div>
@@ -72,14 +71,18 @@ export default function PricingPage() {
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.05, boxShadow: "0px 20px 60px rgba(0,0,0,0.1)" }}
-              className="group relative rounded-lg border border-stroke bg-white p-7.5 shadow-solid-10 transition-all duration-300 hover:brightness-110 dark:border-strokedark dark:bg-blacksection dark:shadow-none md:w-[45%] lg:w-1/3 xl:p-12.5"
+              whileHover={{ scale: 1.05 }}
+              className={clsx(
+                "group relative rounded-lg border border-stroke bg-white p-7.5 shadow-solid-10 transition-all duration-300 hover:shadow-xl hover:brightness-105 dark:border-strokedark dark:bg-blacksection dark:hover:shadow-none md:w-[45%] lg:w-1/3 xl:p-12.5",
+                plan.popular && "border-primary"
+              )}
             >
               {plan.popular && (
                 <div className="absolute -right-3.5 top-7.5 -rotate-90 rounded-bl-full rounded-tl-full bg-primary px-4.5 py-1.5 text-metatitle font-medium uppercase text-white">
                   {t("popular")}
                 </div>
               )}
+
               <h3 className="mb-7.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
                 {plan.price}{" "}
                 <span className="text-regular text-waterloo dark:text-manatee">
@@ -87,24 +90,32 @@ export default function PricingPage() {
                 </span>
               </h3>
               <h4 className="mb-2.5 text-para2 font-medium text-black dark:text-white">
-                {plan.title}
+                {plan.label}
               </h4>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-body-color dark:text-body-color-dark">
                 {t("description")}
               </p>
 
               <div className="mt-9 border-t border-stroke pb-12.5 pt-9 dark:border-strokedark">
                 <ul>
-                  {plan.features.map((feature, idx) => (
-                    <li
-                      key={idx}
-                      className={`mb-4 text-black last:mb-0 dark:text-manatee ${
-                        !feature.available ? "opacity-40" : ""
-                      }`}
-                    >
-                      {feature.text}
-                    </li>
-                  ))}
+                  {plan.features.map((feature, idx) => {
+                    const label = typeof feature === "string" ? feature : feature.label;
+                    const available =
+                      typeof feature === "string" ? true : feature.available !== false;
+                    return (
+                      <li
+                        key={idx}
+                        className={clsx(
+                          "mb-4 last:mb-0",
+                          available
+                            ? "text-black dark:text-manatee"
+                            : "text-black opacity-40 dark:text-manatee"
+                        )}
+                      >
+                        {label}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
@@ -113,7 +124,7 @@ export default function PricingPage() {
                 className="group/btn inline-flex items-center gap-2.5 font-medium text-primary transition-all duration-300 dark:text-white dark:hover:text-primary"
               >
                 <span className="duration-300 group-hover/btn:pr-2">
-                  {t("cta")}
+                  {t("button")}
                 </span>
                 <svg
                   width="14"
@@ -133,4 +144,6 @@ export default function PricingPage() {
       </div>
     </section>
   );
-}
+};
+
+export default Pricing;
