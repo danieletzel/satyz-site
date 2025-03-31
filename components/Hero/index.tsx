@@ -31,7 +31,7 @@ const Hero = () => {
               <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark">
                 colaborador
               </span>{" "}
-              é uma IA.
+              é um AI Agent.
             </h1>
             <p className="text-base leading-relaxed text-gray-700 dark:text-manatee">
               A Satyz cria agentes autônomos de IA para seu time. Treine, delegue e escale como nunca. 
@@ -57,7 +57,7 @@ const Hero = () => {
                 </motion.button>
               </form>
               <p className="mt-4 text-sm text-black dark:text-white">
-                100% gratuito e pronto para usar.
+                Comece Agora.
               </p>
             </div>
           </motion.div>
