@@ -2,14 +2,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
     <footer className="border-t border-stroke bg-white dark:border-strokedark dark:bg-blacksection">
       <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
         <div className="py-20 lg:py-25">
-          <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
+          <div className="flex flex-wrap gap-12 lg:justify-between lg:gap-0">
             {/* Logo e contato */}
             <motion.div
               variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
@@ -19,10 +19,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top w-full lg:w-1/4"
             >
-              <Link
-                href="/"
-                className="block relative h-14 w-44 sm:h-16 sm:w-52 md:h-20 md:w-64 xl:h-24 xl:w-72"
-              >
+              <Link href="/" className="block relative h-12 w-40 sm:h-14 sm:w-44 md:h-16 md:w-52 xl:h-20 xl:w-56">
                 <Image
                   src="/images/logo/logo-light.svg"
                   alt="Logo Satyz Light"
@@ -50,10 +47,25 @@ const Footer = () => {
               >
                 hello@satyz.io
               </a>
+
+              <div className="mt-6 flex gap-4 text-xl text-waterloo">
+                <a href="#" aria-label="LinkedIn" className="hover:text-primary">
+                  <FaLinkedin />
+                </a>
+                <a href="#" aria-label="Instagram" className="hover:text-primary">
+                  <FaInstagram />
+                </a>
+                <a href="#" aria-label="Facebook" className="hover:text-primary">
+                  <FaFacebook />
+                </a>
+                <a href="#" aria-label="X" className="hover:text-primary">
+                  <FaXTwitter />
+                </a>
+              </div>
             </motion.div>
 
             {/* Menus */}
-            <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between lg:w-2/3 xl:w-7/12">
+            <div className="flex w-full flex-col gap-12 md:flex-row md:justify-between lg:w-2/3 xl:w-7/12">
               {/* Links rápidos */}
               <motion.div
                 variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
@@ -64,11 +76,11 @@ const Footer = () => {
                 className="animate_top"
               >
                 <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">Links rápidos</h4>
-                <ul>
-                  <li><Link href="/" className="mb-3 inline-block hover:text-primary">Home</Link></li>
-                  <li><Link href="/about" className="mb-3 inline-block hover:text-primary">Company</Link></li>
-                  <li><Link href="/blog" className="mb-3 inline-block hover:text-primary">Blog</Link></li>
-                  <li><Link href="/contact" className="mb-3 inline-block hover:text-primary">Contato</Link></li>
+                <ul className="space-y-3">
+                  <li><Link href="/" className="hover:text-primary">Home</Link></li>
+                  <li><Link href="/about" className="hover:text-primary">Company</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
+                  <li><Link href="/contact" className="hover:text-primary">Contato</Link></li>
                 </ul>
               </motion.div>
 
@@ -82,10 +94,10 @@ const Footer = () => {
                 className="animate_top"
               >
                 <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">Suporte</h4>
-                <ul>
-                  <li><Link href="/security" className="mb-3 inline-block hover:text-primary">Segurança</Link></li>
-                  <li><Link href="/privacy" className="mb-3 inline-block hover:text-primary">Privacidade</Link></li>
-                  <li><Link href="/terms" className="mb-3 inline-block hover:text-primary">Termos de uso</Link></li>
+                <ul className="space-y-3">
+                  <li><Link href="/security" className="hover:text-primary">Segurança</Link></li>
+                  <li><Link href="/privacy" className="hover:text-primary">Privacidade</Link></li>
+                  <li><Link href="/terms" className="hover:text-primary">Termos de uso</Link></li>
                 </ul>
               </motion.div>
 
@@ -99,10 +111,14 @@ const Footer = () => {
                 className="animate_top"
               >
                 <h4 className="mb-5 text-itemtitle2 font-medium text-black dark:text-white">Newsletter</h4>
-                <p className="mb-4 w-[90%] text-sm">
+                <p className="mb-4 text-sm">
                   Assine para receber novidades e atualizações da Satyz.
                 </p>
-                <form action="#">
+                <motion.form
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
                   <div className="relative">
                     <input
                       type="email"
@@ -117,7 +133,7 @@ const Footer = () => {
                       ➤
                     </button>
                   </div>
-                </form>
+                </motion.form>
               </motion.div>
             </div>
           </div>
@@ -142,7 +158,7 @@ const Footer = () => {
             whileInView="visible"
             transition={{ duration: 1, delay: 0.1 }}
             viewport={{ once: true }}
-            className="animate_top flex items-center gap-6 text-sm"
+            className="animate_top flex flex-wrap items-center justify-center gap-6 text-sm"
           >
             <li><Link href="/privacy" className="hover:text-primary">Privacidade</Link></li>
             <li><Link href="/terms" className="hover:text-primary">Termos</Link></li>
