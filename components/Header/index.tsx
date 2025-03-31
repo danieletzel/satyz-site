@@ -33,8 +33,8 @@ const Header = () => {
         {/* Logo com animação responsiva */}
         <motion.div
           animate={{
-            height: stickyMenu ? 60 : 72,
-            width: stickyMenu ? 180 : 240,
+            height: stickyMenu ? 60 : 80, // MOBILE maior
+            width: stickyMenu ? 180 : 260, // MOBILE maior
           }}
           transition={{ duration: 0.3 }}
           className="relative shrink-0"
