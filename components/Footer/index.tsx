@@ -19,25 +19,28 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top w-full lg:w-1/4"
             >
-              <Link
-                href="/"
-                className="block relative h-16 w-48 sm:h-18 sm:w-52 md:h-20 md:w-56 xl:h-24 xl:w-64"
+              <motion.div
+                whileHover={{ scale: 1.02, filter: "brightness(1.2)" }}
+                transition={{ duration: 0.3 }}
+                className="block relative h-20 w-52 sm:h-24 sm:w-60 md:h-28 md:w-64 xl:h-32 xl:w-72"
               >
-                <Image
-                  src="/images/logo/logo-light.svg"
-                  alt="Logo Satyz Light"
-                  fill
-                  className="object-contain block dark:hidden"
-                  priority
-                />
-                <Image
-                  src="/images/logo/logo-dark.svg"
-                  alt="Logo Satyz Dark"
-                  fill
-                  className="object-contain hidden dark:block"
-                  priority
-                />
-              </Link>
+                <Link href="/" className="block h-full w-full">
+                  <Image
+                    src="/images/logo/logo-light.svg"
+                    alt="Logo Satyz Light"
+                    fill
+                    className="object-contain block dark:hidden"
+                    priority
+                  />
+                  <Image
+                    src="/images/logo/logo-dark.svg"
+                    alt="Logo Satyz Dark"
+                    fill
+                    className="object-contain hidden dark:block"
+                    priority
+                  />
+                </Link>
+              </motion.div>
 
               <p className="mb-10 mt-5 text-sm text-waterloo">
                 Automatize seu time com agentes de IA inteligentes.
@@ -52,18 +55,38 @@ const Footer = () => {
               </a>
 
               <div className="mt-6 flex gap-4 text-xl text-waterloo">
-                <a href="#" aria-label="LinkedIn" className="hover:text-primary">
+                <motion.a
+                  whileHover={{ scale: 1.2, color: "#6366F1" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  href="#"
+                  aria-label="LinkedIn"
+                >
                   <FaLinkedin />
-                </a>
-                <a href="#" aria-label="Instagram" className="hover:text-primary">
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.2, color: "#6366F1" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  href="#"
+                  aria-label="Instagram"
+                >
                   <FaInstagram />
-                </a>
-                <a href="#" aria-label="Facebook" className="hover:text-primary">
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.2, color: "#6366F1" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  href="#"
+                  aria-label="Facebook"
+                >
                   <FaFacebook />
-                </a>
-                <a href="#" aria-label="X" className="hover:text-primary">
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.2, color: "#6366F1" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  href="#"
+                  aria-label="X"
+                >
                   <FaXTwitter />
-                </a>
+                </motion.a>
               </div>
             </motion.div>
 
