@@ -2,7 +2,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import type { PageProps } from "next";
 
 import Hero from "@/components/Hero";
 import Feature from "@/components/Features";
@@ -16,11 +15,18 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Blog from "@/components/Blog";
 
+// ✅ Tipagem correta
+interface PageParams {
+  params: {
+    locale: string;
+  };
+}
+
 const locales = ["en", "pt-BR", "es"];
 
 export async function generateMetadata({
   params: { locale },
-}: PageProps): Promise<Metadata> {
+}: PageParams): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "common" });
 
   return {
@@ -29,7 +35,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params: { locale } }: PageProps) {
+export default async function Page({ params: { locale } }: PageParams) {
   if (!locales.includes(locale)) {
     notFound();
   }
