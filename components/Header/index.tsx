@@ -27,22 +27,20 @@ const Header = () => {
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 flex items-center justify-between px-4 md:px-8 2xl:px-0">
-        {/* Logo com tamanho fixo e responsivo */}
-        <Link href="/" className="shrink-0 flex items-center">
+        {/* ✅ LOGO 100% responsiva */}
+        <Link href="/" className="block shrink-0 relative h-8 sm:h-10 md:h-11 xl:h-12 w-28 sm:w-32 md:w-36 xl:w-40">
           <Image
             src="/images/logo/logo-light.svg"
             alt="Satyz Logo Light"
-            width={160}
-            height={40}
-            className="block dark:hidden object-contain"
+            fill
+            className="object-contain block dark:hidden"
             priority
           />
           <Image
             src="/images/logo/logo-dark.svg"
             alt="Satyz Logo Dark"
-            width={160}
-            height={40}
-            className="hidden dark:block object-contain"
+            fill
+            className="object-contain hidden dark:block"
             priority
           />
         </Link>
