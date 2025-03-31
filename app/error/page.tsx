@@ -1,12 +1,6 @@
 "use client";
 
-import { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "Página de Erro - Satyz",
-  description: "Página de erro personalizada da Satyz.",
-};
 
 const ErrorPage = () => {
   return (
