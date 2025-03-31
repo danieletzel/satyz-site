@@ -18,7 +18,10 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top w-full lg:w-1/4"
             >
-              <Link href="/" className="block relative h-10 w-32 sm:h-11 sm:w-36 md:h-12 md:w-44 xl:h-14 xl:w-48">
+              <Link
+                href="/"
+                className="relative h-16 w-48 sm:h-20 sm:w-56 md:h-24 md:w-64 xl:h-28 xl:w-80 block"
+              >
                 <Image
                   src="/images/logo/logo-light.svg"
                   alt="Logo Satyz Light"
