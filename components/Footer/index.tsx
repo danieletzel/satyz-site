@@ -2,12 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaLinkedinIn,
-  FaTwitter,
-  FaGithub,
-  FaYoutube,
-} from "react-icons/fa6";
+import { FaLinkedinIn, FaTwitter, FaGithub, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
