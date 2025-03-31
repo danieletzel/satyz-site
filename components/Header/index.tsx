@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggler from "./ThemeToggler";
 
 const Header = () => {
@@ -45,17 +46,17 @@ const Header = () => {
           />
         </Link>
 
-        {/* Mobile Toggle */}
+        {/* Botão Mobile */}
         <button
           aria-label="hamburger"
-          className="block xl:hidden"
+          className="relative z-50 block xl:hidden"
           onClick={() => setNavigationOpen(!navigationOpen)}
         >
           <span className="relative block h-5.5 w-5.5 cursor-pointer">
             <span className="absolute right-0 block h-full w-full">
-              <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "w-full delay-300" : "w-0"}`} />
-              <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "w-full delay-400" : "w-0"}`} />
-              <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white ${!navigationOpen ? "w-full delay-500" : "w-0"}`} />
+              <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${navigationOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
+              <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${navigationOpen ? "opacity-0" : ""}`} />
+              <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${navigationOpen ? "-rotate-45 -translate-y-[6px]" : ""}`} />
             </span>
           </span>
         </button>
@@ -97,38 +98,46 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Navegação Mobile */}
-        {navigationOpen && (
-          <div className="absolute top-full left-0 mt-2 w-full rounded-md bg-white p-6 shadow-md dark:bg-blacksection xl:hidden z-40">
-            <nav>
-              <ul className="flex flex-col gap-4">
-                <li><Link href="/" className="hover:text-primary">Home</Link></li>
-                <li>
-                  <details open={dropdownToggler} onToggle={() => setDropdownToggler(!dropdownToggler)}>
-                    <summary className="cursor-pointer hover:text-primary">AI Workers</summary>
-                    <ul className="ml-4 mt-2 flex flex-col gap-1">
-                      <li><Link href="/agents/caio" className="hover:text-primary">CAIO</Link></li>
-                      <li><Link href="/agents/linda" className="hover:text-primary">Linda</Link></li>
-                      <li><Link href="/agents/ana" className="hover:text-primary">Ana</Link></li>
-                      <li><Link href="/agents/javi" className="hover:text-primary">Javi</Link></li>
-                    </ul>
-                  </details>
-                </li>
-                <li><Link href="/about" className="hover:text-primary">Company</Link></li>
-                <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
-                <li><Link href="/contact" className="hover:text-primary">Contact</Link></li>
-              </ul>
-            </nav>
+        {/* Navegação Mobile Animada */}
+        <AnimatePresence>
+          {navigationOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="absolute top-full left-0 mt-3 w-full rounded-md border border-stroke bg-white/80 backdrop-blur-md p-6 shadow-lg dark:bg-blacksection/80 z-40 xl:hidden"
+            >
+              <nav>
+                <ul className="flex flex-col gap-4 text-base">
+                  <li><Link href="/" className="hover:text-primary">Home</Link></li>
+                  <li>
+                    <details open={dropdownToggler} onToggle={() => setDropdownToggler(!dropdownToggler)}>
+                      <summary className="cursor-pointer hover:text-primary">AI Workers</summary>
+                      <ul className="ml-4 mt-2 flex flex-col gap-1">
+                        <li><Link href="/agents/caio" className="hover:text-primary">CAIO</Link></li>
+                        <li><Link href="/agents/linda" className="hover:text-primary">Linda</Link></li>
+                        <li><Link href="/agents/ana" className="hover:text-primary">Ana</Link></li>
+                        <li><Link href="/agents/javi" className="hover:text-primary">Javi</Link></li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li><Link href="/about" className="hover:text-primary">Company</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
+                  <li><Link href="/contact" className="hover:text-primary">Contact</Link></li>
+                </ul>
+              </nav>
 
-            <div className="mt-6 flex flex-col gap-4">
-              <Link href="/auth/signin" className="text-sm text-waterloo hover:text-primary">Log in</Link>
-              <Link href="/auth/signup" className="rounded-full bg-primary px-6 py-2 text-sm text-white text-center hover:bg-primaryho">
-                Get Started 🚀
-              </Link>
-              <ThemeToggler />
-            </div>
-          </div>
-        )}
+              <div className="mt-6 flex flex-col gap-4">
+                <Link href="/auth/signin" className="text-sm text-waterloo hover:text-primary">Log in</Link>
+                <Link href="/auth/signup" className="rounded-full bg-primary px-6 py-2 text-sm text-white text-center hover:bg-primaryho">
+                  Get Started 🚀
+                </Link>
+                <ThemeToggler />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
