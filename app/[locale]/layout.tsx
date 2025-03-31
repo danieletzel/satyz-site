@@ -1,3 +1,4 @@
+// app/[locale]/layout.tsx
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -19,7 +20,11 @@ export default async function LocaleLayout({
   children,
   params,
 }: LayoutProps<{ locale: string }>) {
-  const { locale } = params;
+  const locale = params?.locale;
+
+  if (!locales.includes(locale)) {
+    notFound();
+  }
 
   setRequestLocale(locale);
 

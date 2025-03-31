@@ -1,7 +1,8 @@
 // app/[locale]/page.tsx
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import type { PageProps } from "next";
 
 import Hero from "@/components/Hero";
 import Feature from "@/components/Features";
@@ -15,15 +16,11 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Blog from "@/components/Blog";
 
-type Props = {
-  params: {
-    locale: string;
-  };
-};
-
 const locales = ["en", "pt-BR", "es"];
 
-export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params: { locale },
+}: PageProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "common" });
 
   return {
@@ -32,7 +29,7 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   };
 }
 
-export default async function Page({ params: { locale } }: Props) {
+export default async function Page({ params: { locale } }: PageProps) {
   if (!locales.includes(locale)) {
     notFound();
   }
