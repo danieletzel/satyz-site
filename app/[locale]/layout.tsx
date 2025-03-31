@@ -1,8 +1,8 @@
-// app/[locale]/layout.tsx
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import type { LayoutProps } from "next";
 
 const locales = ["en", "pt-BR", "es"];
 
@@ -15,11 +15,10 @@ export const metadata: Metadata = {
   description: "Agentes de IA autônomos para transformar sua operação.",
 };
 
-export default async function LocaleLayout(props: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
-  const { children, params } = props;
+export default async function LocaleLayout({
+  children,
+  params,
+}: LayoutProps<{ locale: string }>) {
   const { locale } = params;
 
   setRequestLocale(locale);
