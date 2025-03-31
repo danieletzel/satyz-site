@@ -1,11 +1,11 @@
 // app/not-found.tsx
 export default function NotFound() {
     return (
-      <div className="flex flex-col items-center justify-center py-32 text-center px-4">
-        <h1 className="text-3xl font-bold text-black dark:text-white mb-4">
+      <div className="flex flex-col items-center justify-center px-4 py-32 text-center">
+        <h1 className="mb-4 text-3xl font-bold text-black dark:text-white">
           Página não encontrada
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-8">
+        <p className="mb-8 text-gray-600 dark:text-gray-400">
           O conteúdo que você procurava não existe ou foi movido.
         </p>
         <a

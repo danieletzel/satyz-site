@@ -1,14 +1,14 @@
+"use client";
+
 import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Error Page - Solid SaaS Boilerplate",
-
-  // other metadata
-  description: "This is Error page for Solid Pro"
+  title: "Página de Erro - Satyz",
+  description: "Página de erro personalizada da Satyz.",
 };
 
-const ErroPage = () => {
+const ErrorPage = () => {
   return (
     <section className="overflow-hidden pb-25 pt-45 lg:pb-32.5 lg:pt-50 xl:pb-37.5 xl:pt-55">
       <div className="animate_top mx-auto max-w-[518px] text-center">
@@ -19,20 +19,17 @@ const ErroPage = () => {
           width={400}
           height={400}
         />
-
         <h2 className="mb-5 text-2xl font-semibold text-black dark:text-white md:text-4xl">
-          This Page Does Not Exist
+          Página não encontrada
         </h2>
-        <p className="mb-7.5">
-          The page you were looking for appears to have been moved, deleted or
-          does not exist.
+        <p className="mb-7.5 text-gray-700 dark:text-manatee">
+          A página que você está procurando foi movida, removida ou nunca existiu.
         </p>
-
         <a
           href="/"
           className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
         >
-          Return to Home
+          Voltar para o Início
           <svg
             className="fill-white"
             width="14"
@@ -52,4 +49,4 @@ const ErroPage = () => {
   );
 };
 
-export default ErroPage;
+export default ErrorPage;
