@@ -18,21 +18,19 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top w-full lg:w-1/4"
             >
-              <Link href="/" className="block">
+              <Link href="/" className="block relative h-10 w-32 sm:h-11 sm:w-36 md:h-12 md:w-44 xl:h-14 xl:w-48">
                 <Image
                   src="/images/logo/logo-light.svg"
                   alt="Logo Satyz Light"
-                  width={220}
-                  height={50}
-                  className="block dark:hidden object-contain"
+                  fill
+                  className="object-contain block dark:hidden"
                   priority
                 />
                 <Image
                   src="/images/logo/logo-dark.svg"
                   alt="Logo Satyz Dark"
-                  width={220}
-                  height={50}
-                  className="hidden dark:block object-contain"
+                  fill
+                  className="object-contain hidden dark:block"
                   priority
                 />
               </Link>
