@@ -29,7 +29,10 @@ const Header = () => {
     >
       <div className="relative mx-auto flex max-w-c-1390 items-center justify-between px-4 md:px-8 2xl:px-0">
         {/* Logo responsiva */}
-        <Link href="/" className="relative h-12 w-40 sm:h-14 sm:w-48 md:h-16 md:w-56 xl:h-18 xl:w-64 shrink-0">
+        <Link
+          href="/"
+          className="relative h-14 w-44 sm:h-16 sm:w-52 md:h-20 md:w-64 xl:h-24 xl:w-72 shrink-0"
+        >
           <Image
             src="/images/logo/logo-light.svg"
             alt="Satyz Logo Light"
@@ -54,9 +57,21 @@ const Header = () => {
         >
           <span className="relative block h-5.5 w-5.5 cursor-pointer">
             <span className="absolute right-0 block h-full w-full">
-              <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${navigationOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
-              <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${navigationOpen ? "opacity-0" : ""}`} />
-              <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${navigationOpen ? "-rotate-45 -translate-y-[6px]" : ""}`} />
+              <span
+                className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${
+                  navigationOpen ? "rotate-45 translate-y-[6px]" : ""
+                }`}
+              />
+              <span
+                className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${
+                  navigationOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${
+                  navigationOpen ? "-rotate-45 -translate-y-[6px]" : ""
+                }`}
+              />
             </span>
           </span>
         </button>
@@ -65,7 +80,11 @@ const Header = () => {
         <div className="hidden xl:flex items-center justify-between w-full">
           <nav>
             <ul className="flex items-center gap-8">
-              <li><Link href="/" className={pathUrl === "/" ? "text-primary" : "hover:text-primary"}>Home</Link></li>
+              <li>
+                <Link href="/" className={pathUrl === "/" ? "text-primary" : "hover:text-primary"}>
+                  Home
+                </Link>
+              </li>
               <li className="relative group">
                 <button
                   onClick={() => setDropdownToggler(!dropdownToggler)}
@@ -76,7 +95,11 @@ const Header = () => {
                     <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
                   </svg>
                 </button>
-                <ul className={`absolute z-50 mt-2 w-40 rounded bg-white p-4 shadow dark:bg-blacksection ${dropdownToggler ? "flex flex-col" : "hidden"}`}>
+                <ul
+                  className={`absolute z-50 mt-2 w-40 rounded bg-white p-4 shadow dark:bg-blacksection ${
+                    dropdownToggler ? "flex flex-col" : "hidden"
+                  }`}
+                >
                   <li><Link href="/agents/caio" className="hover:text-primary">CAIO</Link></li>
                   <li><Link href="/agents/linda" className="hover:text-primary">Linda</Link></li>
                   <li><Link href="/agents/ana" className="hover:text-primary">Ana</Link></li>
