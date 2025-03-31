@@ -1,10 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import SectionHeader from "../Common/SectionHeader";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const AIWorkers = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const agents = [
     {
       id: 1,
@@ -13,6 +16,7 @@ const AIWorkers = () => {
       role: "Chief AI Officer",
       description:
         "Seu estrategista de IA. Cria, gerencia e otimiza agentes inteligentes para cada área do seu negócio.",
+      link: "/agents/caio",
     },
     {
       id: 2,
@@ -21,6 +25,7 @@ const AIWorkers = () => {
       role: "AI Copywriter",
       description:
         "Cria conteúdos afiados, persuasivos e prontos para escalar sua marca com o tom certo em qualquer canal.",
+      link: "/agents/linda",
     },
     {
       id: 3,
@@ -29,6 +34,7 @@ const AIWorkers = () => {
       role: "AI SDR",
       description:
         "Gera, qualifica e agenda leads com velocidade e personalização. Nunca perde uma oportunidade.",
+      link: "/agents/ana",
     },
     {
       id: 4,
@@ -37,6 +43,7 @@ const AIWorkers = () => {
       role: "AI Phone Agent",
       description:
         "Atende chamadas, entende intenções e resolve solicitações em tempo real com naturalidade surpreendente.",
+      link: "/agents/javi",
     },
   ];
 
@@ -54,47 +61,52 @@ const AIWorkers = () => {
 
         <div className="mt-12.5 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 xl:mt-20 xl:gap-12.5">
           {agents.map((agent, index) => (
-            <motion.div
-              key={agent.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="rounded-2xl bg-white p-5 shadow-lg transition-all hover:shadow-xl dark:bg-blacksection"
-            >
-              <div className="mb-4 w-full overflow-hidden rounded-xl">
-                <video
-                  src={agent.video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-[260px] object-cover rounded-xl"
-                />
-              </div>
-
-              <motion.h3
-                className="text-xl font-bold text-black dark:text-white"
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
+            <Link href={agent.link} key={agent.id} className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`rounded-2xl p-5 shadow-lg transition-all duration-300 dark:bg-blacksection cursor-pointer bg-white hover:shadow-2xl transform hover:-translate-y-2 relative z-10 group ${
+                  hoveredIndex !== null && hoveredIndex !== index ? "opacity-50 scale-95" : "opacity-100 scale-100"
+                }`}
               >
-                {agent.name}
-              </motion.h3>
+                <div className="mb-4 w-full overflow-hidden rounded-xl">
+                  <video
+                    src={agent.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-[260px] object-cover rounded-xl group-hover:brightness-110"
+                  />
+                </div>
 
-              <motion.p
-                className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3"
-                initial={{ opacity: 0, x: 10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                {agent.role}
-              </motion.p>
+                <motion.h3
+                  className="text-xl font-bold text-black dark:text-white group-hover:text-primary"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {agent.name}
+                </motion.h3>
 
-              <p className="text-sm text-black dark:text-white">
-                {agent.description}
-              </p>
-            </motion.div>
+                <motion.p
+                  className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3"
+                  initial={{ opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  {agent.role}
+                </motion.p>
+
+                <p className="text-sm text-black dark:text-white">
+                  {agent.description}
+                </p>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
