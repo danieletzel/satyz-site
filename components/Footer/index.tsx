@@ -19,7 +19,10 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top w-full lg:w-1/4"
             >
-              <Link href="/" className="block relative h-12 w-40 sm:h-14 sm:w-44 md:h-16 md:w-52 xl:h-20 xl:w-56">
+              <Link
+                href="/"
+                className="block relative h-16 w-48 sm:h-18 sm:w-52 md:h-20 md:w-56 xl:h-24 xl:w-64"
+              >
                 <Image
                   src="/images/logo/logo-light.svg"
                   alt="Logo Satyz Light"
@@ -42,10 +45,10 @@ const Footer = () => {
 
               <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">Contato</p>
               <a
-                href="mailto:hello@satyz.io"
+                href="mailto:contact@satyz.io"
                 className="text-itemtitle font-medium text-black dark:text-white"
               >
-                hello@satyz.io
+                contact@satyz.io
               </a>
 
               <div className="mt-6 flex gap-4 text-xl text-waterloo">
