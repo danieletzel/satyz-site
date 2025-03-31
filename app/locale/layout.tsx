@@ -2,6 +2,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
 
 const locales = ["en", "pt-BR", "es"];
 
@@ -9,13 +10,16 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
+export const metadata: Metadata = {
+  title: "Satyz - AI Agents",
+  description: "Agentes de IA autônomos para transformar sua operação.",
+};
+
+export default async function LocaleLayout(props: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  const { children, params } = props;
   const { locale } = params;
 
   setRequestLocale(locale);
