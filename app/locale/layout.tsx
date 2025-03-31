@@ -10,17 +10,20 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-type Props = {
+type LocaleLayoutProps = {
   children: ReactNode;
   params: { locale: string };
 };
 
-export default async function LocaleLayout({ children, params: { locale } }: Props) {
+export default async function LocaleLayout({
+  children,
+  params: { locale },
+}: LocaleLayoutProps) {
   setRequestLocale(locale);
 
   let messages;
   try {
-    messages = (await import(`../../../public/locales/${locale}/common.json`)).default;
+    messages = (await import(`@/../locales/${locale}/common.json`)).default;
   } catch (error) {
     notFound();
   }
