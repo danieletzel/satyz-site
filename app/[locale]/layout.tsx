@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   description: "Agentes de IA autônomos para transformar sua operação.",
 };
 
-// ✅ Tipagem manual correta
 interface LocaleLayoutProps {
   children: React.ReactNode;
   params: {
@@ -23,7 +22,10 @@ interface LocaleLayoutProps {
   };
 }
 
-export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+export default async function LocaleLayout({
+  children,
+  params,
+}: LocaleLayoutProps) {
   const { locale } = params;
 
   setRequestLocale(locale);
