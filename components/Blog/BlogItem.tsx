@@ -7,7 +7,10 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
   const { mainImage, title, metadata, slug } = blog;
 
   return (
-    <div className="group rounded-lg bg-white p-4 pb-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:bg-blacksection border border-[#eee] dark:border-strokedark">
+    <div
+      className="group rounded-lg bg-white p-4 pb-8 shadow-md border border-[#eee] dark:bg-blacksection dark:border-strokedark 
+      transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]"
+    >
       <Link
         href={`/blog/${slug}`}
         className="relative block aspect-[368/239] overflow-hidden rounded-md"
