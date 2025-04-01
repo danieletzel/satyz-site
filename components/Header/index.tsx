@@ -30,11 +30,11 @@ const Header = () => {
       }`}
     >
       <div className="relative mx-auto flex max-w-c-1390 items-center justify-between px-4 md:px-8 2xl:px-0">
-        {/* Logo com animação responsiva */}
+        {/* Logo */}
         <motion.div
           animate={{
-            height: stickyMenu ? 60 : 80, // MOBILE maior
-            width: stickyMenu ? 180 : 260, // MOBILE maior
+            height: stickyMenu ? 60 : 80,
+            width: stickyMenu ? 180 : 260,
           }}
           transition={{ duration: 0.3 }}
           className="relative shrink-0"
@@ -87,12 +87,24 @@ const Header = () => {
                     <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
                   </svg>
                 </button>
-                <ul className={`absolute z-50 mt-2 w-40 rounded bg-white p-4 shadow dark:bg-blacksection ${dropdownToggler ? "flex flex-col" : "hidden"}`}>
-                  <li><Link href="/agents/caio" className="hover:text-primary">CAIO</Link></li>
-                  <li><Link href="/agents/linda" className="hover:text-primary">Linda</Link></li>
-                  <li><Link href="/agents/ana" className="hover:text-primary">Ana</Link></li>
-                  <li><Link href="/agents/javi" className="hover:text-primary">Javi</Link></li>
-                </ul>
+
+                {/* Animação do dropdown */}
+                <AnimatePresence>
+                  {dropdownToggler && (
+                    <motion.ul
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute z-50 mt-2 w-40 rounded bg-white p-4 shadow dark:bg-blacksection flex flex-col"
+                    >
+                      <li><Link href="/agents/caio" className="hover:text-primary">CAIO</Link></li>
+                      <li><Link href="/agents/linda" className="hover:text-primary">Linda</Link></li>
+                      <li><Link href="/agents/ana" className="hover:text-primary">Ana</Link></li>
+                      <li><Link href="/agents/javi" className="hover:text-primary">Javi</Link></li>
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
               </li>
               <li><Link href="/about" className={pathUrl === "/about" ? "text-primary" : "hover:text-primary"}>Company</Link></li>
               <li><Link href="/blog" className={pathUrl === "/blog" ? "text-primary" : "hover:text-primary"}>Blog</Link></li>
@@ -109,7 +121,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Navegação Mobile Animada */}
+        {/* Navegação Mobile */}
         <AnimatePresence>
           {navigationOpen && (
             <motion.div
@@ -140,11 +152,11 @@ const Header = () => {
               </nav>
 
               <div className="mt-6 flex flex-col gap-4">
+                <ThemeToggler />
                 <Link href="/auth/signin" className="text-sm text-waterloo hover:text-primary">Log in</Link>
                 <Link href="/auth/signup" className="rounded-full bg-primary px-6 py-2 text-sm text-white text-center hover:bg-primaryho">
                   Get Started 🚀
                 </Link>
-                <ThemeToggler />
               </div>
             </motion.div>
           )}
