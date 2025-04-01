@@ -1,57 +1,54 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import SectionHeader from "../Common/SectionHeader";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 
 const Pricing = () => {
-  const t = useTranslations("pricing");
-
   const plans = [
     {
-      price: "$10",
-      label: t("small"),
+      price: "R$ 49",
+      label: "Essencial",
       features: [
-        t("features.storage"),
-        t("features.unlimited"),
-        { label: t("features.support"), available: false },
-        { label: t("features.branding"), available: false }
+        "5 GB de armazenamento",
+        "Acessos ilimitados",
+        { label: "Suporte prioritário", available: false },
+        { label: "Remoção de marca Satyz", available: false }
       ]
     },
     {
-      price: "$59",
-      label: t("medium"),
+      price: "R$ 179",
+      label: "Profissional",
       features: [
-        t("features.storage"),
-        t("features.unlimited"),
-        t("features.support"),
-        { label: t("features.branding"), available: false }
+        "10 GB de armazenamento",
+        "Acessos ilimitados",
+        "Suporte prioritário",
+        { label: "Remoção de marca Satyz", available: false }
       ],
       popular: true
     },
     {
-      price: "$189",
-      label: t("large"),
+      price: "R$ 399",
+      label: "Empresarial",
       features: [
-        t("features.storage"),
-        t("features.unlimited"),
-        t("features.support"),
-        t("features.branding")
+        "100 GB de armazenamento",
+        "Acessos ilimitados",
+        "Suporte prioritário",
+        "Remoção de marca Satyz"
       ]
     }
   ];
 
   return (
-    <section className="overflow-hidden pb-20 pt-15 lg:pb-25 xl:pb-30">
+    <section className="overflow-hidden pb-20 pt-15 lg:pb-25 xl:pb-30" id="pricing">
       <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
         <div className="animate_top mx-auto text-center">
           <SectionHeader
             headerInfo={{
-              title: t("title"),
-              subtitle: t("subtitle"),
-              description: t("description")
+              title: "Planos",
+              subtitle: "Comece agora",
+              description: "Escolha o plano ideal para seu negócio e comece a delegar com inteligência artificial."
             }}
           />
         </div>
@@ -79,21 +76,21 @@ const Pricing = () => {
             >
               {plan.popular && (
                 <div className="absolute -right-3.5 top-7.5 -rotate-90 rounded-bl-full rounded-tl-full bg-primary px-4.5 py-1.5 text-metatitle font-medium uppercase text-white">
-                  {t("popular")}
+                  Popular
                 </div>
               )}
 
               <h3 className="mb-7.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
                 {plan.price}{" "}
                 <span className="text-regular text-waterloo dark:text-manatee">
-                  /month
+                  /mês
                 </span>
               </h3>
               <h4 className="mb-2.5 text-para2 font-medium text-black dark:text-white">
                 {plan.label}
               </h4>
               <p className="text-sm text-body-color dark:text-body-color-dark">
-                {t("description")}
+                Recursos adaptados para sua operação com IA.
               </p>
 
               <div className="mt-9 border-t border-stroke pb-12.5 pt-9 dark:border-strokedark">
@@ -120,11 +117,11 @@ const Pricing = () => {
               </div>
 
               <button
-                aria-label="Get the Plan button"
+                aria-label="Botão de ação do plano"
                 className="group/btn inline-flex items-center gap-2.5 font-medium text-primary transition-all duration-300 dark:text-white dark:hover:text-primary"
               >
                 <span className="duration-300 group-hover/btn:pr-2">
-                  {t("button")}
+                  Escolher plano
                 </span>
                 <svg
                   width="14"
