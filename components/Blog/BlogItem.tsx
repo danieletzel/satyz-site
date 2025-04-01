@@ -3,18 +3,12 @@
 import { Blog } from "@/types/blog";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 const BlogItem = ({ blog }: { blog: Blog }) => {
   const { mainImage, title, metadata } = blog;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="group rounded-lg bg-white p-4 pb-9 shadow-solid-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-blacksection"
-    >
+    <div className="group rounded-lg bg-white p-4 pb-9 shadow-solid-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-blacksection">
       <Link
         href="/blog/blog-details"
         className="relative block aspect-[368/239] overflow-hidden rounded-md"
@@ -40,7 +34,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
           {metadata}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
