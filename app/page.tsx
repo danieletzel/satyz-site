@@ -1,16 +1,17 @@
 "use client";
 
-import About from "@/components/About";
-import Features from "@/components/Features";
-import FeaturesTab from "@/components/FeaturesTab";
-import FunFact from "@/components/FunFact";
-import FAQ from "@/components/FAQ";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import FunFact from "@/components/FunFact";
+import FeaturesTab from "@/components/FeaturesTab";
+import About from "@/components/About";
+import FAQ from "@/components/FAQ";
+import Integration from "@/components/Integration";
+import CTA from "@/components/CTA";
+import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Blog from "@/components/Blog";
-import Integration from "@/components/Integration";
 // import Pricing from "@/components/Pricing"; // ❌ Temporariamente oculto
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
       <About />
       <FAQ />
       <Integration />
+      <CTA />
       {/* <Pricing /> */}
       <Blog />
       <Contact />
