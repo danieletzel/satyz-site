@@ -1,4 +1,5 @@
 // app/layout.tsx
+import "../globals.css"; // <-- Adicione esta linha no topo
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
