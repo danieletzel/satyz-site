@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -55,7 +56,7 @@ const FeaturesCarousel = () => {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center text-3xl font-bold text-black dark:text-white mb-10 xl:text-sectiontitle3"
+          className="mb-10 text-center text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3"
         >
           O que torna os AI Workers diferentes?
         </motion.h2>
@@ -89,7 +90,7 @@ const FeaturesCarousel = () => {
                     alt={feature.title}
                     width={60}
                     height={60}
-                    className="dark:invert-0 invert filter brightness-0"
+                    className="invert-0 dark:invert filter dark:brightness-0"
                   />
                 </div>
                 <h3 className="mb-3 text-center text-xl font-semibold text-black dark:text-white">
