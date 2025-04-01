@@ -1,8 +1,4 @@
-// app/[locale]/page.tsx
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-
+// app/page.tsx
 import Hero from "@/components/Hero";
 import Feature from "@/components/Features";
 import About from "@/components/About";
@@ -15,33 +11,7 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Blog from "@/components/Blog";
 
-// ✅ Tipagem correta
-interface PageParams {
-  params: {
-    locale: string;
-  };
-}
-
-const locales = ["en", "pt-BR", "es"];
-
-export async function generateMetadata({
-  params: { locale },
-}: PageParams): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: "common" });
-
-  return {
-    title: t("home.title"),
-    description: t("home.description"),
-  };
-}
-
-export default async function Page({ params: { locale } }: PageParams) {
-  if (!locales.includes(locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale);
-
+export default function Page() {
   return (
     <main>
       <Hero />
