@@ -11,18 +11,19 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
     <div className="group rounded-lg bg-white p-4 pb-9 shadow-solid-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-blacksection">
       <Link
         href={`/blog/${slug}`}
-        className="relative block aspect-[368/239] overflow-hidden rounded-md"
+        className="block overflow-hidden rounded-md mb-5"
       >
         <Image
           src={mainImage}
           alt={`Imagem do post: ${title}`}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          width={368}
+          height={239}
+          className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
         />
       </Link>
 
       <div className="px-4">
-        <h3 className="mb-3.5 mt-7.5 text-lg font-medium text-black dark:text-white line-clamp-2">
+        <h3 className="mb-3.5 text-lg font-medium text-black dark:text-white line-clamp-2">
           <Link
             href={`/blog/${slug}`}
             className="transition-colors duration-300 hover:text-primary dark:hover:text-primary"
