@@ -10,14 +10,16 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
 
   return (
     <motion.div
-      variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-      initial="hidden"
-      whileInView="visible"
-      transition={{ duration: 0.6, delay: 0.3 }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.1 }}
       viewport={{ once: true }}
-      className="group animate_top rounded-lg bg-white p-4 pb-9 shadow-solid-8 transition-all duration-300 hover:shadow-xl dark:bg-blacksection"
+      className="group rounded-lg bg-white p-4 pb-9 shadow-solid-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-blacksection"
     >
-      <Link href="/blog/blog-details" className="relative block aspect-[368/239] overflow-hidden rounded-md">
+      <Link
+        href="/blog/blog-details"
+        className="relative block aspect-[368/239] overflow-hidden rounded-md"
+      >
         <Image
           src={mainImage}
           alt={`Imagem do post: ${title}`}
