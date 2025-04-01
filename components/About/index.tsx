@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link"; // ⬅️ ADICIONADO
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -10,25 +10,25 @@ const About = () => {
       {/* ===== About Start ===== */}
       <section id="about" className="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
         <div className="mx-auto max-w-c-1235 px-4 md:px-8 xl:px-0">
-          <div className="flex items-center gap-8 lg:gap-32.5">
+          <div className="flex flex-col-reverse items-center gap-10 md:flex-row lg:gap-32.5">
             <motion.div
               variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_left relative mx-auto hidden aspect-[588/526.5] md:block md:w-1/2"
+              className="animate_left relative mx-auto aspect-[588/526.5] w-full max-w-[500px] md:block md:w-1/2"
             >
               <Image
                 src="/images/about/about-light-01.svg"
                 alt="Sobre a Satyz"
-                className="dark:hidden"
+                className="dark:hidden object-contain"
                 fill
               />
               <Image
                 src="/images/about/about-dark-01.svg"
                 alt="Sobre a Satyz"
-                className="hidden dark:block"
+                className="hidden dark:block object-contain"
                 fill
               />
             </motion.div>
@@ -39,7 +39,7 @@ const About = () => {
               whileInView="visible"
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_right md:w-1/2"
+              className="animate_right w-full md:w-1/2"
             >
               <span className="font-medium uppercase text-black dark:text-white">
                 <span className="mb-4 mr-4 inline-flex rounded-full bg-meta px-4.5 py-1 text-metatitle uppercase text-white">
@@ -60,11 +60,11 @@ const About = () => {
                 em tarefas reais do seu negócio — de vendas a suporte, de onboarding a automação de sistemas internos.
               </p>
 
-              <div className="mt-7.5 flex items-center gap-5">
+              <div className="mt-7.5 flex items-start gap-5">
                 <div className="flex h-15 w-15 items-center justify-center rounded-full border border-stroke dark:border-strokedark dark:bg-blacksection">
                   <p className="text-metatitle2 font-semibold text-black dark:text-white">01</p>
                 </div>
-                <div className="w-3/4">
+                <div className="w-full">
                   <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
                     Treinados com seus dados
                   </h3>
@@ -72,11 +72,11 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="mt-7.5 flex items-center gap-5">
+              <div className="mt-7.5 flex items-start gap-5">
                 <div className="flex h-15 w-15 items-center justify-center rounded-full border border-stroke dark:border-strokedark dark:bg-blacksection">
                   <p className="text-metatitle2 font-semibold text-black dark:text-white">02</p>
                 </div>
-                <div className="w-3/4">
+                <div className="w-full">
                   <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
                     Autonomia e evolução constante
                   </h3>
@@ -91,14 +91,14 @@ const About = () => {
       {/* ===== About Two Start ===== */}
       <section>
         <div className="mx-auto max-w-c-1235 overflow-hidden px-4 md:px-8 2xl:px-0">
-          <div className="flex items-center gap-8 lg:gap-32.5">
+          <div className="flex flex-col items-center gap-10 md:flex-row lg:gap-32.5">
             <motion.div
               variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 1, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_left md:w-1/2"
+              className="animate_left w-full md:w-1/2"
             >
               <h4 className="font-medium uppercase text-black dark:text-white">
                 Uma nova era de produtividade
@@ -134,25 +134,24 @@ const About = () => {
               whileInView="visible"
               transition={{ duration: 1, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_right relative mx-auto hidden aspect-[588/526.5] md:block md:w-1/2"
+              className="animate_right relative mx-auto aspect-[588/526.5] w-full max-w-[500px] md:w-1/2"
             >
               <Image
                 src="/images/about/about-light-02.svg"
                 alt="AI Worker"
-                className="dark:hidden"
+                className="dark:hidden object-contain"
                 fill
               />
               <Image
                 src="/images/about/about-dark-02.svg"
                 alt="AI Worker"
-                className="hidden dark:block"
+                className="hidden dark:block object-contain"
                 fill
               />
             </motion.div>
           </div>
         </div>
       </section>
-      {/* ===== About Two End ===== */}
     </>
   );
 };
