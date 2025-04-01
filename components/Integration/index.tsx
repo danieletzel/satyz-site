@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionHeader from "../Common/SectionHeader";
@@ -33,6 +34,18 @@ const positions = [
   "row-start-6 col-start-4",
 ];
 
+// Animação suave como se estivesse "sobre a água"
+const floatAnimation = {
+  animate: {
+    y: [0, -6, 0],
+    transition: {
+      duration: 2.5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  },
+};
+
 const Integration = () => {
   return (
     <section className="relative z-10 mx-auto max-w-c-1390 px-4 py-14 md:px-8 xl:px-0">
@@ -53,7 +66,8 @@ const Integration = () => {
               key={index}
               initial={{ opacity: 0, scale: 0.6 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: integration.delay }}
+              animate={floatAnimation.animate}
+              transition={{ delay: integration.delay }}
               viewport={{ once: true }}
               className="w-16 h-16 rounded-2xl bg-white p-3 shadow-md dark:bg-btndark flex items-center justify-center"
             >
@@ -75,7 +89,8 @@ const Integration = () => {
               key={index}
               initial={{ opacity: 0, scale: 0.6 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: integration.delay }}
+              animate={floatAnimation.animate}
+              transition={{ delay: integration.delay }}
               viewport={{ once: true }}
               className={`w-16 h-16 rounded-2xl bg-white p-3 shadow-md dark:bg-btndark flex items-center justify-center ${positions[index]}`}
             >
