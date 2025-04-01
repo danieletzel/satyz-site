@@ -1,6 +1,7 @@
 // app/(auth)/layout.tsx
 
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: {
@@ -10,10 +11,10 @@ export const metadata: Metadata = {
   description: "A plataforma de AI Workers para times de alta performance.",
 };
 
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+interface AuthLayoutProps {
+  children: ReactNode;
+}
+
+export default function AuthLayout({ children }: AuthLayoutProps) {
   return <>{children}</>;
 }
