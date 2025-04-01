@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import "../globals.css"; // ✅ Caminho corrigido
+import "./globals.css"; // ✅ Correto agora
 
 export const metadata: Metadata = {
   title: "Satyz - AI Agents",
