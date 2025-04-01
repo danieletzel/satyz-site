@@ -2,19 +2,17 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link"; // ⬅️ ADICIONADO
 
 const About = () => {
   return (
     <>
-      {/* <!-- ===== About Start ===== --> */}
+      {/* ===== About Start ===== */}
       <section id="about" className="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
         <div className="mx-auto max-w-c-1235 px-4 md:px-8 xl:px-0">
           <div className="flex items-center gap-8 lg:gap-32.5">
             <motion.div
-              variants={{
-                hidden: { opacity: 0, x: -20 },
-                visible: { opacity: 1, x: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -36,10 +34,7 @@ const About = () => {
             </motion.div>
 
             <motion.div
-              variants={{
-                hidden: { opacity: 0, x: 20 },
-                visible: { opacity: 1, x: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -93,15 +88,12 @@ const About = () => {
         </div>
       </section>
 
-      {/* <!-- ===== About Two Start ===== --> */}
+      {/* ===== About Two Start ===== */}
       <section>
         <div className="mx-auto max-w-c-1235 overflow-hidden px-4 md:px-8 2xl:px-0">
           <div className="flex items-center gap-8 lg:gap-32.5">
             <motion.div
-              variants={{
-                hidden: { opacity: 0, x: -20 },
-                visible: { opacity: 1, x: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 1, delay: 0.1 }}
@@ -124,7 +116,7 @@ const About = () => {
               </p>
 
               <div className="mt-7.5">
-                <a
+                <Link
                   href="#contact"
                   className="inline-flex items-center gap-2.5 text-black hover:text-primary dark:text-white dark:hover:text-primary"
                 >
@@ -132,15 +124,12 @@ const About = () => {
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
                     <path d="M10.4767 6.16701L6.00668 1.69701L7.18501 0.518677L13.6667 7.00034L7.18501 13.482L6.00668 12.3037L10.4767 7.83368H0.333344V6.16701H10.4767Z" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </motion.div>
 
             <motion.div
-              variants={{
-                hidden: { opacity: 0, x: 20 },
-                visible: { opacity: 1, x: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 1, delay: 0.1 }}
@@ -163,7 +152,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      {/* <!-- ===== About Two End ===== --> */}
+      {/* ===== About Two End ===== */}
     </>
   );
 };

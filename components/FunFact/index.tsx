@@ -84,7 +84,13 @@ const FeaturesCarousel = () => {
                 }`}
               >
                 <div className="mb-5 flex justify-center">
-                  <Image src={feature.icon} alt={feature.title} width={60} height={60} />
+                  <Image
+                    src={feature.icon}
+                    alt={feature.title}
+                    width={60}
+                    height={60}
+                    className="dark:invert-0 invert filter brightness-0"
+                  />
                 </div>
                 <h3 className="mb-3 text-center text-xl font-semibold text-black dark:text-white">
                   {feature.title}
