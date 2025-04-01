@@ -1,4 +1,5 @@
 "use client";
+
 import { Blog } from "@/types/blog";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -12,17 +13,25 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
       variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
       initial="hidden"
       whileInView="visible"
-      transition={{ duration: 1, delay: 0.5 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
       viewport={{ once: true }}
-      className="animate_top rounded-lg bg-white p-4 pb-9 shadow-solid-8 dark:bg-blacksection"
+      className="group animate_top rounded-lg bg-white p-4 pb-9 shadow-solid-8 transition-all duration-300 hover:shadow-xl dark:bg-blacksection"
     >
-      <Link href={`/blog/`} className="relative block aspect-[368/239]">
-        <Image src={mainImage} alt={title} fill className="rounded-md object-cover" />
+      <Link href="/blog/blog-details" className="relative block aspect-[368/239] overflow-hidden rounded-md">
+        <Image
+          src={mainImage}
+          alt={`Imagem do post: ${title}`}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
       </Link>
 
       <div className="px-4">
-        <h3 className="mb-3.5 mt-7.5 text-lg font-medium text-black dark:text-white line-clamp-2 hover:text-primary dark:hover:text-primary">
-          <Link href={`/blog/blog-details`}>
+        <h3 className="mb-3.5 mt-7.5 text-lg font-medium text-black dark:text-white line-clamp-2">
+          <Link
+            href="/blog/blog-details"
+            className="transition-colors duration-300 hover:text-primary dark:hover:text-primary"
+          >
             {title}
           </Link>
         </h3>
