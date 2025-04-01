@@ -5,8 +5,6 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-
-    // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: "class",
@@ -29,6 +27,10 @@ module.exports = {
         black: "#181C31",
         blackho: "#2C3149",
         blacksection: "#1C2136",
+        dark: {
+          bg: "#0D1B2A",        // Novo fundo azul escuro
+          section: "#0B132B"   // Novo fundo de seção dark
+        },
         primary: "#006BFF",
         primaryho: "#0063EC",
         meta: "#20C5A8",
@@ -38,6 +40,7 @@ module.exports = {
         zumthor: "#EDF5FF",
         socialicon: "#D1D8E0",
       },
+      // ... demais configurações (sem alterações)
       fontSize: {
         metatitle: ["12px", "20px"],
         sectiontitle: ["14px", "22px"],
