@@ -16,14 +16,13 @@ export const metadata: Metadata = {
   description: "Agentes de IA autônomos para transformar sua operação.",
 };
 
-type Props = {
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
   children: ReactNode;
-  params: {
-    locale: string;
-  };
-};
-
-export default async function LocaleLayout({ children, params }: Props) {
+  params: { locale: string };
+}) {
   const { locale } = params;
 
   setRequestLocale(locale);
