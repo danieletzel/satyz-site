@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,53 +17,40 @@ const Header = () => {
     setStickyMenu(window.scrollY >= 80);
   };
 
+  // Scroll com offset fixo
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (target) {
+      const yOffset = -100; // offset do header fixo
+      const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
     return () => window.removeEventListener("scroll", handleStickyMenu);
   }, []);
 
   return (
-    <header
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
-        stickyMenu
-          ? "bg-white shadow-sm py-3 dark:bg-black"
-          : "bg-transparent py-4"
-      }`}
-    >
+    <header className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${stickyMenu ? "bg-white shadow-sm py-3 dark:bg-black" : "bg-transparent py-4"}`}>
       <div className="relative mx-auto flex max-w-c-1390 items-center justify-between px-4 md:px-8 2xl:px-0">
+
         {/* Logo */}
         <motion.div
-          animate={{
-            height: stickyMenu ? 60 : 80,
-            width: stickyMenu ? 180 : 260,
-          }}
+          animate={{ height: stickyMenu ? 60 : 80, width: stickyMenu ? 180 : 260 }}
           transition={{ duration: 0.3 }}
           className="relative shrink-0"
         >
           <Link href="/" className="block relative h-full w-full">
-            <Image
-              src="/images/logo/logo-light.svg"
-              alt="Satyz Logo Light"
-              fill
-              className="object-contain block dark:hidden"
-              priority
-            />
-            <Image
-              src="/images/logo/logo-dark.svg"
-              alt="Satyz Logo Dark"
-              fill
-              className="object-contain hidden dark:block"
-              priority
-            />
+            <Image src="/images/logo/logo-light.svg" alt="Satyz Logo Light" fill className="object-contain block dark:hidden" priority />
+            <Image src="/images/logo/logo-dark.svg" alt="Satyz Logo Dark" fill className="object-contain hidden dark:block" priority />
           </Link>
         </motion.div>
 
         {/* Botão Mobile */}
-        <button
-          aria-label="hamburger"
-          className="relative z-50 block xl:hidden"
-          onClick={() => setNavigationOpen(!navigationOpen)}
-        >
+        <button aria-label="hamburger" className="relative z-50 block xl:hidden" onClick={() => setNavigationOpen(!navigationOpen)}>
           <span className="relative block h-5.5 w-5.5 cursor-pointer">
             <span className="absolute right-0 block h-full w-full">
               <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${navigationOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
@@ -77,18 +65,15 @@ const Header = () => {
           <nav>
             <ul className="flex items-center gap-8">
               <li><Link href="/" className={pathUrl === "/" ? "text-primary" : "hover:text-primary"}>Home</Link></li>
+
               <li className="relative group">
-                <button
-                  onClick={() => setDropdownToggler(!dropdownToggler)}
-                  className="flex items-center gap-2 hover:text-primary"
-                >
+                <button onClick={() => setDropdownToggler(!dropdownToggler)} className="flex items-center gap-2 hover:text-primary">
                   AI Workers
                   <svg className="h-3 w-3 fill-waterloo group-hover:fill-primary" viewBox="0 0 512 512">
                     <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
                   </svg>
                 </button>
 
-                {/* Animação do dropdown */}
                 <AnimatePresence>
                   {dropdownToggler && (
                     <motion.ul
@@ -106,9 +91,10 @@ const Header = () => {
                   )}
                 </AnimatePresence>
               </li>
-              <li><Link href="/about" className={pathUrl === "/about" ? "text-primary" : "hover:text-primary"}>Company</Link></li>
+
+              <li><a href="/#about" onClick={(e) => handleAnchorClick(e, "about")} className="hover:text-primary">Company</a></li>
               <li><Link href="/blog" className={pathUrl === "/blog" ? "text-primary" : "hover:text-primary"}>Blog</Link></li>
-              <li><Link href="/contact" className={pathUrl === "/contact" ? "text-primary" : "hover:text-primary"}>Contact</Link></li>
+              <li><a href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")} className="hover:text-primary">Contact</a></li>
             </ul>
           </nav>
 
@@ -145,9 +131,9 @@ const Header = () => {
                       </ul>
                     </details>
                   </li>
-                  <li><Link href="/about" className="hover:text-primary">Company</Link></li>
+                  <li><a href="/#about" onClick={(e) => handleAnchorClick(e, "about")} className="hover:text-primary">Company</a></li>
                   <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
-                  <li><Link href="/contact" className="hover:text-primary">Contact</Link></li>
+                  <li><a href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")} className="hover:text-primary">Contact</a></li>
                 </ul>
               </nav>
 
