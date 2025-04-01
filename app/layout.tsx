@@ -1,6 +1,7 @@
 // app/layout.tsx
+import "./globals.css";
 import type { Metadata } from "next";
-import "./globals.css"; // ✅ Correto agora
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Satyz - AI Agents",
@@ -13,8 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
-      <body>{children}</body>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" enableSystem={true} defaultTheme="light">
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
