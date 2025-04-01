@@ -90,7 +90,7 @@ const FeaturesCarousel = () => {
                     alt={feature.title}
                     width={60}
                     height={60}
-                    className="invert-0 dark:invert filter dark:brightness-0"
+                    className="filter brightness-0 dark:filter-none"
                   />
                 </div>
                 <h3 className="mb-3 text-center text-xl font-semibold text-black dark:text-white">
