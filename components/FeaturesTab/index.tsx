@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import FeaturesTabItem from "./FeaturesTabItem";
 import featuresTabData from "./featuresTabData";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FeaturesTab = () => {
   const [currentTab, setCurrentTab] = useState("tabOne");
@@ -77,14 +77,21 @@ const FeaturesTab = () => {
           viewport={{ once: true }}
           className="animate_top mx-auto max-w-c-1154"
         >
-          {featuresTabData.map((feature) => (
-            <div
-              className={`${feature.id === currentTab ? "block animate-fadeIn" : "hidden"}`}
-              key={feature.id}
-            >
-              <FeaturesTabItem featureTab={feature} />
-            </div>
-          ))}
+          <AnimatePresence mode="wait">
+            {featuresTabData.map((feature) =>
+              feature.id === currentTab ? (
+                <motion.div
+                  key={feature.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <FeaturesTabItem featureTab={feature} />
+                </motion.div>
+              ) : null
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>
