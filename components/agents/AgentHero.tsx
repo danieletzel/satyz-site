@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import ThemeToggler from "@/components/Header/ThemeToggler";
@@ -28,7 +26,7 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
       <div className="max-w-c-1235 mx-auto px-4 md:px-8 xl:px-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
         {/* Texto */}
         <div className="flex-1 text-center lg:text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight text-black dark:text-white">
+          <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-black dark:text-white whitespace-nowrap">
             Olá, meu nome é{" "}
             <span className="text-primary">
               <Typewriter
@@ -65,13 +63,14 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
           </div>
         </div>
 
-        {/* Vídeo com badge */}
+        {/* Vídeo */}
         <div className="flex-1 relative">
-          <span className="absolute top-4 left-4 z-10 rounded-full bg-green-500 px-4 py-1.5 text-xs font-medium text-white shadow-lg">
+          {/* Autopilot Badge */}
+          <div className="absolute top-2 left-2 z-10 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-xs px-3 py-1 rounded-full font-medium shadow">
             Autopilot ativado há {timeElapsed} minutos
-          </span>
+          </div>
 
-          <div className="aspect-[9/10] w-full max-w-[500px] mx-auto rounded-2xl overflow-hidden shadow-solid-5">
+          <div className="relative rounded-2xl overflow-hidden shadow-solid-5">
             <video
               src={videoSrc}
               autoPlay
