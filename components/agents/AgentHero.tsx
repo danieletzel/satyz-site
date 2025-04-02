@@ -9,10 +9,10 @@ interface AgentHeroProps {
   name: string;
   description: string;
   videoSrc: string;
-  ctaLink?: string;
+  resumeUrl: string;
 }
 
-const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => {
+const AgentHero = ({ name, description, videoSrc, resumeUrl }: AgentHeroProps) => {
   const [timeElapsed, setTimeElapsed] = useState(2);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
   }, []);
 
   return (
-    <section className="bg-white dark:bg-black py-12 lg:py-24 relative z-10">
+    <section className="bg-white dark:bg-black py-12 lg:py-24">
       <div className="max-w-c-1235 mx-auto px-4 md:px-8 xl:px-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
         {/* Texto */}
         <div className="flex-1 text-center lg:text-left">
@@ -51,11 +51,11 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
               href="/#contact"
               className="inline-block rounded-full bg-primary px-8 py-3 text-white text-lg font-medium shadow-md hover:bg-primaryho transition-transform hover:scale-105"
             >
-              Entreviste {name === "CAIO" ? "o" : "a"} {name}
+              Entreviste o {name}
             </Link>
 
             <a
-              href={`/downloads/${name.toLowerCase()}-curriculo.pdf`}
+              href={resumeUrl}
               download
               className="inline-block rounded-full border border-primary px-8 py-3 text-primary text-lg font-medium hover:bg-primary hover:text-white transition-transform hover:scale-105"
             >
@@ -74,7 +74,7 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
 
         {/* Vídeo */}
         <div className="flex-1 relative">
-          <div className="relative w-full max-w-md lg:max-w-[420px] mx-auto rounded-2xl overflow-hidden shadow-solid-5">
+          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full max-w-md mx-auto">
             <video
               src={videoSrc}
               autoPlay
