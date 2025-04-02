@@ -23,10 +23,10 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
   }, []);
 
   return (
-    <section className="bg-white dark:bg-black py-12 lg:py-24">
+    <section className="relative bg-white dark:bg-black pt-[88px] pb-12 lg:pt-[120px] lg:pb-24">
       <div className="max-w-c-1235 mx-auto px-4 md:px-8 xl:px-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
         {/* Texto */}
-        <div className="flex-1 text-center lg:text-left">
+        <div className="flex-1 text-center lg:text-left z-10">
           <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight text-black dark:text-white">
             Olá, meu nome é{" "}
             <span className="text-primary">
@@ -65,13 +65,13 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
         </div>
 
         {/* Vídeo */}
-        <div className="flex-1 relative w-full max-w-md mx-auto">
+        <div className="flex-1 relative w-full max-w-md mx-auto z-10">
           {/* Badge Autopilot */}
-          <div className="absolute top-3 left-3 z-10 bg-blue-100 text-primary text-sm font-medium px-3 py-1 rounded-full shadow-md">
+          <div className="absolute top-3 left-3 z-20 bg-blue-100 text-primary text-sm font-medium px-3 py-1 rounded-full shadow-md">
             Autopilot ativado há {timeElapsed} minutos
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full aspect-[3/4]">
+          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full aspect-[3/4] z-10">
             <video
               src={videoSrc}
               autoPlay
