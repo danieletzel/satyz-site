@@ -1,19 +1,23 @@
 "use client";
 
+import Header from "@/components/Header";
+import ThemeToggler from "@/components/Header/ThemeToggler";
 import AgentHero from "@/components/agents/AgentHero";
 import AgentHighlights from "@/components/agents/AgentHighlights";
 import AgentUseCases from "@/components/agents/AgentUseCases";
 import AgentStatus from "@/components/agents/AgentStatus";
-import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
-import Footer from "@/components/Footer";
-import ThemeToggler from "@/components/Header/ThemeToggler";
-import IntegrationGrid from "@/components/agents/IntegrationGrid";
 import AgentToolsSection from "@/components/agents/AgentToolsSection";
+import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
+import IntegrationGrid from "@/components/agents/IntegrationGrid";
+import Footer from "@/components/Footer";
 
 export default function CaioPage() {
   return (
     <>
-      {/* Dark mode toggle */}
+      {/* Header fixo */}
+      <Header />
+
+      {/* Botão de tema (usado se necessário) */}
       <div className="fixed top-5 right-5 z-50">
         <ThemeToggler />
       </div>
@@ -37,20 +41,17 @@ export default function CaioPage() {
         useCases={[
           {
             title: "Agente de Atendimento",
-            description:
-              "Responde dúvidas, escala para humanos e aprende com feedbacks.",
+            description: "Responde dúvidas, escala para humanos e aprende com feedbacks.",
             icon: "/images/icons/support.svg",
           },
           {
             title: "Onboarding de Clientes",
-            description:
-              "Automatiza etapas iniciais e educa o cliente com personalização.",
+            description: "Automatiza etapas iniciais e educa o cliente com personalização.",
             icon: "/images/icons/onboarding.svg",
           },
           {
             title: "Assistente Interno",
-            description:
-              "Centraliza informações da empresa e responde à equipe em tempo real.",
+            description: "Centraliza informações da empresa e responde à equipe em tempo real.",
             icon: "/images/icons/internal.svg",
           },
         ]}
