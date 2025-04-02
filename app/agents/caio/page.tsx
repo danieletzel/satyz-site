@@ -8,6 +8,7 @@ import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton
 import Footer from "@/components/Footer";
 import ThemeToggler from "@/components/Header/ThemeToggler";
 import IntegrationGrid from "@/components/agents/IntegrationGrid";
+import AgentToolsSection from "@/components/agents/AgentToolsSection";
 
 export default function CaioPage() {
   return (
