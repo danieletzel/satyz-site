@@ -9,22 +9,22 @@ interface AgentHeroProps {
   name: string;
   description: string;
   videoSrc: string;
-  ctaLink: string;
-  resumeUrl: string;
+  ctaLink?: string;
+  resumeUrl?: string;
 }
 
-const AgentHero = ({ name, description, videoSrc, ctaLink, resumeUrl }: AgentHeroProps) => {
+const AgentHero = ({ name, description, videoSrc, ctaLink = "/#contact", resumeUrl }: AgentHeroProps) => {
   const [timeElapsed, setTimeElapsed] = useState(2);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeElapsed((prev) => prev + 1);
-    }, 60000); // incrementa a cada 1 minuto
+    }, 60000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="bg-white dark:bg-black py-12 lg:py-24">
+    <section className="bg-white dark:bg-black pt-24 lg:pt-24 pb-12 lg:pb-24">
       <div className="max-w-c-1235 mx-auto px-4 md:px-8 xl:px-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
         {/* Texto */}
         <div className="flex-1 text-center lg:text-left">
@@ -52,16 +52,18 @@ const AgentHero = ({ name, description, videoSrc, ctaLink, resumeUrl }: AgentHer
               href={ctaLink}
               className="inline-block rounded-full bg-primary px-8 py-3 text-white text-lg font-medium shadow-md hover:bg-primaryho transition-transform hover:scale-105"
             >
-              Entreviste a {name}
+              Entreviste {name}
             </Link>
 
-            <a
-              href={resumeUrl}
-              download
-              className="inline-block rounded-full border border-primary px-8 py-3 text-primary text-lg font-medium hover:bg-primary hover:text-white transition-transform hover:scale-105"
-            >
-              Baixar CV
-            </a>
+            {resumeUrl && (
+              <a
+                href={resumeUrl}
+                download
+                className="inline-block rounded-full border border-primary px-8 py-3 text-primary text-lg font-medium hover:bg-primary hover:text-white transition-transform hover:scale-105"
+              >
+                Baixar CV
+              </a>
+            )}
           </div>
 
           <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
@@ -75,7 +77,7 @@ const AgentHero = ({ name, description, videoSrc, ctaLink, resumeUrl }: AgentHer
 
         {/* Vídeo */}
         <div className="flex-1 relative">
-          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full max-w-[500px] mx-auto">
+          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full max-w-md mx-auto">
             <video
               src={videoSrc}
               autoPlay
