@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import ThemeToggler from "../ThemeToggler";
+import ThemeToggler from '@/components/ThemeToggler';
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
