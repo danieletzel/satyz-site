@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 
 const About = () => {
@@ -19,18 +18,24 @@ const About = () => {
               viewport={{ once: true }}
               className="animate_left relative mx-auto aspect-[588/526.5] w-full max-w-[500px] md:block md:w-1/2"
             >
-              <Image
-                src="/images/about/about-light-01.svg"
-                alt="Sobre a Satyz"
-                className="dark:hidden object-contain"
-                fill
-              />
-              <Image
-                src="/images/about/about-dark-01.svg"
-                alt="Sobre a Satyz"
-                className="hidden dark:block object-contain"
-                fill
-              />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="dark:hidden object-contain w-full h-full"
+              >
+                <source src="/videos/about-light-01.mp4" type="video/mp4" />
+              </video>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="hidden dark:block object-contain w-full h-full"
+              >
+                <source src="/videos/about-dark-01.mp4" type="video/mp4" />
+              </video>
             </motion.div>
 
             <motion.div
@@ -136,18 +141,24 @@ const About = () => {
               viewport={{ once: true }}
               className="animate_right relative mx-auto aspect-[588/526.5] w-full max-w-[500px] md:w-1/2"
             >
-              <Image
-                src="/images/about/about-light-02.svg"
-                alt="AI Worker"
-                className="dark:hidden object-contain"
-                fill
-              />
-              <Image
-                src="/images/about/about-dark-02.svg"
-                alt="AI Worker"
-                className="hidden dark:block object-contain"
-                fill
-              />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="dark:hidden object-contain w-full h-full"
+              >
+                <source src="/videos/about-light-02.mp4" type="video/mp4" />
+              </video>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="hidden dark:block object-contain w-full h-full"
+              >
+                <source src="/videos/about-dark-02.mp4" type="video/mp4" />
+              </video>
             </motion.div>
           </div>
         </div>
