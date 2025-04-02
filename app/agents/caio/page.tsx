@@ -21,17 +21,17 @@ const technologies = [
 
 export default function CaioPage() {
   return (
-    <section className="pt-40 pb-20 px-4 md:px-10 xl:px-0 max-w-c-1235 mx-auto">
-      <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
-        {/* Texto */}
-        <div className="w-full lg:w-1/2">
+    <>
+      {/* Seção 1: Hero */}
+      <section className="pt-36 pb-20 px-4 md:px-10 xl:px-0 max-w-c-1235 mx-auto text-center">
+        <div className="mx-auto max-w-2xl">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-bold text-black dark:text-white mb-6"
+            className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4"
           >
-            <span>Olá, meu nome é </span>
+            Olá, meu nome é{" "}
             <span className="text-primary">
               <Typewriter
                 words={["CAIO."]}
@@ -48,34 +48,43 @@ export default function CaioPage() {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-lg text-gray-700 dark:text-manatee max-w-xl mb-8"
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-lg text-gray-700 dark:text-manatee mb-8"
           >
-            Sou o Chief AI Officer da Satyz. Crio, gerencio e otimizo agentes de inteligência artificial
-            para todas as áreas do seu negócio. Minha missão é garantir que sua operação tenha a IA
-            como aliada estratégica de verdade — e não só como um chatbot.
+            Chief AI Officer da Satyz. Crio, gerencio e evoluo agentes de IA sob medida para todas as áreas do seu negócio.
           </motion.p>
 
           <Link
             href="/contact/caio"
-            className="inline-block mb-10 text-white bg-primary hover:bg-primaryho rounded-full px-6 py-3 text-base font-medium transition duration-300"
+            className="inline-block rounded-full bg-primary px-8 py-3 text-white text-sm font-medium transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-primaryho"
           >
             Me entreviste
           </Link>
+        </div>
 
+        <div className="mt-16 max-w-xl mx-auto rounded-xl overflow-hidden shadow-solid-6">
+          <VideoPlayer src="/videos/caio.mp4" />
+        </div>
+      </section>
+
+      {/* Seção 2: Cards bonitos */}
+      <section className="bg-zumthor dark:bg-dark-section py-20 px-4 md:px-10 xl:px-0">
+        <div className="max-w-c-1235 mx-auto">
           {/* Especialidades */}
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
-              Minhas especialidades
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-10 text-center">
+              Minhas Especialidades
             </h2>
-            <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2 group">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {specialties.map((item, index) => (
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
                   key={index}
-                  className="min-w-[240px] transform rounded-xl border border-stroke dark:border-strokedark bg-white dark:bg-blacksection p-4 shadow-solid-2 transition duration-300 hover:brightness-110 group-hover:opacity-60 hover:!opacity-100"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="rounded-xl border border-stroke dark:border-strokedark bg-white dark:bg-blacksection p-6 shadow-solid-4 transition-all duration-300 hover:brightness-110"
                 >
-                  <p className="text-sm text-gray-800 dark:text-manatee">{item}</p>
+                  <p className="text-base text-black dark:text-manatee">{item}</p>
                 </motion.div>
               ))}
             </div>
@@ -83,28 +92,25 @@ export default function CaioPage() {
 
           {/* Tecnologias */}
           <div>
-            <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
-              Tecnologias e frameworks
+            <h2 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-10 text-center">
+              Tecnologias & Frameworks
             </h2>
-            <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2 group">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {technologies.map((item, index) => (
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
                   key={index}
-                  className="min-w-[240px] transform rounded-xl border border-stroke dark:border-strokedark bg-white dark:bg-blacksection p-4 shadow-solid-2 transition duration-300 hover:brightness-110 group-hover:opacity-60 hover:!opacity-100"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="rounded-xl border border-stroke dark:border-strokedark bg-white dark:bg-blacksection p-6 shadow-solid-4 transition-all duration-300 hover:brightness-110"
                 >
-                  <p className="text-sm text-gray-800 dark:text-manatee">{item}</p>
+                  <p className="text-base text-black dark:text-manatee">{item}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </div>
-
-        {/* Vídeo */}
-        <div className="w-full lg:w-1/2 max-w-md">
-          <VideoPlayer src="/videos/caio.mp4" />
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
