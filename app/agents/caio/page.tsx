@@ -4,29 +4,24 @@ import Header from "@/components/Header";
 import AgentHero from "@/components/agents/AgentHero";
 import AgentHighlights from "@/components/agents/AgentHighlights";
 import AgentUseCases from "@/components/agents/AgentUseCases";
-import AgentStatus from "@/components/agents/AgentStatus";
 import AgentToolsSection from "@/components/agents/AgentToolsSection";
-import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import IntegrationGrid from "@/components/agents/IntegrationGrid";
+import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import Footer from "@/components/Footer";
 
 export default function CaioPage() {
   return (
     <>
-      {/* Header fixo */}
       <Header />
-      {/* Hero */}
+
       <AgentHero
         name="CAIO"
         description="Chief AI Officer da Satyz. Crio, gerencio e evoluo agentes de IA sob medida para todas as áreas do seu negócio."
         videoSrc="/videos/caio.mp4"
-        ctaLink="/contact/caio"
       />
 
-      {/* Especialidades e tecnologias */}
       <AgentHighlights />
 
-      {/* Casos de uso */}
       <AgentUseCases
         useCases={[
           {
@@ -47,7 +42,6 @@ export default function CaioPage() {
         ]}
       />
 
-      {/* Ferramentas utilizadas */}
       <AgentToolsSection
         tools={[
           {
@@ -77,7 +71,6 @@ export default function CaioPage() {
         ]}
       />
 
-      {/* Integrações */}
       <IntegrationGrid
         title="CAIO integra com toda sua stack de GTM"
         description="Automatiza processos de vendas, marketing, suporte e operações conectando com suas ferramentas favoritas."
@@ -93,10 +86,7 @@ export default function CaioPage() {
         ]}
       />
 
-      {/* Botão flutuante */}
-      <FloatingInterviewButton link="/contact/caio" />
-
-      {/* Footer igual à home */}
+      <FloatingInterviewButton agentName="CAIO" />
       <Footer />
     </>
   );

@@ -2,7 +2,6 @@
 
 import Header from "@/components/Header";
 import AgentHero from "@/components/agents/AgentHero";
-import AgentStatus from "@/components/agents/AgentStatus";
 import AgentHighlights from "@/components/agents/AgentHighlights";
 import AgentUseCases from "@/components/agents/AgentUseCases";
 import AgentToolsSection from "@/components/agents/AgentToolsSection";
@@ -13,22 +12,16 @@ import Footer from "@/components/Footer";
 export default function LindaPage() {
   return (
     <>
-      {/* Header */}
       <Header />
 
-
-      {/* Hero */}
       <AgentHero
         name="LINDA"
         description="AI Copywriter da Satyz. Crio conteúdos irresistíveis e personalizados para sua marca escalar com impacto."
         videoSrc="/videos/linda.mp4"
-        ctaLink="/contact/linda"
       />
 
-      {/* Especialidades e Tecnologias */}
       <AgentHighlights />
 
-      {/* Casos de uso - específicos para Copy */}
       <AgentUseCases
         useCases={[
           {
@@ -49,7 +42,6 @@ export default function LindaPage() {
         ]}
       />
 
-      {/* Ferramentas utilizadas */}
       <AgentToolsSection
         tools={[
           {
@@ -71,7 +63,6 @@ export default function LindaPage() {
         ]}
       />
 
-      {/* Integrações */}
       <IntegrationGrid
         title="LINDA se conecta às suas ferramentas de marketing"
         description="Amplifique sua comunicação com integrações que otimizam criação, distribuição e análise."
@@ -85,10 +76,7 @@ export default function LindaPage() {
         ]}
       />
 
-      {/* Botão flutuante */}
-      <FloatingInterviewButton link="/contact/linda" />
-
-      {/* Footer */}
+      <FloatingInterviewButton agentName="LINDA" />
       <Footer />
     </>
   );

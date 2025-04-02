@@ -4,53 +4,44 @@ import Header from "@/components/Header";
 import AgentHero from "@/components/agents/AgentHero";
 import AgentHighlights from "@/components/agents/AgentHighlights";
 import AgentUseCases from "@/components/agents/AgentUseCases";
-import AgentStatus from "@/components/agents/AgentStatus";
 import AgentToolsSection from "@/components/agents/AgentToolsSection";
-import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import IntegrationGrid from "@/components/agents/IntegrationGrid";
+import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import Footer from "@/components/Footer";
 
 export default function AnaPage() {
   return (
     <>
-      {/* Header fixo */}
       <Header />
 
-      {/* Hero */}
       <AgentHero
         name="ANA"
         description="AI SDR da Satyz. Prospecto, qualifico e conecto leads com os humanos certos, no tempo certo."
         videoSrc="/videos/ana.mp4"
       />
 
-      {/* Especialidades e tecnologias */}
       <AgentHighlights />
 
-      {/* Casos de uso */}
       <AgentUseCases
         useCases={[
           {
             title: "Prospecção automatizada",
-            description:
-              "Envia mensagens personalizadas e se conecta com leads no timing ideal.",
+            description: "Envia mensagens personalizadas e se conecta com leads no timing ideal.",
             icon: "/images/icons/outreach.svg",
           },
           {
             title: "Qualificação de leads",
-            description:
-              "Faz perguntas inteligentes e entrega apenas leads prontos para vendas.",
+            description: "Faz perguntas inteligentes e entrega apenas leads prontos para vendas.",
             icon: "/images/icons/qualification.svg",
           },
           {
             title: "Follow-ups inteligentes",
-            description:
-              "Segue playbooks com persistência e timing baseado em intenção.",
+            description: "Segue playbooks com persistência e timing baseado em intenção.",
             icon: "/images/icons/followup.svg",
           },
         ]}
       />
 
-      {/* Ferramentas utilizadas */}
       <AgentToolsSection
         tools={[
           {
@@ -68,7 +59,6 @@ export default function AnaPage() {
         ]}
       />
 
-      {/* Integrações */}
       <IntegrationGrid
         title="ANA integra com sua stack comercial"
         description="Conecta com ferramentas de prospecção, CRM e automação para atingir leads no melhor canal e momento."
@@ -82,10 +72,7 @@ export default function AnaPage() {
         ]}
       />
 
-      {/* Botão flutuante */}
-      <FloatingInterviewButton />
-
-      {/* Footer igual à home */}
+      <FloatingInterviewButton agentName="ANA" />
       <Footer />
     </>
   );
