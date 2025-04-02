@@ -1,13 +1,19 @@
-// components/agents/AgentHero.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import ThemeToggler from '@/components/Header/ThemeToggler';
+import ThemeToggler from "@/components/Header/ThemeToggler";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const AgentHero = () => {
+type AgentHeroProps = {
+  name: string;
+  description: string;
+  videoSrc: string;
+  ctaLink: string;
+};
+
+const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => {
   const [autopilotActive, setAutopilotActive] = useState(false);
 
   useEffect(() => {
@@ -27,10 +33,10 @@ const AgentHero = () => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-black dark:text-white whitespace-nowrap">
-            Olá, meu nome é {" "}
+            Olá, meu nome é{" "}
             <span className="text-primary">
               <Typewriter
-                words={["CAIO."]}
+                words={[`${name}.`]}
                 loop={false}
                 cursor
                 cursorStyle="|"
@@ -42,16 +48,16 @@ const AgentHero = () => {
           </h1>
 
           <p className="mt-6 text-lg text-gray-600 dark:text-manatee max-w-xl mx-auto lg:mx-0">
-            Sou o Chief AI Officer da Satyz. Crio, gerencio e otimizo agentes inteligentes sob medida para transformar sua operação.
+            {description}
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a
-              href="/contact"
+            <Link
+              href={ctaLink}
               className="inline-block rounded-full bg-primary px-8 py-3 text-white text-lg font-medium shadow-md hover:bg-primaryho transition-transform hover:scale-105"
             >
               Me entreviste
-            </a>
+            </Link>
 
             <a
               href="/downloads/caio-curriculo.pdf"
@@ -67,7 +73,7 @@ const AgentHero = () => {
         <div className="flex-1 relative">
           <div className="relative rounded-2xl overflow-hidden shadow-solid-5">
             <video
-              src="/videos/caio.mp4"
+              src={videoSrc}
               autoPlay
               muted
               loop
@@ -77,7 +83,7 @@ const AgentHero = () => {
           </div>
 
           <div className="absolute top-4 left-4 flex flex-col gap-2">
-            <span className="bg-black/70 text-white text-sm px-4 py-1 rounded-full">CAIO, o C.A.I.O.</span>
+            <span className="bg-black/70 text-white text-sm px-4 py-1 rounded-full">{name}, o C.A.I.O.</span>
             <motion.span
               animate={{ opacity: autopilotActive ? 1 : 0.3 }}
               transition={{ duration: 0.8, repeat: Infinity, repeatType: "mirror" }}
