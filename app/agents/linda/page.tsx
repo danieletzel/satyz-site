@@ -2,78 +2,95 @@
 
 import Header from "@/components/Header";
 import AgentHero from "@/components/agents/AgentHero";
+import AgentStatus from "@/components/agents/AgentStatus";
 import AgentHighlights from "@/components/agents/AgentHighlights";
 import AgentUseCases from "@/components/agents/AgentUseCases";
-import AgentStatus from "@/components/agents/AgentStatus";
 import AgentToolsSection from "@/components/agents/AgentToolsSection";
-import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import IntegrationGrid from "@/components/agents/IntegrationGrid";
+import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import Footer from "@/components/Footer";
 
 export default function LindaPage() {
   return (
     <>
-      {/* Header fixo */}
+      {/* Header */}
       <Header />
 
       {/* Status do agente */}
-      <AgentStatus status="Autopilot ativado" updatedAt="há 2 minutos" />
+      <AgentStatus status="Autopilot ativado" updatedAt="há 3 minutos" />
 
       {/* Hero */}
       <AgentHero
-        name="Linda"
-        description="Copywriter de IA da Satyz. Escrevo textos que vendem, performam e encantam – em qualquer canal e com seu tom de voz."
+        name="LINDA"
+        description="AI Copywriter da Satyz. Crio conteúdos irresistíveis e personalizados para sua marca escalar com impacto."
         videoSrc="/videos/linda.mp4"
         ctaLink="/contact/linda"
       />
 
-      {/* Especialidades e tecnologias */}
+      {/* Especialidades e Tecnologias */}
       <AgentHighlights />
 
-      {/* Casos de uso */}
+      {/* Casos de uso - específicos para Copy */}
       <AgentUseCases
         useCases={[
           {
-            title: "Criação de Landing Pages",
-            description: "Escreve páginas completas com foco em conversão, SEO e branding.",
-            icon: "/images/icons/landing.svg",
+            title: "Criação de Conteúdo",
+            description: "Textos para redes sociais, blogs, landing pages e e-mails. Tudo com seu tom de voz.",
+            icon: "/images/icons/content.svg",
           },
           {
-            title: "Campanhas de E-mail",
-            description: "Cria réguas, ganchos e textos com linguagem adequada a cada público.",
-            icon: "/images/icons/email.svg",
+            title: "Campanhas de Marketing",
+            description: "Cria campanhas multicanal persuasivas com textos que convertem.",
+            icon: "/images/icons/campaign.svg",
           },
           {
-            title: "Posts e Conteúdo de Blog",
-            description: "Planeja e executa conteúdo para SEO, autoridade e geração de demanda.",
-            icon: "/images/icons/blog.svg",
+            title: "Teste A/B Automatizado",
+            description: "Gera variações de texto para testar e otimizar sua comunicação.",
+            icon: "/images/icons/abtest.svg",
           },
         ]}
       />
 
       {/* Ferramentas utilizadas */}
-      <AgentToolsSection />
+      <AgentToolsSection
+        tools={[
+          {
+            title: "Copywriting e AI",
+            logos: ["/logos/jasper.svg", "/logos/copyai.svg", "/logos/anyword.svg"],
+          },
+          {
+            title: "Análise de SEO",
+            logos: ["/logos/semrush.svg", "/logos/ahrefs.svg"],
+          },
+          {
+            title: "Gestão de Conteúdo",
+            logos: ["/logos/notion.svg", "/logos/airtable.svg"],
+          },
+          {
+            title: "Integração com CRMs",
+            logos: ["/logos/hubspot.svg", "/logos/mailchimp.svg"],
+          },
+        ]}
+      />
 
       {/* Integrações */}
       <IntegrationGrid
-        title="Linda conecta com suas ferramentas de conteúdo e automação"
-        description="Entrega textos integrados ao seu stack de CRM, e-mail, sites, blogs e analytics."
+        title="LINDA se conecta às suas ferramentas de marketing"
+        description="Amplifique sua comunicação com integrações que otimizam criação, distribuição e análise."
         integrations={[
-          "/images/integrations/notion.svg",
-          "/images/integrations/mailchimp.svg",
           "/images/integrations/hubspot.svg",
+          "/images/integrations/mailchimp.svg",
+          "/images/integrations/semrush.svg",
           "/images/integrations/wordpress.svg",
+          "/images/integrations/notion.svg",
           "/images/integrations/google-docs.svg",
-          "/images/integrations/figma.svg",
-          "/images/integrations/activecampaign.svg",
-          "/images/integrations/google-analytics.svg",
         ]}
       />
 
       {/* Botão flutuante */}
       <FloatingInterviewButton link="/contact/linda" />
 
-      {/* Footer igual à home */}
+      {/* Footer */}
       <Footer />
     </>
   );
