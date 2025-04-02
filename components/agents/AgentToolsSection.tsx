@@ -42,7 +42,10 @@ const AgentToolSection = () => {
           {tools.map((tool, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(0,0,0,0.08)" }}
+              whileHover={{
+                scale: 1.03,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+              }}
               transition={{ type: "spring", stiffness: 300 }}
               className="rounded-xl bg-white dark:bg-neutral-900 p-6 shadow-md h-full"
             >
@@ -57,6 +60,7 @@ const AgentToolSection = () => {
                       alt={logo.split("/").pop()?.replace(".svg", "") || "logo"}
                       fill
                       className="object-contain"
+                      aria-label="Logo de integração"
                     />
                   </div>
                 ))}

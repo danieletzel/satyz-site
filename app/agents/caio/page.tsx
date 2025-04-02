@@ -3,24 +3,14 @@
 import AgentHero from "@/components/agents/AgentHero";
 import AgentHighlights from "@/components/agents/AgentHighlights";
 import AgentUseCases from "@/components/agents/AgentUseCases";
-import AgentStatus from "@/components/agents/AgentStatus";
+import AgentToolSection from "@/components/agents/AgentToolSection";
+import IntegrationGrid from "@/components/agents/IntegrationGrid";
 import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import Footer from "@/components/Footer";
-import ThemeToggler from "@/components/Header/ThemeToggler";
-import IntegrationGrid from "@/components/agents/IntegrationGrid";
-import AgentToolsSection from "@/components/agents/AgentToolsSection";
 
 export default function CaioPage() {
   return (
     <>
-      {/* Dark mode toggle */}
-      <div className="fixed top-5 right-5 z-50">
-        <ThemeToggler />
-      </div>
-
-      {/* Status do agente */}
-      <AgentStatus status="Autopilot ativado" updatedAt="há 2 minutos" />
-
       {/* Hero */}
       <AgentHero
         name="CAIO"
@@ -55,6 +45,9 @@ export default function CaioPage() {
           },
         ]}
       />
+
+      {/* Ferramentas utilizadas */}
+      <AgentToolSection />
 
       {/* Integrações */}
       <IntegrationGrid

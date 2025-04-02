@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import ThemeToggler from "@/components/Header/ThemeToggler";
@@ -26,8 +28,8 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
       <div className="max-w-c-1235 mx-auto px-4 md:px-8 xl:px-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
         {/* Texto */}
         <div className="flex-1 text-center lg:text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-black dark:text-white whitespace-nowrap">
-            Olá, meu nome é {" "}
+          <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight text-black dark:text-white">
+            Olá, meu nome é{" "}
             <span className="text-primary">
               <Typewriter
                 words={[`${name}.`]}
@@ -61,15 +63,15 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
               Baixar CV
             </a>
           </div>
-
-          <p className="mt-6 text-sm text-gray-500 dark:text-manatee">
-            Autopilot ativado há {timeElapsed} minutos
-          </p>
         </div>
 
-        {/* Vídeo */}
+        {/* Vídeo com badge */}
         <div className="flex-1 relative">
-          <div className="relative rounded-2xl overflow-hidden shadow-solid-5">
+          <span className="absolute top-4 left-4 z-10 rounded-full bg-green-500 px-4 py-1.5 text-xs font-medium text-white shadow-lg">
+            Autopilot ativado há {timeElapsed} minutos
+          </span>
+
+          <div className="aspect-[9/10] w-full max-w-[500px] mx-auto rounded-2xl overflow-hidden shadow-solid-5">
             <video
               src={videoSrc}
               autoPlay
