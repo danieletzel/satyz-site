@@ -15,10 +15,6 @@ export default function CaioPage() {
     <>
       {/* Header fixo */}
       <Header />
-
-      {/* Status do agente */}
-      <AgentStatus status="Autopilot ativado" updatedAt="há 2 minutos" />
-
       {/* Hero */}
       <AgentHero
         name="CAIO"

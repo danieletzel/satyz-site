@@ -16,8 +16,6 @@ export default function LindaPage() {
       {/* Header */}
       <Header />
 
-      {/* Status do agente */}
-      <AgentStatus status="Autopilot ativado" updatedAt="há 3 minutos" />
 
       {/* Hero */}
       <AgentHero
