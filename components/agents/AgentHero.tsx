@@ -9,20 +9,21 @@ interface AgentHeroProps {
   name: string;
   description: string;
   videoSrc: string;
+  ctaLink?: string;
 }
 
-const AgentHero = ({ name, description, videoSrc }: AgentHeroProps) => {
+const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => {
   const [timeElapsed, setTimeElapsed] = useState(2);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeElapsed((prev) => prev + 1);
-    }, 60000); // 1 minuto
+    }, 60000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="bg-white dark:bg-black pt-24 pb-12 lg:py-24">
+    <section className="bg-white dark:bg-black py-12 lg:py-24 relative z-10">
       <div className="max-w-c-1235 mx-auto px-4 md:px-8 xl:px-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
         {/* Texto */}
         <div className="flex-1 text-center lg:text-left">
@@ -73,7 +74,7 @@ const AgentHero = ({ name, description, videoSrc }: AgentHeroProps) => {
 
         {/* Vídeo */}
         <div className="flex-1 relative">
-          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full max-w-md mx-auto">
+          <div className="relative w-full max-w-md lg:max-w-[420px] mx-auto rounded-2xl overflow-hidden shadow-solid-5">
             <video
               src={videoSrc}
               autoPlay
