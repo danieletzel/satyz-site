@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -68,11 +67,11 @@ const Contact = () => {
               />
             </div>
 
-            {/* Código do país + telefone + Agente */}
+            {/* Telefone + Agente */}
             <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
               <div className="w-full lg:w-1/2">
                 <PhoneInput
-                  country={""}
+                  country="br"
                   value={phone}
                   onChange={setPhone}
                   inputProps={{
@@ -80,11 +79,11 @@ const Contact = () => {
                     required: true,
                     placeholder: "Telefone",
                   }}
-                  inputClass="!w-full !border-b !border-stroke !bg-transparent !pb-3.5 !text-black dark:!text-white focus:!outline-none dark:!border-strokedark"
+                  disableDropdown={true}
+                  countryCodeEditable={false}
+                  inputClass="!w-full !border-b !border-stroke !bg-transparent !pb-3.5 !text-black dark:!text-white focus:!outline-none dark:!border-strokedark placeholder:text-black dark:placeholder:text-white"
                   buttonClass="!bg-transparent"
                   containerClass="!w-full"
-                  enableSearch
-                  disableCountryCode={false}
                 />
               </div>
 
@@ -124,8 +123,8 @@ const Contact = () => {
             </div>
 
             {/* Termos + Botão */}
-            <div className="flex flex-col gap-4 xl:flex-row xl:justify-between">
-              <div className="flex items-start gap-4">
+            <div className="flex flex-wrap gap-4 xl:justify-between">
+              <div className="mb-4 flex md:mb-0">
                 <input id="consent-checkbox" type="checkbox" className="peer sr-only" required />
                 <span className="group mt-2 flex h-5 min-w-[20px] items-center justify-center rounded border-gray-300 bg-gray-100 peer-checked:bg-primary dark:border-gray-600 dark:bg-gray-700">
                   <svg
@@ -143,12 +142,13 @@ const Contact = () => {
                     />
                   </svg>
                 </span>
-                <label htmlFor="consent-checkbox" className="flex max-w-[425px] cursor-pointer select-none text-sm">
+                <label htmlFor="consent-checkbox" className="flex max-w-[425px] cursor-pointer select-none pl-5">
                   Ao enviar, você concorda com os nossos termos e uso de cookies.
                 </label>
               </div>
 
               <button
+                type="submit"
                 aria-label="enviar mensagem"
                 className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark"
               >
