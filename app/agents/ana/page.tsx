@@ -1,3 +1,4 @@
+// ANA PAGE
 "use client";
 
 import Header from "@/components/Header";
@@ -18,6 +19,8 @@ export default function AnaPage() {
         name="ANA"
         description="AI SDR da Satyz. Prospecto, qualifico e conecto leads com os humanos certos, no tempo certo."
         videoSrc="/videos/ana.mp4"
+        ctaLink="/#contact"
+        resumeUrl="/downloads/ana-curriculo.pdf"
       />
 
       <AgentHighlights />

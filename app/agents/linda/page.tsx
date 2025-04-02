@@ -1,3 +1,4 @@
+// LINDA PAGE
 "use client";
 
 import Header from "@/components/Header";
@@ -18,6 +19,8 @@ export default function LindaPage() {
         name="LINDA"
         description="AI Copywriter da Satyz. Crio conteúdos irresistíveis e personalizados para sua marca escalar com impacto."
         videoSrc="/videos/linda.mp4"
+        ctaLink="/#contact"
+        resumeUrl="/downloads/linda-curriculo.pdf"
       />
 
       <AgentHighlights />

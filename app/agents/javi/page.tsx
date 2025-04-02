@@ -1,3 +1,4 @@
+// JAVI PAGE
 "use client";
 
 import Header from "@/components/Header";
@@ -12,21 +13,18 @@ import Footer from "@/components/Footer";
 export default function JaviPage() {
   return (
     <>
-      {/* Header */}
       <Header />
 
-      {/* Hero */}
       <AgentHero
         name="JAVI"
         description="AI Phone Agent da Satyz. Faço chamadas com naturalidade e eficiência, representando sua marca com voz e atitude."
         videoSrc="/videos/javi.mp4"
+        ctaLink="/#contact"
         resumeUrl="/downloads/javi-curriculo.pdf"
       />
 
-      {/* Especialidades e tecnologias */}
       <AgentHighlights />
 
-      {/* Casos de uso */}
       <AgentUseCases
         useCases={[
           {
@@ -47,7 +45,6 @@ export default function JaviPage() {
         ]}
       />
 
-      {/* Ferramentas utilizadas */}
       <AgentToolsSection
         tools={[
           {
@@ -65,7 +62,6 @@ export default function JaviPage() {
         ]}
       />
 
-      {/* Integrações */}
       <IntegrationGrid
         title="JAVI integra com sua operação de atendimento"
         description="Conecta com telefonia, CRMs e fluxos automatizados para executar ligações com excelência."
@@ -79,10 +75,7 @@ export default function JaviPage() {
         ]}
       />
 
-      {/* Botão flutuante */}
-      <FloatingInterviewButton link="/#contact" />
-
-      {/* Footer */}
+      <FloatingInterviewButton agentName="JAVI" />
       <Footer />
     </>
   );

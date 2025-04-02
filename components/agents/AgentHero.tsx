@@ -9,16 +9,17 @@ interface AgentHeroProps {
   name: string;
   description: string;
   videoSrc: string;
+  ctaLink: string;
   resumeUrl: string;
 }
 
-const AgentHero = ({ name, description, videoSrc, resumeUrl }: AgentHeroProps) => {
+const AgentHero = ({ name, description, videoSrc, ctaLink, resumeUrl }: AgentHeroProps) => {
   const [timeElapsed, setTimeElapsed] = useState(2);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeElapsed((prev) => prev + 1);
-    }, 60000);
+    }, 60000); // incrementa a cada 1 minuto
     return () => clearInterval(timer);
   }, []);
 
@@ -48,10 +49,10 @@ const AgentHero = ({ name, description, videoSrc, resumeUrl }: AgentHeroProps) =
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link
-              href="/#contact"
+              href={ctaLink}
               className="inline-block rounded-full bg-primary px-8 py-3 text-white text-lg font-medium shadow-md hover:bg-primaryho transition-transform hover:scale-105"
             >
-              Entreviste o {name}
+              Entreviste a {name}
             </Link>
 
             <a
@@ -74,7 +75,7 @@ const AgentHero = ({ name, description, videoSrc, resumeUrl }: AgentHeroProps) =
 
         {/* Vídeo */}
         <div className="flex-1 relative">
-          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full max-w-md mx-auto">
+          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full max-w-[500px] mx-auto">
             <video
               src={videoSrc}
               autoPlay
