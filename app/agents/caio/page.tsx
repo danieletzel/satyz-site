@@ -29,7 +29,7 @@ export default function CaioPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6"
+            className="text-3xl md:text-5xl font-bold text-black dark:text-white mb-6"
           >
             <span>Olá, meu nome é </span>
             <span className="text-primary">
@@ -49,7 +49,7 @@ export default function CaioPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xl text-gray-700 dark:text-manatee max-w-xl mb-8"
+            className="text-lg text-gray-700 dark:text-manatee max-w-xl mb-8"
           >
             Sou o Chief AI Officer da Satyz. Crio, gerencio e otimizo agentes de inteligência artificial
             para todas as áreas do seu negócio. Minha missão é garantir que sua operação tenha a IA
@@ -68,14 +68,15 @@ export default function CaioPage() {
             <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
               Minhas especialidades
             </h2>
-            <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+            <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2 group">
               {specialties.map((item, index) => (
-                <div
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
                   key={index}
-                  className="min-w-[240px] rounded-xl border border-stroke dark:border-strokedark bg-white dark:bg-blacksection p-4 shadow-solid-2"
+                  className="min-w-[240px] transform rounded-xl border border-stroke dark:border-strokedark bg-white dark:bg-blacksection p-4 shadow-solid-2 transition duration-300 hover:brightness-110 group-hover:opacity-60 hover:!opacity-100"
                 >
                   <p className="text-sm text-gray-800 dark:text-manatee">{item}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -85,14 +86,15 @@ export default function CaioPage() {
             <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
               Tecnologias e frameworks
             </h2>
-            <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+            <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2 group">
               {technologies.map((item, index) => (
-                <div
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
                   key={index}
-                  className="min-w-[240px] rounded-xl border border-stroke dark:border-strokedark bg-white dark:bg-blacksection p-4 shadow-solid-2"
+                  className="min-w-[240px] transform rounded-xl border border-stroke dark:border-strokedark bg-white dark:bg-blacksection p-4 shadow-solid-2 transition duration-300 hover:brightness-110 group-hover:opacity-60 hover:!opacity-100"
                 >
                   <p className="text-sm text-gray-800 dark:text-manatee">{item}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
