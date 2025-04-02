@@ -52,7 +52,34 @@ export default function CaioPage() {
       />
 
       {/* Ferramentas utilizadas */}
-      <AgentToolsSection />
+      <AgentToolsSection
+        tools={[
+          {
+            title: "Dados de contato",
+            logos: ["/logos/cognism.svg", "/logos/apollo.svg"],
+          },
+          {
+            title: "Sales Engagement",
+            logos: ["/logos/salesloft.svg", "/logos/outreach.svg", "/logos/gong.svg"],
+          },
+          {
+            title: "Dados de intenção",
+            logos: ["/logos/clearbit.svg", "/logos/6sense.svg", "/logos/revb.svg"],
+          },
+          {
+            title: "LinkedIn Automation",
+            logos: ["/logos/expandi.svg", "/logos/octopus.svg", "/logos/dripify.svg"],
+          },
+          {
+            title: "Pesquisa e personalização",
+            logos: ["/logos/regie.svg"],
+          },
+          {
+            title: "Email warmup",
+            logos: ["/logos/instantly.svg"],
+          },
+        ]}
+      />
 
       {/* Integrações */}
       <IntegrationGrid
