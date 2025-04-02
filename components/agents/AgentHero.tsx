@@ -51,7 +51,7 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
               href={ctaLink}
               className="inline-block rounded-full bg-primary px-8 py-3 text-white text-lg font-medium shadow-md hover:bg-primaryho transition-transform hover:scale-105"
             >
-              Entreviste a {name}
+              Entreviste {name === "LINDA" ? "a" : "o"} {name}
             </Link>
 
             <a
@@ -71,14 +71,14 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
             Autopilot ativado há {timeElapsed} minutos
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full">
+          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full aspect-[3/4]">
             <video
               src={videoSrc}
               autoPlay
               muted
               loop
               playsInline
-              className="w-full h-auto object-cover rounded-2xl"
+              className="w-full h-full object-cover rounded-2xl"
             />
           </div>
         </div>
