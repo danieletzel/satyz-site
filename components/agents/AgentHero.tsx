@@ -23,12 +23,12 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
   }, []);
 
   return (
-    <section className="bg-white dark:bg-black py-12 lg:py-24">
+    <section className="bg-white dark:bg-black pt-28 pb-12 lg:pt-32 lg:pb-24">
       <div className="max-w-c-1235 mx-auto px-4 md:px-8 xl:px-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
         {/* Texto */}
         <div className="flex-1 text-center lg:text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight text-black dark:text-white">
-            Olá, meu nome é {" "}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-black dark:text-white">
+            Olá, meu nome é{" "}
             <span className="text-primary">
               <Typewriter
                 words={[`${name}.`]}
@@ -55,7 +55,7 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
             </Link>
 
             <a
-              href="/downloads/linda-curriculo.pdf"
+              href={`/downloads/${name.toLowerCase()}-curriculo.pdf`}
               download
               className="inline-block rounded-full border border-primary px-8 py-3 text-primary text-lg font-medium hover:bg-primary hover:text-white transition-transform hover:scale-105"
             >
@@ -73,17 +73,20 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
         </div>
 
         {/* Vídeo */}
-        <div className="flex-1 relative">
-          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full max-w-md mx-auto">
+        <div className="flex-1 relative w-full max-w-md mx-auto lg:max-w-none">
+          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full">
             <video
               src={videoSrc}
               autoPlay
               muted
               loop
               playsInline
-              className="w-full h-full object-cover"
+              className="w-full h-auto object-cover"
             />
           </div>
+          <span className="absolute top-4 left-4 rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-600 font-medium shadow-sm">
+            Autopilot ativado
+          </span>
         </div>
       </div>
     </section>
