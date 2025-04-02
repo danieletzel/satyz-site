@@ -1,7 +1,7 @@
 "use client";
 
-import AgentHero from "@/components/Agent/AgentHero";
-import AgentHighlights from "@/components/Agent/AgentHighlights";
+import AgentHero from "@/components/agents/AgentHero";
+import AgentHighlights from "@/components/agents/AgentHighlights";
 
 const CaioPage = () => {
   return (
