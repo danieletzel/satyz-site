@@ -1,7 +1,6 @@
 "use client";
 
 import Header from "@/components/Header";
-import ThemeToggler from "@/components/Header/ThemeToggler";
 import AgentHero from "@/components/agents/AgentHero";
 import AgentHighlights from "@/components/agents/AgentHighlights";
 import AgentUseCases from "@/components/agents/AgentUseCases";
@@ -16,11 +15,6 @@ export default function CaioPage() {
     <>
       {/* Header fixo */}
       <Header />
-
-      {/* Botão de tema (usado se necessário) */}
-      <div className="fixed top-5 right-5 z-50">
-        <ThemeToggler />
-      </div>
 
       {/* Status do agente */}
       <AgentStatus status="Autopilot ativado" updatedAt="há 2 minutos" />
