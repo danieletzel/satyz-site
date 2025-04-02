@@ -16,15 +16,11 @@ export default function AnaPage() {
       {/* Header fixo */}
       <Header />
 
-      {/* Status do agente */}
-      <AgentStatus status="Autopilot ativado" updatedAt="há 2 minutos" />
-
       {/* Hero */}
       <AgentHero
         name="ANA"
-        description="AI SDR da Satyz. Qualifico leads, faço follow-ups automáticos e preencho seu CRM como ninguém."
+        description="AI SDR da Satyz. Prospecto, qualifico e conecto leads com os humanos certos, no tempo certo."
         videoSrc="/videos/ana.mp4"
-        ctaLink="/contact/ana"
       />
 
       {/* Especialidades e tecnologias */}
@@ -34,22 +30,22 @@ export default function AnaPage() {
       <AgentUseCases
         useCases={[
           {
-            title: "Prospecção ativa",
+            title: "Prospecção automatizada",
             description:
-              "Identifico e abordo leads ideais via e-mail, LinkedIn ou WhatsApp.",
-            icon: "/images/icons/prospect.svg",
+              "Envia mensagens personalizadas e se conecta com leads no timing ideal.",
+            icon: "/images/icons/outreach.svg",
           },
           {
-            title: "Follow-up automático",
+            title: "Qualificação de leads",
             description:
-              "Envio mensagens no timing certo para aumentar sua taxa de resposta.",
+              "Faz perguntas inteligentes e entrega apenas leads prontos para vendas.",
+            icon: "/images/icons/qualification.svg",
+          },
+          {
+            title: "Follow-ups inteligentes",
+            description:
+              "Segue playbooks com persistência e timing baseado em intenção.",
             icon: "/images/icons/followup.svg",
-          },
-          {
-            title: "Preenchimento de CRM",
-            description:
-              "Atualizo dados no seu CRM em tempo real com base nas interações.",
-            icon: "/images/icons/crm.svg",
           },
         ]}
       />
@@ -58,47 +54,36 @@ export default function AnaPage() {
       <AgentToolsSection
         tools={[
           {
-            title: "Outreach e automação",
-            logos: [
-              "/logos/outreach.svg",
-              "/logos/apollo.svg",
-              "/logos/salesloft.svg",
-            ],
+            title: "Prospecção & Dados",
+            logos: ["/logos/apollo.svg", "/logos/lusha.svg", "/logos/zoominfo.svg"],
           },
           {
-            title: "CRM e dados",
-            logos: [
-              "/logos/salesforce.svg",
-              "/logos/pipedrive.svg",
-              "/logos/clearbit.svg",
-            ],
+            title: "Email & Cadência",
+            logos: ["/logos/instantly.svg", "/logos/mailshake.svg", "/logos/woodpecker.svg"],
           },
           {
-            title: "Engajamento",
-            logos: [
-              "/logos/whatsapp.svg",
-              "/logos/gmail.svg",
-              "/logos/linkedin.svg",
-            ],
+            title: "Engajamento & CRM",
+            logos: ["/logos/hubspot.svg", "/logos/outreach.svg", "/logos/pipedrive.svg"],
           },
         ]}
       />
 
       {/* Integrações */}
       <IntegrationGrid
-        title="ANA se conecta com seus canais e CRM"
-        description="Garante fluidez entre prospecção, cadência e atualização de dados."
+        title="ANA integra com sua stack comercial"
+        description="Conecta com ferramentas de prospecção, CRM e automação para atingir leads no melhor canal e momento."
         integrations={[
-          "/images/integrations/salesforce.svg",
           "/images/integrations/pipedrive.svg",
-          "/images/integrations/whatsapp.svg",
+          "/images/integrations/salesforce.svg",
+          "/images/integrations/hubspot.svg",
+          "/images/integrations/outlook.svg",
           "/images/integrations/gmail.svg",
           "/images/integrations/linkedin.svg",
         ]}
       />
 
       {/* Botão flutuante */}
-      <FloatingInterviewButton link="/contact/ana" />
+      <FloatingInterviewButton />
 
       {/* Footer igual à home */}
       <Footer />

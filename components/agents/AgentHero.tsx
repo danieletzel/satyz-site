@@ -9,24 +9,23 @@ interface AgentHeroProps {
   name: string;
   description: string;
   videoSrc: string;
-  ctaLink: string;
 }
 
-const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => {
+const AgentHero = ({ name, description, videoSrc }: AgentHeroProps) => {
   const [timeElapsed, setTimeElapsed] = useState(2);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeElapsed((prev) => prev + 1);
-    }, 60000);
+    }, 60000); // 1 minuto
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="relative bg-white dark:bg-black pt-[88px] pb-12 lg:pt-[120px] lg:pb-24">
+    <section className="bg-white dark:bg-black pt-24 pb-12 lg:py-24">
       <div className="max-w-c-1235 mx-auto px-4 md:px-8 xl:px-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
         {/* Texto */}
-        <div className="flex-1 text-center lg:text-left z-10">
+        <div className="flex-1 text-center lg:text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight text-black dark:text-white">
             Olá, meu nome é{" "}
             <span className="text-primary">
@@ -48,10 +47,10 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link
-              href={ctaLink}
+              href="/#contact"
               className="inline-block rounded-full bg-primary px-8 py-3 text-white text-lg font-medium shadow-md hover:bg-primaryho transition-transform hover:scale-105"
             >
-              Entreviste {name === "LINDA" ? "a" : "o"} {name}
+              Entreviste {name === "CAIO" ? "o" : "a"} {name}
             </Link>
 
             <a
@@ -62,23 +61,26 @@ const AgentHero = ({ name, description, videoSrc, ctaLink }: AgentHeroProps) => 
               Baixar CV
             </a>
           </div>
+
+          <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
+            <span className="relative flex h-3 w-3">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-primary"></span>
+            </span>
+            Autopilot ativado há {timeElapsed} minutos
+          </div>
         </div>
 
         {/* Vídeo */}
-        <div className="flex-1 relative w-full max-w-md mx-auto z-10">
-          {/* Badge Autopilot */}
-          <div className="absolute top-3 left-3 z-20 bg-blue-100 text-primary text-sm font-medium px-3 py-1 rounded-full shadow-md">
-            Autopilot ativado há {timeElapsed} minutos
-          </div>
-
-          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full aspect-[3/4] z-10">
+        <div className="flex-1 relative">
+          <div className="relative rounded-2xl overflow-hidden shadow-solid-5 w-full max-w-md mx-auto">
             <video
               src={videoSrc}
               autoPlay
               muted
               loop
               playsInline
-              className="w-full h-full object-cover rounded-2xl"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
