@@ -4,33 +4,37 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-interface Props {
-  link: string;
+interface FloatingInterviewButtonProps {
+  agentName?: string;
 }
 
-export default function FloatingInterviewButton({ link }: Props) {
-  const [show, setShow] = useState(false);
+const FloatingInterviewButton = ({ agentName = "" }: FloatingInterviewButtonProps) => {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setShow(true), 3000);
-    return () => clearTimeout(timeout);
-  }, []);
+    const handleScroll = () => {
+      setIsVisible(window.scrollY > 300);
+    };
 
-  if (!show) return null;
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.3 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isVisible ? 1 : 0 }}
+      transition={{ duration: 0.5 }}
       className="fixed bottom-6 right-6 z-50"
     >
       <Link
-        href={link}
-        className="rounded-full bg-primary px-6 py-3 text-white text-sm font-semibold shadow-xl hover:bg-primaryho transition-all duration-300 hover:scale-105"
+        href="/#contact"
+        className="rounded-full bg-primary px-6 py-3 text-white font-medium shadow-lg hover:bg-primaryho transition-transform hover:scale-105"
       >
-        Me entreviste
+        Entreviste {agentName ? (agentName === "CAIO" ? "o" : "a") + " " + agentName : "um agente"}
       </Link>
     </motion.div>
   );
-}
+};
+
+export default FloatingInterviewButton;
