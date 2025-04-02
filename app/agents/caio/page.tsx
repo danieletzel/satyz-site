@@ -1,5 +1,3 @@
-// ✅ Página do agente CAIO - com melhorias aplicadas
-
 "use client";
 
 import AgentHero from "@/components/agents/AgentHero";
@@ -12,15 +10,15 @@ import ThemeToggler from "@/components/Header/ThemeToggler";
 export default function CaioPage() {
   return (
     <>
-      {/* Botão de modo escuro */}
+      {/* Botão de dark mode */}
       <div className="fixed top-5 right-5 z-50">
         <ThemeToggler />
       </div>
 
-      {/* Status Autopilot */}
+      {/* Status do agente */}
       <AgentStatus status="Autopilot ativado" updatedAt="há 2 minutos" />
 
-      {/* Hero com vídeo, nome, descrição, CTA */}
+      {/* Seção de introdução */}
       <AgentHero
         name="CAIO"
         description="Chief AI Officer da Satyz. Crio, gerencio e evoluo agentes de IA sob medida para todas as áreas do seu negócio."
@@ -28,31 +26,34 @@ export default function CaioPage() {
         ctaLink="/contact/caio"
       />
 
-      {/* Destaques técnicos (Especialidades e Tecnologias) */}
+      {/* Especialidades + Tecnologias */}
       <AgentHighlights />
 
-      {/* Casos de Uso (cards como Alice) */}
+      {/* Casos de uso */}
       <AgentUseCases
         useCases={[
           {
             title: "Agente de Atendimento",
-            description: "Responde dúvidas, escala para humanos e aprende com feedbacks.",
+            description:
+              "Responde dúvidas, escala para humanos e aprende com feedbacks.",
             icon: "/images/icons/support.svg",
           },
           {
             title: "Onboarding de Clientes",
-            description: "Automatiza etapas iniciais e educa o cliente com personalização.",
+            description:
+              "Automatiza etapas iniciais e educa o cliente com personalização.",
             icon: "/images/icons/onboarding.svg",
           },
           {
             title: "Assistente Interno",
-            description: "Centraliza informações da empresa e responde à equipe em tempo real.",
+            description:
+              "Centraliza informações da empresa e responde à equipe em tempo real.",
             icon: "/images/icons/internal.svg",
           },
         ]}
       />
 
-      {/* Botão flutuante de entrevista */}
+      {/* Botão flutuante para entrevista */}
       <FloatingInterviewButton link="/contact/caio" />
     </>
   );
