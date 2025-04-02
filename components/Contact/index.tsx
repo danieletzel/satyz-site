@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -67,11 +68,11 @@ const Contact = () => {
               />
             </div>
 
-            {/* Telefone + Agente */}
+            {/* Código do país + telefone + Agente */}
             <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
               <div className="w-full lg:w-1/2">
                 <PhoneInput
-                  country={"br"}
+                  country={""}
                   value={phone}
                   onChange={setPhone}
                   inputProps={{
@@ -82,6 +83,8 @@ const Contact = () => {
                   inputClass="!w-full !border-b !border-stroke !bg-transparent !pb-3.5 !text-black dark:!text-white focus:!outline-none dark:!border-strokedark"
                   buttonClass="!bg-transparent"
                   containerClass="!w-full"
+                  enableSearch
+                  disableCountryCode={false}
                 />
               </div>
 
@@ -121,8 +124,8 @@ const Contact = () => {
             </div>
 
             {/* Termos + Botão */}
-            <div className="flex flex-wrap gap-4 xl:justify-between">
-              <div className="mb-4 flex md:mb-0">
+            <div className="flex flex-col gap-4 xl:flex-row xl:justify-between">
+              <div className="flex items-start gap-4">
                 <input id="consent-checkbox" type="checkbox" className="peer sr-only" required />
                 <span className="group mt-2 flex h-5 min-w-[20px] items-center justify-center rounded border-gray-300 bg-gray-100 peer-checked:bg-primary dark:border-gray-600 dark:bg-gray-700">
                   <svg
@@ -140,7 +143,7 @@ const Contact = () => {
                     />
                   </svg>
                 </span>
-                <label htmlFor="consent-checkbox" className="flex max-w-[425px] cursor-pointer select-none pl-5">
+                <label htmlFor="consent-checkbox" className="flex max-w-[425px] cursor-pointer select-none text-sm">
                   Ao enviar, você concorda com os nossos termos e uso de cookies.
                 </label>
               </div>
