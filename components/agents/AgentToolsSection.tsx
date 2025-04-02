@@ -44,7 +44,7 @@ const AgentToolSection = () => {
               key={index}
               whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(0,0,0,0.08)" }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="rounded-xl bg-white dark:bg-neutral-900 p-6 shadow-md"
+              className="rounded-xl bg-white dark:bg-neutral-900 p-6 shadow-md h-full"
             >
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
                 {tool.title}
