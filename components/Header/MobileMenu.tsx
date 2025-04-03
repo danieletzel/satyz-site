@@ -86,15 +86,17 @@ const MobileMenu = ({
         </ul>
       </nav>
 
-      <div className="mt-6 flex flex-col gap-4">
-        <ThemeToggler />
-        <Link
-          href="/auth/signin"
-          onClick={() => setNavigationOpen(false)}
-          className="text-sm text-waterloo hover:text-primary"
-        >
-          Log in
-        </Link>
+      <div className="mt-6 flex flex-col gap-4 items-start">
+        <div className="flex items-center gap-4">
+          <ThemeToggler />
+          <Link
+            href="/auth/signin"
+            onClick={() => setNavigationOpen(false)}
+            className="text-sm text-waterloo hover:text-primary"
+          >
+            Log in
+          </Link>
+        </div>
         <Link
           href="/auth/signup"
           onClick={() => setNavigationOpen(false)}
