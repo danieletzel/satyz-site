@@ -6,16 +6,18 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggler from "./ThemeToggler";
+import menuData from "./menuData";
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
-  const [dropdownToggler, setDropdownToggler] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
   const pathUrl = usePathname();
 
-  const handleStickyMenu = () => {
-    setStickyMenu(window.scrollY >= 80);
-  };
+  useEffect(() => {
+    const handleStickyMenu = () => setStickyMenu(window.scrollY >= 80);
+    window.addEventListener("scroll", handleStickyMenu);
+    return () => window.removeEventListener("scroll", handleStickyMenu);
+  }, []);
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -26,11 +28,6 @@ const Header = () => {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleStickyMenu);
-    return () => window.removeEventListener("scroll", handleStickyMenu);
-  }, []);
 
   return (
     <header className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${stickyMenu ? "bg-white shadow-sm py-3 dark:bg-black" : "bg-transparent py-4"}`}>
@@ -48,7 +45,11 @@ const Header = () => {
         </motion.div>
 
         {/* Botão Mobile */}
-        <button aria-label="hamburger" className="relative z-50 block xl:hidden" onClick={() => setNavigationOpen(!navigationOpen)}>
+        <button
+          aria-label="Abrir menu"
+          onClick={() => setNavigationOpen(!navigationOpen)}
+          className="relative z-50 block xl:hidden"
+        >
           <span className="relative block h-5.5 w-5.5 cursor-pointer">
             <span className="absolute right-0 block h-full w-full">
               <span className={`my-1 block h-0.5 rounded-sm bg-black dark:bg-white transition-all duration-300 ${navigationOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
@@ -62,37 +63,35 @@ const Header = () => {
         <div className="hidden xl:flex items-center justify-between w-full">
           <nav>
             <ul className="flex items-center gap-8">
-              <li><Link href="/" className={pathUrl === "/" ? "text-primary" : "hover:text-primary"}>Home</Link></li>
-
-              <li className="relative group">
-                <button onClick={() => setDropdownToggler(!dropdownToggler)} className="flex items-center gap-2 hover:text-primary">
-                  AI Workers
-                  <svg className="h-3 w-3 fill-waterloo group-hover:fill-primary" viewBox="0 0 512 512">
-                    <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-                  </svg>
-                </button>
-
-                <AnimatePresence>
-                  {dropdownToggler && (
-                    <motion.ul
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute z-50 mt-2 w-40 rounded bg-white p-4 shadow dark:bg-blacksection flex flex-col"
+              {menuData.map((menu) => (
+                <li key={menu.id} className="relative group">
+                  {!menu.submenu ? (
+                    <Link
+                      href={menu.path}
+                      onClick={menu.path.startsWith("/#") ? (e) => handleAnchorClick(e, menu.path.replace("/#", "")) : undefined}
+                      className={pathUrl === menu.path ? "text-primary" : "hover:text-primary"}
                     >
-                      <li><Link href="/agents/leon" className="hover:text-primary">Leon</Link></li>
-                      <li><Link href="/agents/linda" className="hover:text-primary">Linda</Link></li>
-                      <li><Link href="/agents/ana" className="hover:text-primary">Ana</Link></li>
-                      <li><Link href="/agents/javi" className="hover:text-primary">Javi</Link></li>
-                    </motion.ul>
+                      {menu.title}
+                    </Link>
+                  ) : (
+                    <>
+                      <button className="flex items-center gap-1 hover:text-primary">
+                        {menu.title}
+                        <svg className="h-3 w-3 fill-waterloo group-hover:fill-primary" viewBox="0 0 512 512">
+                          <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+                        </svg>
+                      </button>
+                      <ul className="absolute z-50 mt-2 w-40 rounded bg-white p-4 shadow dark:bg-blacksection hidden group-hover:flex flex-col">
+                        {menu.submenu.map((item) => (
+                          <li key={item.id}>
+                            <Link href={item.path} className="hover:text-primary">{item.title}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
                   )}
-                </AnimatePresence>
-              </li>
-
-              <li><a href="/#about" onClick={(e) => handleAnchorClick(e, "about")} className="hover:text-primary">Company</a></li>
-              <li><Link href="/blog" className={pathUrl === "/blog" ? "text-primary" : "hover:text-primary"}>Blog</Link></li>
-              <li><a href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")} className="hover:text-primary">Contact</a></li>
+                </li>
+              ))}
             </ul>
           </nav>
 
@@ -117,21 +116,32 @@ const Header = () => {
             >
               <nav>
                 <ul className="flex flex-col gap-4 text-base">
-                  <li><Link href="/" className="hover:text-primary">Home</Link></li>
-                  <li>
-                    <details open={dropdownToggler} onToggle={() => setDropdownToggler(!dropdownToggler)}>
-                      <summary className="cursor-pointer hover:text-primary">AI Workers</summary>
-                      <ul className="ml-4 mt-2 flex flex-col gap-1">
-                        <li><Link href="/agents/leon" className="hover:text-primary">Leon</Link></li>
-                        <li><Link href="/agents/linda" className="hover:text-primary">Linda</Link></li>
-                        <li><Link href="/agents/ana" className="hover:text-primary">Ana</Link></li>
-                        <li><Link href="/agents/javi" className="hover:text-primary">Javi</Link></li>
-                      </ul>
-                    </details>
-                  </li>
-                  <li><a href="/#about" onClick={(e) => handleAnchorClick(e, "about")} className="hover:text-primary">Company</a></li>
-                  <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
-                  <li><a href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")} className="hover:text-primary">Contact</a></li>
+                  {menuData.map((menu) => (
+                    <li key={menu.id}>
+                      {!menu.submenu ? (
+                        <Link
+                          href={menu.path}
+                          onClick={menu.path.startsWith("/#") ? (e) => handleAnchorClick(e, menu.path.replace("/#", "")) : undefined}
+                          className="hover:text-primary"
+                        >
+                          {menu.title}
+                        </Link>
+                      ) : (
+                        <details>
+                          <summary className="cursor-pointer hover:text-primary">{menu.title}</summary>
+                          <ul className="ml-4 mt-2 flex flex-col gap-1">
+                            {menu.submenu.map((item) => (
+                              <li key={item.id}>
+                                <Link href={item.path} className="hover:text-primary">
+                                  {item.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </details>
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </nav>
 
