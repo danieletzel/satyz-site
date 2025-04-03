@@ -2,7 +2,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Contact from "@/components/contact";
+import Contact from "@/components/contact/index";
 
 export default function ContactPage() {
   return (
