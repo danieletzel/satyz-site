@@ -3,7 +3,9 @@
 import { Blog } from "@/types/blog";
 import Link from "next/link";
 
-const BlogItem = ({ _id, slug, mainImage, title, metadata }: Blog) => {
+const BlogItem = ({ blog }: { blog: Blog }) => {
+  const { slug, mainImage, title, metadata } = blog;
+
   return (
     <div
       className="group rounded-lg bg-white p-4 pb-8 shadow-md border border-[#eee] dark:bg-blacksection dark:border-strokedark 
