@@ -40,8 +40,8 @@ const Blog = () => {
               1024: { slidesPerView: 3 },
             }}
             navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
+              nextEl: ".blog-swiper-button-next",
+              prevEl: ".blog-swiper-button-prev",
             }}
           >
             {BlogData.map((post) => (
@@ -52,15 +52,15 @@ const Blog = () => {
           </Swiper>
 
           {/* Setas de navegação */}
-          <div className="absolute -top-10 right-0 flex gap-4">
+          <div className="absolute -top-10 right-0 flex gap-4 z-10">
             <button
-              className="swiper-button-prev rounded-full border border-gray-300 p-2 text-gray-500 hover:text-primary dark:border-gray-700 dark:text-gray-400"
+              className="blog-swiper-button-prev rounded-full border border-gray-300 p-2 text-gray-500 hover:text-primary dark:border-gray-700 dark:text-gray-400"
               aria-label="Voltar"
             >
               ←
             </button>
             <button
-              className="swiper-button-next rounded-full border border-gray-300 p-2 text-gray-500 hover:text-primary dark:border-gray-700 dark:text-gray-400"
+              className="blog-swiper-button-next rounded-full border border-gray-300 p-2 text-gray-500 hover:text-primary dark:border-gray-700 dark:text-gray-400"
               aria-label="Avançar"
             >
               →
