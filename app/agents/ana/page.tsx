@@ -11,11 +11,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Ana – AI SDR da Satyz",
   description:
-    "Ana é a SDR de IA da Satyz. Prospecta, qualifica e conecta leads com os humanos certos no timing ideal.",
+    "Ana é a SDR de IA da Satyz. Faz prospecção, qualificação de leads e follow-ups automatizados para escalar suas vendas.",
   openGraph: {
     title: "Ana – AI SDR da Satyz",
     description:
-      "Prospecta, qualifica e realiza follow-ups inteligentes, tudo em escala e com inteligência artificial.",
+      "Ana prospecta, qualifica e agenda reuniões com precisão. Um agente SDR completo, automatizado e integrado à sua stack comercial.",
     url: "https://satyz.io/agents/ana",
     siteName: "Satyz",
     type: "profile",

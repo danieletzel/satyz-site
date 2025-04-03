@@ -11,11 +11,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Linda – AI Copywriter da Satyz",
   description:
-    "Linda é a AI Copywriter da Satyz. Cria conteúdos irresistíveis e personalizados para sua marca escalar com impacto.",
+    "Linda é a copywriter de IA da Satyz. Cria conteúdos incríveis, otimizados e com o tom de voz da sua marca.",
   openGraph: {
     title: "Linda – AI Copywriter da Satyz",
     description:
-      "Gera textos incríveis para redes sociais, campanhas, e-mails e muito mais. Sempre com o tom da sua marca.",
+      "Textos que vendem, conteúdo personalizado, campanhas otimizadas e copywriting com IA de ponta. Conheça a Linda.",
     url: "https://satyz.io/agents/linda",
     siteName: "Satyz",
     type: "profile",
@@ -48,20 +48,17 @@ export default function LindaPage() {
         useCases={[
           {
             title: "Criação de Conteúdo",
-            description:
-              "Textos para redes sociais, blogs, landing pages e e-mails. Tudo com seu tom de voz.",
+            description: "Textos para redes sociais, blogs, landing pages e e-mails. Tudo com seu tom de voz.",
             icon: "/images/icons/content.svg",
           },
           {
             title: "Campanhas de Marketing",
-            description:
-              "Cria campanhas multicanal persuasivas com textos que convertem.",
+            description: "Cria campanhas multicanal persuasivas com textos que convertem.",
             icon: "/images/icons/campaign.svg",
           },
           {
             title: "Teste A/B Automatizado",
-            description:
-              "Gera variações de texto para testar e otimizar sua comunicação.",
+            description: "Gera variações de texto para testar e otimizar sua comunicação.",
             icon: "/images/icons/abtest.svg",
           },
         ]}
