@@ -1,6 +1,3 @@
-"use client";
-
-import { Metadata } from "next";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
@@ -15,32 +12,27 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 // import Pricing from "@/components/Pricing"; // ❌ Temporariamente oculto
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Satyz – Agentes de Inteligência Artificial sob demanda",
   description:
     "Contrate agentes de IA prontos para atuar na sua operação. Copys, SDRs, recrutadores e phone agents que entregam resultados desde o primeiro dia.",
+  keywords:
+    "inteligência artificial, agentes de IA, IA sob demanda, AI workers, SDR, copywriter, recrutamento com IA, agentes virtuais",
   openGraph: {
-    title: "Satyz – Agentes de Inteligência Artificial sob demanda",
+    title: "Satyz – Agentes de IA sob demanda",
     description:
-      "Transforme seu time com agentes de IA treinados para marketing, vendas, atendimento e RH. Personalizados, autônomos e integrados.",
+      "Transforme sua operação com agentes de inteligência artificial treinados para entregar performance real desde o primeiro dia.",
     url: "https://satyz.io",
     siteName: "Satyz",
-    type: "website",
     images: [
       {
-        url: "/images/og/home-og.png",
+        url: "/images/satyz-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Satyz – Agentes de IA sob demanda",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Satyz – Agentes de Inteligência Artificial sob demanda",
-    description:
-      "Contrate agentes de IA prontos para atuar na sua operação. Copys, SDRs, recrutadores e phone agents que entregam resultados desde o primeiro dia.",
-    images: ["/images/og/home-og.png"],
+    type: "website",
   },
 };
 
