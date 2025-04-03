@@ -32,7 +32,7 @@ const FloatingInterviewButton = ({ agentName = "" }: FloatingInterviewButtonProp
       className="fixed bottom-6 right-6 z-50"
     >
       <Link
-        href="/#contact"
+        href="/contact"
         className="rounded-full bg-primary px-6 py-3 text-white font-medium shadow-lg hover:bg-primaryho transition-transform hover:scale-105"
       >
         {formattedName ? `Entreviste ${formattedName}` : "Entreviste um agente"}

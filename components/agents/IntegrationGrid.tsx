@@ -22,11 +22,11 @@ const IntegrationGrid = ({ title, description, integrations }: IntegrationGridPr
               {description}
             </p>
             <a
-              href="/contact"
-              className="inline-block rounded-full bg-primary px-6 py-3 text-white hover:bg-primaryho transition"
-            >
-              Fale com a gente →
-            </a>
+  href="/contact"
+  className="inline-block rounded-full bg-primary px-6 py-3 text-white hover:bg-primaryho transition"
+>
+  Fale com a gente →
+</a>
           </div>
 
           {/* Ícones de integração */}

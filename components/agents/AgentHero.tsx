@@ -13,7 +13,7 @@ interface AgentHeroProps {
   resumeUrl?: string;
 }
 
-const AgentHero = ({ name, description, videoSrc, ctaLink = "/#contact", resumeUrl }: AgentHeroProps) => {
+const AgentHero = ({ name, description, videoSrc, ctaLink = "/contact", resumeUrl }: AgentHeroProps) => {
   const [timeElapsed, setTimeElapsed] = useState(2);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const AgentHero = ({ name, description, videoSrc, ctaLink = "/#contact", resumeU
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link
-              href={ctaLink}
+              href="/contact"
               className="inline-block rounded-full bg-primary px-8 py-3 text-white text-lg font-medium shadow-md hover:bg-primaryho transition-transform hover:scale-105"
             >
               Entreviste {name}
