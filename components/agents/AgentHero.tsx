@@ -10,10 +10,14 @@ interface AgentHeroProps {
   description: string;
   videoSrc: string;
   ctaLink?: string;
-  resumeUrl?: string;
 }
 
-const AgentHero = ({ name, description, videoSrc, ctaLink = "/contact", resumeUrl }: AgentHeroProps) => {
+const AgentHero = ({
+  name,
+  description,
+  videoSrc,
+  ctaLink = "/contact",
+}: AgentHeroProps) => {
   const [timeElapsed, setTimeElapsed] = useState(2);
 
   useEffect(() => {
@@ -47,23 +51,13 @@ const AgentHero = ({ name, description, videoSrc, ctaLink = "/contact", resumeUr
             {description}
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div className="mt-8 flex justify-center lg:justify-start">
             <Link
-              href="/contact"
+              href={ctaLink}
               className="inline-block rounded-full bg-primary px-8 py-3 text-white text-lg font-medium shadow-md hover:bg-primaryho transition-transform hover:scale-105"
             >
               Entreviste {name}
             </Link>
-
-            {resumeUrl && (
-              <a
-                href={resumeUrl}
-                download
-                className="inline-block rounded-full border border-primary px-8 py-3 text-primary text-lg font-medium hover:bg-primary hover:text-white transition-transform hover:scale-105"
-              >
-                Baixar CV
-              </a>
-            )}
           </div>
 
           <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">

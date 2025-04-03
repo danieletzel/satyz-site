@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "@/components/Header";
 import AgentHero from "@/components/agents/AgentHero";
 import AgentHighlights from "@/components/agents/AgentHighlights";
@@ -8,6 +6,29 @@ import AgentToolsSection from "@/components/agents/AgentToolsSection";
 import IntegrationGrid from "@/components/agents/IntegrationGrid";
 import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Leon – AI Recruiter da Satyz",
+  description:
+    "Leon é o AI Recruiter da Satyz. Analisa currículos, conduz entrevistas automatizadas e seleciona talentos com precisão e velocidade.",
+  openGraph: {
+    title: "Leon – AI Recruiter da Satyz",
+    description:
+      "Leon analisa currículos, conduz entrevistas e gera shortlist de candidatos com base em critérios personalizados.",
+    url: "https://satyz.io/agents/leon",
+    siteName: "Satyz",
+    type: "profile",
+    images: [
+      {
+        url: "/images/og/leon-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Leon - AI Recruiter da Satyz",
+      },
+    ],
+  },
+};
 
 export default function LeonPage() {
   return (
@@ -18,8 +39,6 @@ export default function LeonPage() {
         name="Leon"
         description="AI Recruiter da Satyz. Analiso currículos, entrevisto candidatos e seleciono os melhores talentos para sua empresa, com rapidez e precisão."
         videoSrc="/videos/leon.mp4"
-        ctaLink="/#contact"
-        resumeUrl="/downloads/leon-curriculo.pdf"
       />
 
       <AgentHighlights />
@@ -52,11 +71,7 @@ export default function LeonPage() {
         tools={[
           {
             title: "ATS & RH",
-            logos: [
-              "/logos/gupy.svg",
-              "/logos/kenoby.svg",
-              "/logos/greenhouse.svg",
-            ],
+            logos: ["/logos/gupy.svg", "/logos/kenoby.svg", "/logos/greenhouse.svg"],
           },
           {
             title: "Análise de CVs",

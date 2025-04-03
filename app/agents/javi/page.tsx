@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "@/components/Header";
 import AgentHero from "@/components/agents/AgentHero";
 import AgentHighlights from "@/components/agents/AgentHighlights";
@@ -8,6 +6,29 @@ import AgentToolsSection from "@/components/agents/AgentToolsSection";
 import IntegrationGrid from "@/components/agents/IntegrationGrid";
 import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Javi – AI Phone Agent da Satyz",
+  description:
+    "Javi é o agente de voz da Satyz. Realiza chamadas com empatia, assertividade e inteligência.",
+  openGraph: {
+    title: "Javi – AI Phone Agent da Satyz",
+    description:
+      "Javi realiza chamadas de atendimento, qualificação e cobrança com fluidez e eficiência.",
+    url: "https://satyz.io/agents/javi",
+    siteName: "Satyz",
+    type: "profile",
+    images: [
+      {
+        url: "/images/og/javi-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Javi - AI Phone Agent da Satyz",
+      },
+    ],
+  },
+};
 
 export default function JaviPage() {
   return (
@@ -18,8 +39,6 @@ export default function JaviPage() {
         name="Javi"
         description="AI Phone Agent da Satyz. Faço chamadas com naturalidade e eficiência, representando sua marca com voz e atitude."
         videoSrc="/videos/javi.mp4"
-        ctaLink="/#contact"
-        resumeUrl="/downloads/javi-curriculo.pdf"
       />
 
       <AgentHighlights />
@@ -29,20 +48,17 @@ export default function JaviPage() {
         useCases={[
           {
             title: "Atendimento por voz",
-            description:
-              "Atende chamadas com empatia, assertividade e fluência.",
+            description: "Atende chamadas com empatia, assertividade e fluência.",
             icon: "/images/icons/voice.svg",
           },
           {
             title: "Qualificação ativa",
-            description:
-              "Conduz ligações estratégicas para captar informações e identificar oportunidades.",
+            description: "Conduz ligações estratégicas para captar informações e identificar oportunidades.",
             icon: "/images/icons/qualification.svg",
           },
           {
             title: "Cobrança e follow-up",
-            description:
-              "Executa scripts de cobrança, lembretes ou pesquisas com naturalidade.",
+            description: "Executa scripts de cobrança, lembretes ou pesquisas com naturalidade.",
             icon: "/images/icons/followup.svg",
           },
         ]}
@@ -52,11 +68,7 @@ export default function JaviPage() {
         tools={[
           {
             title: "Telefonia e Voz",
-            logos: [
-              "/logos/twilio.svg",
-              "/logos/dialpad.svg",
-              "/logos/aircall.svg",
-            ],
+            logos: ["/logos/twilio.svg", "/logos/dialpad.svg", "/logos/aircall.svg"],
           },
           {
             title: "Roteiros e Fluxos",
@@ -64,11 +76,7 @@ export default function JaviPage() {
           },
           {
             title: "CRM e Histórico",
-            logos: [
-              "/logos/hubspot.svg",
-              "/logos/zendesk.svg",
-              "/logos/salesforce.svg",
-            ],
+            logos: ["/logos/hubspot.svg", "/logos/zendesk.svg", "/logos/salesforce.svg"],
           },
         ]}
       />

@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "@/components/Header";
 import AgentHero from "@/components/agents/AgentHero";
 import AgentHighlights from "@/components/agents/AgentHighlights";
@@ -8,6 +6,29 @@ import AgentToolsSection from "@/components/agents/AgentToolsSection";
 import IntegrationGrid from "@/components/agents/IntegrationGrid";
 import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Linda – AI Copywriter da Satyz",
+  description:
+    "Linda é a AI Copywriter da Satyz. Cria conteúdos irresistíveis e personalizados para sua marca escalar com impacto.",
+  openGraph: {
+    title: "Linda – AI Copywriter da Satyz",
+    description:
+      "Gera textos incríveis para redes sociais, campanhas, e-mails e muito mais. Sempre com o tom da sua marca.",
+    url: "https://satyz.io/agents/linda",
+    siteName: "Satyz",
+    type: "profile",
+    images: [
+      {
+        url: "/images/og/linda-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Linda - AI Copywriter da Satyz",
+      },
+    ],
+  },
+};
 
 export default function LindaPage() {
   return (
@@ -18,8 +39,6 @@ export default function LindaPage() {
         name="Linda"
         description="AI Copywriter da Satyz. Crio conteúdos irresistíveis e personalizados para sua marca escalar com impacto."
         videoSrc="/videos/linda.mp4"
-        ctaLink="/#contact"
-        resumeUrl="/downloads/linda-curriculo.pdf"
       />
 
       <AgentHighlights />
@@ -52,11 +71,7 @@ export default function LindaPage() {
         tools={[
           {
             title: "Copywriting e AI",
-            logos: [
-              "/logos/jasper.svg",
-              "/logos/copyai.svg",
-              "/logos/anyword.svg",
-            ],
+            logos: ["/logos/jasper.svg", "/logos/copyai.svg", "/logos/anyword.svg"],
           },
           {
             title: "Análise de SEO",

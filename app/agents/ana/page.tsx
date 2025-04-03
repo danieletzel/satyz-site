@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "@/components/Header";
 import AgentHero from "@/components/agents/AgentHero";
 import AgentHighlights from "@/components/agents/AgentHighlights";
@@ -8,6 +6,29 @@ import AgentToolsSection from "@/components/agents/AgentToolsSection";
 import IntegrationGrid from "@/components/agents/IntegrationGrid";
 import FloatingInterviewButton from "@/components/agents/FloatingInterviewButton";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ana – AI SDR da Satyz",
+  description:
+    "Ana é a SDR de IA da Satyz. Prospecta, qualifica e conecta leads com os humanos certos no timing ideal.",
+  openGraph: {
+    title: "Ana – AI SDR da Satyz",
+    description:
+      "Prospecta, qualifica e realiza follow-ups inteligentes, tudo em escala e com inteligência artificial.",
+    url: "https://satyz.io/agents/ana",
+    siteName: "Satyz",
+    type: "profile",
+    images: [
+      {
+        url: "/images/og/ana-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Ana - AI SDR da Satyz",
+      },
+    ],
+  },
+};
 
 export default function AnaPage() {
   return (
@@ -18,8 +39,6 @@ export default function AnaPage() {
         name="Ana"
         description="AI SDR da Satyz. Prospecto, qualifico e conecto leads com os humanos certos, no tempo certo."
         videoSrc="/videos/ana.mp4"
-        ctaLink="/#contact"
-        resumeUrl="/downloads/ana-curriculo.pdf"
       />
 
       <AgentHighlights />
@@ -29,20 +48,17 @@ export default function AnaPage() {
         useCases={[
           {
             title: "Prospecção automatizada",
-            description:
-              "Envia mensagens personalizadas e se conecta com leads no timing ideal.",
+            description: "Envia mensagens personalizadas e se conecta com leads no timing ideal.",
             icon: "/images/icons/outreach.svg",
           },
           {
             title: "Qualificação de leads",
-            description:
-              "Faz perguntas inteligentes e entrega apenas leads prontos para vendas.",
+            description: "Faz perguntas inteligentes e entrega apenas leads prontos para vendas.",
             icon: "/images/icons/qualification.svg",
           },
           {
             title: "Follow-ups inteligentes",
-            description:
-              "Segue playbooks com persistência e timing baseado em intenção.",
+            description: "Segue playbooks com persistência e timing baseado em intenção.",
             icon: "/images/icons/followup.svg",
           },
         ]}
@@ -52,27 +68,15 @@ export default function AnaPage() {
         tools={[
           {
             title: "Prospecção & Dados",
-            logos: [
-              "/logos/apollo.svg",
-              "/logos/lusha.svg",
-              "/logos/zoominfo.svg",
-            ],
+            logos: ["/logos/apollo.svg", "/logos/lusha.svg", "/logos/zoominfo.svg"],
           },
           {
             title: "Email & Cadência",
-            logos: [
-              "/logos/instantly.svg",
-              "/logos/mailshake.svg",
-              "/logos/woodpecker.svg",
-            ],
+            logos: ["/logos/instantly.svg", "/logos/mailshake.svg", "/logos/woodpecker.svg"],
           },
           {
             title: "Engajamento & CRM",
-            logos: [
-              "/logos/hubspot.svg",
-              "/logos/outreach.svg",
-              "/logos/pipedrive.svg",
-            ],
+            logos: ["/logos/hubspot.svg", "/logos/outreach.svg", "/logos/pipedrive.svg"],
           },
         ]}
       />
