@@ -15,9 +15,9 @@ const menuData: Menu[] = [
     submenu: [
       {
         id: 21,
-        title: "CAIO",
+        title: "Leon",
         newTab: false,
-        path: "/agents/caio",
+        path: "/agents/leon",
       },
       {
         id: 22,

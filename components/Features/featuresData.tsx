@@ -3,11 +3,11 @@ import { Feature } from "@/types/feature";
 const featuresData: Feature[] = [
   {
     id: 1,
-    video: "/videos/caio.mp4",
-    name: "CAIO",
-    role: "Chief AI Officer",
+    video: "/videos/leon.mp4",
+    name: "Leon",
+    role: "AI Recruiter",
     description:
-      "Seu estrategista de IA. Cria, gerencia e otimiza agentes inteligentes para cada área do seu negócio.",
+      "Especialista em recrutamento, triagem de currículos e entrevistas inteligentes. Encontra o talento certo com precisão.",
   },
   {
     id: 2,
