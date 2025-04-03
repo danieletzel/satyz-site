@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface IntegrationGridProps {
   title: string;
@@ -21,12 +22,13 @@ const IntegrationGrid = ({ title, description, integrations }: IntegrationGridPr
             <p className="text-gray-600 dark:text-manatee text-base leading-relaxed mb-6">
               {description}
             </p>
-            <a
-  href="/contact"
-  className="inline-block rounded-full bg-primary px-6 py-3 text-white hover:bg-primaryho transition"
->
-  Fale com a gente →
-</a>
+            <Link
+              href="/contact"
+              className="inline-block relative rounded-full bg-primary px-6 py-3 text-white font-medium transition-all duration-300 ease-in-out hover:bg-primaryho hover:scale-105 hover:shadow-xl overflow-hidden"
+            >
+              <span className="relative z-10">Fale com a gente →</span>
+              <span className="absolute inset-0 z-0 bg-white/10 blur-sm opacity-0 hover:opacity-100 transition-all duration-500" />
+            </Link>
           </div>
 
           {/* Ícones de integração */}
