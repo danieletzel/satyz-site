@@ -1,87 +1,88 @@
 "use client";
-import SectionHeader from "../Common/SectionHeader";
 
-import { Autoplay, Pagination } from "swiper";
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules"; // ✅ Correção aqui
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
+import SectionHeader from "../Common/SectionHeader";
+import Image from "next/image";
 
-import { motion } from "framer-motion";
-import SingleTestimonial from "./SingleTestimonial";
-import { testimonialData } from "./testimonialData";
+const testimonials = [
+  {
+    id: 1,
+    name: "Carla Mendes",
+    role: "CMO na Innovatech",
+    text: "A Satyz mudou completamente nossa operação de marketing. A Linda escreve conteúdos melhores que muitos redatores humanos com quem já trabalhei.",
+    image: "/images/user/user-01.png",
+  },
+  {
+    id: 2,
+    name: "Lucas Prado",
+    role: "Head de Vendas na DataBridge",
+    text: "A Ana qualificou 3x mais leads no primeiro mês do que nosso time inteiro. E ainda agenda tudo com perfeição. Incrível!",
+    image: "/images/user/user-02.png",
+  },
+  {
+    id: 3,
+    name: "Fernanda Costa",
+    role: "CEO na FlexIA",
+    text: "A integração dos AI Workers com nosso stack foi tão simples que parecia mágica. Hoje temos mais produtividade, menos custo e mais tempo.",
+    image: "/images/user/user-03.png",
+  },
+];
 
 const Testimonial = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <>
-      <section>
-        <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
-          {/* <!-- Section Title Start --> */}
-          <div className="animate_top mx-auto text-center">
-            <SectionHeader
-              headerInfo={{
-                title: `TESTIMONIALS`,
-                subtitle: `Client’s Testimonials`,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`,
-              }}
-            />
-          </div>
-          {/* <!-- Section Title End --> */}
-        </div>
-
-        <motion.div
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: -20,
-            },
-
-            visible: {
-              opacity: 1,
-              y: 0,
-            },
+    <section className="py-20 lg:py-25 xl:py-30 px-4 md:px-8 2xl:px-0">
+      <div className="mx-auto max-w-c-1235">
+        <SectionHeader
+          headerInfo={{
+            title: "DEPOIMENTOS",
+            subtitle: "O que dizem sobre a Satyz",
+            description:
+              "Profissionais de diferentes áreas já utilizam os AI Workers para acelerar resultados.",
           }}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 1, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="animate_top mx-auto mt-15 max-w-c-1235 px-4 md:px-8 xl:mt-20 xl:px-0"
+        />
+
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          slidesPerView={1}
+          loop
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         >
-          {/* <!-- Slider main container --> */}
-          <div className="swiper testimonial-01 mb-20 pb-22.5">
-            {/* <!-- Additional required wrapper --> */}
-            <Swiper
-              spaceBetween={50}
-              slidesPerView={2}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[Autoplay, Pagination]}
-              breakpoints={{
-                // when window width is >= 640px
-                0: {
-                  slidesPerView: 1,
-                },
-                // when window width is >= 768px
-                768: {
-                  slidesPerView: 2,
-                },
-              }}
-            >
-              {testimonialData.map((review) => (
-                <SwiperSlide key={review?.id}>
-                  <SingleTestimonial review={review} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </motion.div>
-      </section>
-    </>
+          {testimonials.map((item, index) => (
+            <SwiperSlide key={item.id}>
+              <div
+                className={`rounded-lg bg-white dark:bg-blacksection p-8 shadow-md transition-all duration-500 ${
+                  activeIndex === index ? "opacity-100" : "opacity-60"
+                }`}
+              >
+                <p className="text-lg text-black dark:text-white mb-6 italic">"{item.text}"</p>
+                <div className="flex items-center gap-4">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={50}
+                    height={50}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <p className="font-semibold text-black dark:text-white">{item.name}</p>
+                    <p className="text-sm text-gray-600 dark:text-manatee">{item.role}</p>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 
