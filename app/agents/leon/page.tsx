@@ -1,4 +1,3 @@
-// LEON PAGE
 "use client";
 
 import Header from "@/components/Header";
@@ -16,7 +15,7 @@ export default function LeonPage() {
       <Header />
 
       <AgentHero
-        name="LEON"
+        name="Leon"
         description="AI Recruiter da Satyz. Analiso currículos, entrevisto candidatos e seleciono os melhores talentos para sua empresa, com rapidez e precisão."
         videoSrc="/videos/leon.mp4"
         ctaLink="/#contact"
@@ -26,7 +25,7 @@ export default function LeonPage() {
       <AgentHighlights />
 
       <AgentUseCases
-        agentName="LEON"
+        agentName="Leon"
         useCases={[
           {
             title: "Triagem de Currículos",
@@ -64,7 +63,7 @@ export default function LeonPage() {
       />
 
       <IntegrationGrid
-        title="LEON se conecta à sua stack de RH"
+        title="Leon se conecta à sua stack de RH"
         description="Integra com plataformas de recrutamento, análise de perfis e ferramentas de entrevista para agilizar seu processo seletivo."
         integrations={[
           "/images/integrations/gupy.svg",
@@ -76,7 +75,7 @@ export default function LeonPage() {
         ]}
       />
 
-      <FloatingInterviewButton agentName="LEON" />
+      <FloatingInterviewButton agentName="Leon" />
       <Footer />
     </>
   );

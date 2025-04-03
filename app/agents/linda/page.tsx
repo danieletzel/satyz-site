@@ -1,4 +1,3 @@
-// LINDA PAGE
 "use client";
 
 import Header from "@/components/Header";
@@ -16,7 +15,7 @@ export default function LindaPage() {
       <Header />
 
       <AgentHero
-        name="LINDA"
+        name="Linda"
         description="AI Copywriter da Satyz. Crio conteúdos irresistíveis e personalizados para sua marca escalar com impacto."
         videoSrc="/videos/linda.mp4"
         ctaLink="/#contact"
@@ -26,7 +25,7 @@ export default function LindaPage() {
       <AgentHighlights />
 
       <AgentUseCases
-        agentName="LINDA"
+        agentName="Linda"
         useCases={[
           {
             title: "Criação de Conteúdo",
@@ -68,7 +67,7 @@ export default function LindaPage() {
       />
 
       <IntegrationGrid
-        title="LINDA se conecta às suas ferramentas de marketing"
+        title="Linda se conecta às suas ferramentas de marketing"
         description="Amplifique sua comunicação com integrações que otimizam criação, distribuição e análise."
         integrations={[
           "/images/integrations/hubspot.svg",
@@ -80,7 +79,7 @@ export default function LindaPage() {
         ]}
       />
 
-      <FloatingInterviewButton agentName="LINDA" />
+      <FloatingInterviewButton agentName="Linda" />
       <Footer />
     </>
   );

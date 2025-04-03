@@ -1,4 +1,3 @@
-// JAVI PAGE
 "use client";
 
 import Header from "@/components/Header";
@@ -16,7 +15,7 @@ export default function JaviPage() {
       <Header />
 
       <AgentHero
-        name="JAVI"
+        name="Javi"
         description="AI Phone Agent da Satyz. Faço chamadas com naturalidade e eficiência, representando sua marca com voz e atitude."
         videoSrc="/videos/javi.mp4"
         ctaLink="/#contact"
@@ -26,7 +25,7 @@ export default function JaviPage() {
       <AgentHighlights />
 
       <AgentUseCases
-        agentName="JAVI"
+        agentName="Javi"
         useCases={[
           {
             title: "Atendimento por voz",
@@ -64,7 +63,7 @@ export default function JaviPage() {
       />
 
       <IntegrationGrid
-        title="JAVI integra com sua operação de atendimento"
+        title="Javi integra com sua operação de atendimento"
         description="Conecta com telefonia, CRMs e fluxos automatizados para executar ligações com excelência."
         integrations={[
           "/images/integrations/twilio.svg",
@@ -76,7 +75,7 @@ export default function JaviPage() {
         ]}
       />
 
-      <FloatingInterviewButton agentName="JAVI" />
+      <FloatingInterviewButton agentName="Javi" />
       <Footer />
     </>
   );

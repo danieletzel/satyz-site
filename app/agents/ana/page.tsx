@@ -1,4 +1,3 @@
-// ANA PAGE
 "use client";
 
 import Header from "@/components/Header";
@@ -16,7 +15,7 @@ export default function AnaPage() {
       <Header />
 
       <AgentHero
-        name="ANA"
+        name="Ana"
         description="AI SDR da Satyz. Prospecto, qualifico e conecto leads com os humanos certos, no tempo certo."
         videoSrc="/videos/ana.mp4"
         ctaLink="/#contact"
@@ -26,7 +25,7 @@ export default function AnaPage() {
       <AgentHighlights />
 
       <AgentUseCases
-        agentName="ANA"
+        agentName="Ana"
         useCases={[
           {
             title: "Prospecção automatizada",
@@ -64,7 +63,7 @@ export default function AnaPage() {
       />
 
       <IntegrationGrid
-        title="ANA integra com sua stack comercial"
+        title="Ana integra com sua stack comercial"
         description="Conecta com ferramentas de prospecção, CRM e automação para atingir leads no melhor canal e momento."
         integrations={[
           "/images/integrations/pipedrive.svg",
@@ -76,7 +75,7 @@ export default function AnaPage() {
         ]}
       />
 
-      <FloatingInterviewButton agentName="ANA" />
+      <FloatingInterviewButton agentName="Ana" />
       <Footer />
     </>
   );
