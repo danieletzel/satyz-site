@@ -20,6 +20,10 @@ const FloatingInterviewButton = ({ agentName = "" }: FloatingInterviewButtonProp
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const formattedName = agentName
+    ? agentName.charAt(0).toUpperCase() + agentName.slice(1).toLowerCase()
+    : "";
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -31,7 +35,7 @@ const FloatingInterviewButton = ({ agentName = "" }: FloatingInterviewButtonProp
         href="/#contact"
         className="rounded-full bg-primary px-6 py-3 text-white font-medium shadow-lg hover:bg-primaryho transition-transform hover:scale-105"
       >
-        Entreviste {agentName ? (agentName === "CAIO" ? "o" : "a") + " " + agentName : "um agente"}
+        {formattedName ? `Entreviste ${formattedName}` : "Entreviste um agente"}
       </Link>
     </motion.div>
   );
