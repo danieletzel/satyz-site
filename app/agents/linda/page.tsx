@@ -29,17 +29,20 @@ export default function LindaPage() {
         useCases={[
           {
             title: "Criação de Conteúdo",
-            description: "Textos para redes sociais, blogs, landing pages e e-mails. Tudo com seu tom de voz.",
+            description:
+              "Textos para redes sociais, blogs, landing pages e e-mails. Tudo com seu tom de voz.",
             icon: "/images/icons/content.svg",
           },
           {
             title: "Campanhas de Marketing",
-            description: "Cria campanhas multicanal persuasivas com textos que convertem.",
+            description:
+              "Cria campanhas multicanal persuasivas com textos que convertem.",
             icon: "/images/icons/campaign.svg",
           },
           {
             title: "Teste A/B Automatizado",
-            description: "Gera variações de texto para testar e otimizar sua comunicação.",
+            description:
+              "Gera variações de texto para testar e otimizar sua comunicação.",
             icon: "/images/icons/abtest.svg",
           },
         ]}
@@ -49,7 +52,11 @@ export default function LindaPage() {
         tools={[
           {
             title: "Copywriting e AI",
-            logos: ["/logos/jasper.svg", "/logos/copyai.svg", "/logos/anyword.svg"],
+            logos: [
+              "/logos/jasper.svg",
+              "/logos/copyai.svg",
+              "/logos/anyword.svg",
+            ],
           },
           {
             title: "Análise de SEO",

@@ -29,17 +29,20 @@ export default function AnaPage() {
         useCases={[
           {
             title: "Prospecção automatizada",
-            description: "Envia mensagens personalizadas e se conecta com leads no timing ideal.",
+            description:
+              "Envia mensagens personalizadas e se conecta com leads no timing ideal.",
             icon: "/images/icons/outreach.svg",
           },
           {
             title: "Qualificação de leads",
-            description: "Faz perguntas inteligentes e entrega apenas leads prontos para vendas.",
+            description:
+              "Faz perguntas inteligentes e entrega apenas leads prontos para vendas.",
             icon: "/images/icons/qualification.svg",
           },
           {
             title: "Follow-ups inteligentes",
-            description: "Segue playbooks com persistência e timing baseado em intenção.",
+            description:
+              "Segue playbooks com persistência e timing baseado em intenção.",
             icon: "/images/icons/followup.svg",
           },
         ]}
@@ -49,15 +52,27 @@ export default function AnaPage() {
         tools={[
           {
             title: "Prospecção & Dados",
-            logos: ["/logos/apollo.svg", "/logos/lusha.svg", "/logos/zoominfo.svg"],
+            logos: [
+              "/logos/apollo.svg",
+              "/logos/lusha.svg",
+              "/logos/zoominfo.svg",
+            ],
           },
           {
             title: "Email & Cadência",
-            logos: ["/logos/instantly.svg", "/logos/mailshake.svg", "/logos/woodpecker.svg"],
+            logos: [
+              "/logos/instantly.svg",
+              "/logos/mailshake.svg",
+              "/logos/woodpecker.svg",
+            ],
           },
           {
             title: "Engajamento & CRM",
-            logos: ["/logos/hubspot.svg", "/logos/outreach.svg", "/logos/pipedrive.svg"],
+            logos: [
+              "/logos/hubspot.svg",
+              "/logos/outreach.svg",
+              "/logos/pipedrive.svg",
+            ],
           },
         ]}
       />

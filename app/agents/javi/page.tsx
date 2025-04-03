@@ -29,17 +29,20 @@ export default function JaviPage() {
         useCases={[
           {
             title: "Atendimento por voz",
-            description: "Atende chamadas com empatia, assertividade e fluência.",
+            description:
+              "Atende chamadas com empatia, assertividade e fluência.",
             icon: "/images/icons/voice.svg",
           },
           {
             title: "Qualificação ativa",
-            description: "Conduz ligações estratégicas para captar informações e identificar oportunidades.",
+            description:
+              "Conduz ligações estratégicas para captar informações e identificar oportunidades.",
             icon: "/images/icons/qualification.svg",
           },
           {
             title: "Cobrança e follow-up",
-            description: "Executa scripts de cobrança, lembretes ou pesquisas com naturalidade.",
+            description:
+              "Executa scripts de cobrança, lembretes ou pesquisas com naturalidade.",
             icon: "/images/icons/followup.svg",
           },
         ]}
@@ -49,7 +52,11 @@ export default function JaviPage() {
         tools={[
           {
             title: "Telefonia e Voz",
-            logos: ["/logos/twilio.svg", "/logos/dialpad.svg", "/logos/aircall.svg"],
+            logos: [
+              "/logos/twilio.svg",
+              "/logos/dialpad.svg",
+              "/logos/aircall.svg",
+            ],
           },
           {
             title: "Roteiros e Fluxos",
@@ -57,7 +64,11 @@ export default function JaviPage() {
           },
           {
             title: "CRM e Histórico",
-            logos: ["/logos/hubspot.svg", "/logos/zendesk.svg", "/logos/salesforce.svg"],
+            logos: [
+              "/logos/hubspot.svg",
+              "/logos/zendesk.svg",
+              "/logos/salesforce.svg",
+            ],
           },
         ]}
       />

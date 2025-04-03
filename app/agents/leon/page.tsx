@@ -29,17 +29,20 @@ export default function LeonPage() {
         useCases={[
           {
             title: "Triagem de Currículos",
-            description: "Analisa centenas de CVs em segundos e identifica os mais aderentes à vaga.",
+            description:
+              "Analisa centenas de CVs em segundos e identifica os mais aderentes à vaga.",
             icon: "/images/icons/cv-scan.svg",
           },
           {
             title: "Entrevistas Automatizadas",
-            description: "Conduz entrevistas iniciais com perguntas adaptativas e análise de respostas.",
+            description:
+              "Conduz entrevistas iniciais com perguntas adaptativas e análise de respostas.",
             icon: "/images/icons/interview.svg",
           },
           {
             title: "Shortlist Inteligente",
-            description: "Gera um ranking dos melhores candidatos com base em critérios personalizados.",
+            description:
+              "Gera um ranking dos melhores candidatos com base em critérios personalizados.",
             icon: "/images/icons/shortlist.svg",
           },
         ]}
@@ -49,7 +52,11 @@ export default function LeonPage() {
         tools={[
           {
             title: "ATS & RH",
-            logos: ["/logos/gupy.svg", "/logos/kenoby.svg", "/logos/greenhouse.svg"],
+            logos: [
+              "/logos/gupy.svg",
+              "/logos/kenoby.svg",
+              "/logos/greenhouse.svg",
+            ],
           },
           {
             title: "Análise de CVs",
