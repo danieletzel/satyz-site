@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggler from "./ThemeToggler";
-import menuData from "@/components/Header/menuData";
+import MobileMenu from "./MobileMenu";
+import menuData from "./menuData";
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -101,22 +102,30 @@ const Header = () => {
               {menuData.map((menu) => (
                 <li key={menu.id} className="relative group">
                   {!menu.submenu ? (
-                    <Link
-                      href={menu.path!}
-                      onClick={
-                        menu.path?.startsWith("/#")
-                          ? (e) =>
-                              handleAnchorClick(e, menu.path!.replace("/#", ""))
-                          : undefined
-                      }
-                      className={
-                        pathUrl === menu.path
-                          ? "text-primary"
-                          : "hover:text-primary"
-                      }
-                    >
-                      {menu.title}
-                    </Link>
+                    menu.type === "anchor" ? (
+                      <a
+                        href={`/#${menu.path}`}
+                        onClick={(e) => handleAnchorClick(e, menu.path!)}
+                        className={
+                          pathUrl === `/#${menu.path}`
+                            ? "text-primary"
+                            : "hover:text-primary"
+                        }
+                      >
+                        {menu.title}
+                      </a>
+                    ) : (
+                      <Link
+                        href={menu.path ?? "#"}
+                        className={
+                          pathUrl === menu.path
+                            ? "text-primary"
+                            : "hover:text-primary"
+                        }
+                      >
+                        {menu.title}
+                      </Link>
+                    )
                   ) : (
                     <>
                       <button
@@ -147,10 +156,7 @@ const Header = () => {
                           >
                             {menu.submenu.map((sub) => (
                               <li key={sub.id}>
-                                <Link
-                                  href={sub.path!}
-                                  className="hover:text-primary"
-                                >
+                                <Link href={sub.path!} className="hover:text-primary">
                                   {sub.title}
                                 </Link>
                               </li>
@@ -182,80 +188,15 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Navegação Mobile */}
+        {/* MobileMenu */}
         <AnimatePresence>
           {navigationOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="absolute top-full left-0 mt-3 w-full rounded-md border border-stroke bg-white/80 backdrop-blur-md p-6 shadow-lg dark:bg-blacksection/80 z-40 xl:hidden"
-            >
-              <nav>
-                <ul className="flex flex-col gap-4 text-base">
-                  {menuData.map((menu) => (
-                    <li key={menu.id}>
-                      {!menu.submenu ? (
-                        <Link
-                          href={menu.path!}
-                          onClick={
-                            menu.path?.startsWith("/#")
-                              ? (e) =>
-                                  handleAnchorClick(
-                                    e,
-                                    menu.path!.replace("/#", "")
-                                  )
-                              : undefined
-                          }
-                          className="hover:text-primary"
-                        >
-                          {menu.title}
-                        </Link>
-                      ) : (
-                        <details open={dropdownToggler === menu.id}>
-                          <summary
-                            className="cursor-pointer hover:text-primary"
-                            onClick={() =>
-                              setDropdownToggler(
-                                dropdownToggler === menu.id ? null : menu.id
-                              )
-                            }
-                          >
-                            {menu.title}
-                          </summary>
-                          <ul className="ml-4 mt-2 flex flex-col gap-1">
-                            {menu.submenu.map((sub) => (
-                              <li key={sub.id}>
-                                <Link href={sub.path!} className="hover:text-primary">
-                                  {sub.title}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </details>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              <div className="mt-6 flex flex-col gap-4">
-                <ThemeToggler />
-                <Link
-                  href="/auth/signin"
-                  className="text-sm text-waterloo hover:text-primary"
-                >
-                  Log in
-                </Link>
-                <Link
-                  href="/auth/signup"
-                  className="rounded-full bg-primary px-6 py-2 text-sm text-white text-center hover:bg-primaryho"
-                >
-                  Get Started 🚀
-                </Link>
-              </div>
-            </motion.div>
+            <MobileMenu
+              dropdownToggler={dropdownToggler}
+              setDropdownToggler={setDropdownToggler}
+              setNavigationOpen={setNavigationOpen}
+              handleAnchorClick={handleAnchorClick}
+            />
           )}
         </AnimatePresence>
       </div>
