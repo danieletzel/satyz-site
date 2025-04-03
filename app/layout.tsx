@@ -1,6 +1,6 @@
-import "@/styles/globals.css";
+import "./globals.css";
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
+import { GeistSans } from "@geist-ui/fonts";
 
 export const metadata: Metadata = {
   title: "Satyz",
