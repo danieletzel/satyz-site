@@ -6,17 +6,18 @@ import Link from "next/link";
 const About = () => {
   return (
     <>
-      {/* ===== About Start ===== */}
+      {/* Bloco 1 */}
       <section id="about" className="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
         <div className="mx-auto max-w-c-1235 px-4 md:px-8 xl:px-0">
           <div className="flex flex-col-reverse items-center gap-10 md:flex-row lg:gap-32.5">
+            {/* Vídeo */}
             <motion.div
               variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_left relative mx-auto aspect-[588/526.5] w-full max-w-[500px] md:block md:w-1/2"
+              className="animate_left relative mx-auto aspect-[588/526.5] w-full max-w-[500px] md:w-1/2"
             >
               <video
                 autoPlay
@@ -38,6 +39,7 @@ const About = () => {
               </video>
             </motion.div>
 
+            {/* Texto */}
             <motion.div
               variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"
@@ -65,38 +67,41 @@ const About = () => {
                 em tarefas reais do seu negócio — de vendas a suporte, de onboarding a automação de sistemas internos.
               </p>
 
-              <div className="mt-7.5 flex items-start gap-5">
-                <div className="flex h-15 w-15 items-center justify-center rounded-full border border-stroke dark:border-strokedark dark:bg-blacksection">
-                  <p className="text-metatitle2 font-semibold text-black dark:text-white">01</p>
+              {/* Etapas */}
+              {[
+                {
+                  number: "01",
+                  title: "Treinados com seus dados",
+                  description: "Integramos dados reais para adaptar o comportamento dos agentes à sua realidade.",
+                },
+                {
+                  number: "02",
+                  title: "Autonomia e evolução constante",
+                  description: "Agentes que aprendem com interações, feedbacks e objetivos. Sempre melhorando.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="mt-7.5 flex items-start gap-5">
+                  <div className="flex h-15 w-15 items-center justify-center rounded-full border border-stroke dark:border-strokedark dark:bg-blacksection">
+                    <p className="text-metatitle2 font-semibold text-black dark:text-white">
+                      {item.number}
+                    </p>
+                  </div>
+                  <div className="w-full">
+                    <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
                 </div>
-                <div className="w-full">
-                  <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
-                    Treinados com seus dados
-                  </h3>
-                  <p>Integramos dados reais para adaptar o comportamento dos agentes à sua realidade.</p>
-                </div>
-              </div>
-
-              <div className="mt-7.5 flex items-start gap-5">
-                <div className="flex h-15 w-15 items-center justify-center rounded-full border border-stroke dark:border-strokedark dark:bg-blacksection">
-                  <p className="text-metatitle2 font-semibold text-black dark:text-white">02</p>
-                </div>
-                <div className="w-full">
-                  <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
-                    Autonomia e evolução constante
-                  </h3>
-                  <p>Agentes que aprendem com interações, feedbacks e objetivos. Sempre melhorando.</p>
-                </div>
-              </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ===== About Two Start ===== */}
+      {/* Bloco 2 */}
       <section>
         <div className="mx-auto max-w-c-1235 overflow-hidden px-4 md:px-8 2xl:px-0">
           <div className="flex flex-col items-center gap-10 md:flex-row lg:gap-32.5">
+            {/* Texto */}
             <motion.div
               variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"
@@ -133,6 +138,7 @@ const About = () => {
               </div>
             </motion.div>
 
+            {/* Vídeo */}
             <motion.div
               variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }}
               initial="hidden"

@@ -1,8 +1,8 @@
 "use client";
 
-import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 
 const Hero = () => {
   return (
@@ -45,10 +45,7 @@ const Hero = () => {
             </p>
 
             <div className="mt-10">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   href="#ai-workers"
                   className="inline-block rounded-full bg-black px-7.5 py-2.5 text-white transition duration-300 hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"

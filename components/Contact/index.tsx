@@ -1,8 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
@@ -24,13 +24,13 @@ const Contact = () => {
         <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]" />
         <div className="absolute bottom-[-255px] left-0 -z-1 h-full w-full">
           <Image
-            src="./images/shape/shape-dotted-light.svg"
+            src="/images/shape/shape-dotted-light.svg"
             alt="Dotted"
             className="dark:hidden"
             fill
           />
           <Image
-            src="./images/shape/shape-dotted-dark.svg"
+            src="/images/shape/shape-dotted-dark.svg"
             alt="Dotted"
             className="hidden dark:block"
             fill

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
@@ -63,12 +63,12 @@ const FeaturesCarousel = () => {
 
         <Swiper
           spaceBetween={30}
-          centeredSlides={true}
+          centeredSlides
           slidesPerView={1.3}
-          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-          pagination={{ clickable: true }}
-          loop={true}
+          loop
           autoplay={{ delay: 3500, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           modules={[Autoplay, Pagination]}
         >
           {features.map((feature, index) => (

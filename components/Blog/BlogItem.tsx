@@ -1,15 +1,14 @@
 "use client";
 
-import { Blog } from "@/types/blog";
 import Link from "next/link";
+import { Blog } from "@/types/blog";
 
-const BlogItem = ({ blog }: { blog: Blog }) => {
-  const { mainImage, title, metadata, slug } = blog;
-
+const BlogItem = ({ slug, title, mainImage, metadata }: Blog) => {
   return (
-    <div
-      className="group rounded-lg bg-white p-4 pb-8 shadow-md border border-[#eee] dark:bg-blacksection dark:border-strokedark 
-      transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]"
+    <article
+      className="group rounded-lg border border-[#eee] bg-white p-4 pb-8 shadow-md transition-all duration-300 
+      hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] 
+      dark:border-strokedark dark:bg-blacksection dark:hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]"
     >
       <Link
         href={`/blog/${slug}`}
@@ -32,7 +31,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
 
         <p className="text-sm text-gray-600 dark:text-manatee">{metadata}</p>
       </div>
-    </div>
+    </article>
   );
 };
 

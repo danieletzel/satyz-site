@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import SectionHeader from "../Common/SectionHeader";
+import { motion } from "framer-motion";
+import SectionHeader from "@/components/Common/SectionHeader";
 
 const integrations = [
   { src: "/images/integrations/google-calendar.svg", alt: "Google Calendar", delay: 0 },
@@ -34,7 +34,6 @@ const positions = [
   "row-start-6 col-start-4",
 ];
 
-// Animação suave como se estivesse "sobre a água"
 const floatAnimation = {
   animate: {
     y: [0, -6, 0],
@@ -61,19 +60,19 @@ const Integration = () => {
       <div className="relative w-full overflow-hidden rounded-xl bg-gradient-to-b from-white to-gray-50 dark:from-blacksection dark:to-black">
         {/* Mobile */}
         <div className="flex flex-wrap items-center justify-center gap-5 p-6 md:hidden">
-          {integrations.map((integration, index) => (
+          {integrations.map(({ src, alt, delay }, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.6 }}
               whileInView={{ opacity: 1, scale: 1 }}
               animate={floatAnimation.animate}
-              transition={{ delay: integration.delay }}
+              transition={{ delay }}
               viewport={{ once: true }}
               className="w-16 h-16 rounded-2xl bg-white p-3 shadow-md dark:bg-btndark flex items-center justify-center"
             >
               <Image
-                src={integration.src}
-                alt={integration.alt}
+                src={src}
+                alt={alt}
                 width={35}
                 height={35}
                 className="object-contain"
@@ -84,19 +83,19 @@ const Integration = () => {
 
         {/* Desktop */}
         <div className="hidden md:grid grid-cols-4 grid-rows-6 gap-y-4 gap-x-4 p-6 place-items-center">
-          {integrations.map((integration, index) => (
+          {integrations.map(({ src, alt, delay }, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.6 }}
               whileInView={{ opacity: 1, scale: 1 }}
               animate={floatAnimation.animate}
-              transition={{ delay: integration.delay }}
+              transition={{ delay }}
               viewport={{ once: true }}
               className={`w-16 h-16 rounded-2xl bg-white p-3 shadow-md dark:bg-btndark flex items-center justify-center ${positions[index]}`}
             >
               <Image
-                src={integration.src}
-                alt={integration.alt}
+                src={src}
+                alt={alt}
                 width={40}
                 height={40}
                 className="object-contain"
