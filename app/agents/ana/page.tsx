@@ -26,6 +26,7 @@ export default function AnaPage() {
       <AgentHighlights />
 
       <AgentUseCases
+        agentName="ANA"
         useCases={[
           {
             title: "Prospecção automatizada",

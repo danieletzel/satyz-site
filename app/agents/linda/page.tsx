@@ -26,6 +26,7 @@ export default function LindaPage() {
       <AgentHighlights />
 
       <AgentUseCases
+        agentName="LINDA"
         useCases={[
           {
             title: "Criação de Conteúdo",

@@ -26,6 +26,7 @@ export default function JaviPage() {
       <AgentHighlights />
 
       <AgentUseCases
+        agentName="JAVI"
         useCases={[
           {
             title: "Atendimento por voz",

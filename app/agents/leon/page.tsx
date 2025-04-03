@@ -1,3 +1,4 @@
+// LEON PAGE
 "use client";
 
 import Header from "@/components/Header";
@@ -25,6 +26,7 @@ export default function LeonPage() {
       <AgentHighlights />
 
       <AgentUseCases
+        agentName="LEON"
         useCases={[
           {
             title: "Triagem de Currículos",
